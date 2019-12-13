@@ -2,6 +2,8 @@
 
 Zealot 文档是一个静态网站资源，由 [docsify](https://docsify.js.org/) 编译生成。
 
+![Zealot intro](docs/_media/intro.png)
+
 ## 本地预览
 
 首先需要安装 [Node.js](https://nodejs.org/) 和 [docsify](https://docsify.js.org/) 运行

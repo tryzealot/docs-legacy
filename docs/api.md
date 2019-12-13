@@ -12,6 +12,33 @@ Zealot 提供提供 REST APIs 接口服务可用于自定义的查看 App 信息
 
 ## 接口列表
 
+### 上传应用
+
+上传应用，仅支持 iOS 和 Android 类型。
+
+```
+GET /api/apps/uploads
+```
+
+#### 参数
+
+!> 需要用户认证。
+
+| 名称 | 类型 | 是否必须 | 描述 |
+|---|---|---|---|
+| channel_key | `String` | true | 应用具体渠道的 Key |
+| file | `File` | true | 应用本地路径的内容 |
+| name | `String` | false | 应用名称，为空时取 App 的信息 |
+| release_type | `String` | false | 应用类型，比如 debug, beta, adhoc, release, enterprise 等 |
+| source | `String` | false | 上传渠道名称，默认是 api |
+| changelog | `String` | false | 变更日志 |
+| git_commit | `String` | false | 上传应用时的 git commit hash |
+| ci_url | `String` | false | CI 项目构建地址 |
+
+#### 返回样例
+
+> TODO
+
 ### 应用列表
 
 获取创建的应用列表，支持分页
@@ -93,12 +120,12 @@ GET /api/apps/latest
 
 > TODO
 
-### 上传应用
+### 检查当前版本是否存在
 
-上传应用，仅支持 iOS 和 Android 类型。
+使用 bundle_id、release_version、build_verion 或 bundle_id、git_commit 组合检查当前版本是否存在
 
 ```
-GET /api/apps/uploads
+GET /api/apps/exist
 ```
 
 #### 参数
@@ -108,13 +135,10 @@ GET /api/apps/uploads
 | 名称 | 类型 | 是否必须 | 描述 |
 |---|---|---|---|
 | channel_key | `String` | true | 应用具体渠道的 Key |
-| file | `File` | true | 应用本地路径的内容 |
-| name | `String` | false | 应用名称，为空时取 App 的信息 |
-| release_type | `String` | false | 应用类型，比如 debug, beta, adhoc, release, enterprise 等 |
-| source | `String` | false | 上传渠道名称，默认是 api |
-| changelog | `String` | false | 变更日志 |
+| bundle_id | `String` | true | 应用的包名，iOS 取 bundle_id，Android 取 package_name |
+| release_version | `String` | false | 应用的发布版本 |
+| build_version | `String` | false | 应用的构建版本 |
 | git_commit | `String` | false | 上传应用时的 git commit hash |
-| ci_url | `String` | false | CI 项目构建地址 |
 
 #### 返回样例
 

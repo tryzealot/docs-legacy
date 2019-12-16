@@ -4,7 +4,7 @@
 <a class="github-button" href="https://github.com/getzealot/zealot" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star getzealot/zealot on GitHub">Star</a>
 <a class="github-button" href="https://github.com/getzealot/zealot/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="Watch getzealot/zealot on GitHub">Watch</a>
 <a class="github-button" href="https://github.com/getzealot/zealot/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork getzealot/zealot on GitHub">Fork</a>
-<a class="github-button" href="https://github.com/iocyleaf" data-size="large" data-show-count="true" aria-label="Follow @icyleaf on GitHub">Follow @icyleaf</a>
+<a class="github-button" href="https://github.com/icyleaf" data-size="large" data-show-count="true" aria-label="Follow @icyleaf on GitHub">Follow @icyleaf</a>
 
 [![GitHub release](https://img.shields.io/github/release/getzealot/zealot.svg)](https://github.com/getzealot/zealot/releases)
 [![License](https://img.shields.io/github/license/getzealot/zealot)](LICENSE)

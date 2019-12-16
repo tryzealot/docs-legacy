@@ -4,16 +4,20 @@ Zealot 使用响应式 Web 前端框架构建，可在 Desktop、Mobile 绝大�
 
 ### 控制台
 
-![Zealot Dashboard](_media/screenshot/product-1.png)
+![Dashboard](_media/screenshot/product-1.png)
+
+### 应用类型及渠道
+
+![App](_media/screenshot/product-2.png)
 
 ### 应用详情
 
-![Zealot Dashboard](_media/screenshot/product-2.png)
+![App Release](_media/screenshot/product-3.png)
 
 ### Debug File
 
-![Zealot Dashboard](_media/screenshot/product-3.png)
+![Debug File](_media/screenshot/product-4.png)
 
 ### App 解析
 
-![Zealot Dashboard](_media/screenshot/product-4.png)
+![App Teardown](_media/screenshot/product-5.png)

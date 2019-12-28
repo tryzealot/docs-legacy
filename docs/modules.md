@@ -1,6 +1,18 @@
-# 插件
+# 组件库
 
-Zealot 提供丰富的全套插件
+Zealot 提供丰富的全套组件，涉及 iOS、Android 以及打包流程方方面面。
+
+## iOS 库
+
+iOS 组件提供为 Zealot 检查新版本和安装的服务。
+
+> TODO
+
+## Android 库
+
+Android 组件提供为 Zealot 检查新版本和安装的服务。
+
+> TODO
 
 ## Fastlane 插件
 
@@ -23,7 +35,7 @@ zealot(
 )
 ```
 
-#### 插件参数
+#### 参数
 
 ```
 +-----------------+-------------------------------------------------+------------------------+----------+
@@ -63,12 +75,3 @@ zealot(
 [fastlane-plugin-app_info](https://github.com/icyleaf/fastlane-plugin-app_info) | 解析 apk/ipa 包的 metadata 并打印
 [fastlane-plugin-android_channels](https://github.com/icyleaf/fastlane-plugin-android_channels)  | 通用性 Android 多渠道打包
 [fastlane-plugin-ram_disk](https://github.com/icyleaf/fastlane-plugin-ram_disk)  | 利用内存做虚拟磁盘加速打包
-
-## iOS 库
-
-> TODO
-
-## Android 库
-
-> TODO
-

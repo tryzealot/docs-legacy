@@ -13,16 +13,99 @@
 - Nodejs 8+
 - ImageMagick/GraphicsMagick
 
-### 本地安装
+如下整理了不同操作系统的本地部署开发教程。
 
-#### 源码
+## macOS
 
-安装完成上面的依赖后，克隆本项目配置 config/database.yml 数据库信息可从 ENV 环境变量获取，之后顺序执行：
+### homebrew
+
+首先需要安装 Xcode Command tools:
+
+```bash
+$ xcode-select --install
+```
+
+如果提示安装失败，需要从 https://developer.apple.com/downloads 下载安装。
+
+之后安装 macOS 的包管理工具 Homebrew
+
+```bash
+$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+### git 和 imagemagick
+
+之后开始安装环境依赖
+
+```bash
+$ brew install git imagemagick
+```
+
+### postgresql 和 redis
+
+```bash
+$ brew install redis postgresql
+```
+
+运行 postgresql 和 redis 服务
+
+```bash
+$ brew services start postgresql
+$ brew services start redis
+```
+
+### node
+
+```bash
+$ brew install node
+$ npm install -g yarn
+```
+
+### ruby
+
+> 建议使用 2.6+ 版本
+
+#### rvm
+
+```bash
+$ curl -sSL https://get.rvm.io | bash -s stable
+$ rvm install 2.6 --disable-binary
+```
+
+### homebrew
+
+```bash
+$ brew install ruby # 通常是最新版本
+```
+
+之后需要把 homebrew 安装的 ruby 执行路径加到你当前 shell 的 `PATH` 环境变量之中:
+
+- **zsh** shell 添加到 `~/.zshrc`
+- **bash** shell 添加到 `~/.bashrc` 或 `~/.bash_profile`
+
+
+```bash
+export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:/usr/local/opt/ruby/bin:$PATH"
+```
+
+添加后记得重载下配置文件
+
+```bash
+$ source ~/.zshrc
+# or
+$ source ~/.bash_profile
+```
+
+### bundler
 
 ```
-$ git clone git@github.com:getzealot/zealot.git
-$ cd zealot
+$ [sudo] gem install bundler
 $ bundle install
+```
+
+### 开始运行 zealot
+
+```
 $ bundle exec guard start
 ```
 

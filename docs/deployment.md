@@ -1,66 +1,61 @@
-# 部署 Zealot
+# 安装部署
 
-Zealot 提供 iOS 和 Android 的上传、下载和手机安装服务，鉴于 iOS 系统的限制 `产品环境` 部署需要开启 https。
+> :bell: 官方建议安装首选使用 [Docker](https://www.docker.io/) 安装部署 Zealot。
+> 鉴于 iOS 使用下载服务依赖开启 SSL/TLS 证书，建议使用经过授权的证书服务，比如 [Let's Encrypt](https://letsencrypt.org/)。
 
-## Docker
+## 为什么仅提供 Docker 镜像？
 
-!> 即使使用 Docker 部署也需要提前克隆 [Zealot](https://github.com/getzealot/zealot) 后配置，本教程提供了配置和使用 [Caddy](https://caddyserver.com/) Web 服务器的配置文件，请跟着教程来完成配置，最后如果您没有安装 [Docker](https://docs.docker.com/install/) 和 [docker-compose](https://docs.docker.com/compose/install/)。
+部署基于 Rails 应用是异常复杂，即使你可以在部署服务器安装了 Ruby、ImageMagick、 Node、Postgres 和 Redis，
+你仍然需要操心如何运行 Zealot 服务和 Sidekiq 异步任务服务。官方提供的 Docker 镜像把这些烦人的事情都放到了镜像容器中，后续还会考虑一键升级等让你会觉得烦恼的事情。
 
-### 自签名 SSL 证书
+## 服务器硬件要求
 
-**第一步**：生成自签名的证书，可使用如下工具自行生成：
+- 主流单核 CPU，多个更好
+- 至少 512 MB 内存
+- 64位 Linux 发行版
+- 至少 20 GB 硬盘空间（取决于应用和上传频率的多少）
 
-- [mkcert](https://github.com/FiloSottile/mkcert) - 推荐
-- openssl 生成 pem
+## Docker 部署
 
-```bash
-$ mkcert zealot.test
-```
-
-使用 mkcert 会生成 `zealot.test.pem` 和 `zealot.test-key.pem`，复制两个文件到 `docker/certs` 目录下
-
-**第二步**：修改 `docker/Caddyfile` 第一行 `zealot.test` 为你需要的设置的域名，若你的 ssl 证书名不一样还需要修改第六行（`tls` 开头）配置。
-
-```
-zealot.test {
-    gzip
-    log stdout
-
-    # mkcert - https://github.com/FiloSottile/mkcert
-    tls /app/docker/certs/zealot.test.pem /app/docker/certs/zealot.test-key.pem
-
-    # serve assets
-    root /app/public
-
-    proxy / http://zealot:3000 {
-        except /assets /packs /uploads /config /favicon.ico /robots.txt
-
-        transparent
-        header_upstream X-Marotagem true
-        header_upstream Host {host}
-        header_upstream X-Real-IP {remote}
-        header_upstream X-Forwarded-For {remote}
-    }
-}
-```
-
-**第三步**：改名 `example.env` 为 `.env` 并修改配置：
-
-- 设置 `ZEALOT_DOMAIN` 为你的访问域名，并移除最开始 `#`
-- 自定义其他你所需的配置
-
-**第四步**：运行 docker-compose 完成初始化即可完成
+本着一键安装的原则，可是现实往往是残酷的，Zealot 配置都是依托于 ENV 环境变量，
+需要配置好之后再执行才可以，目前需要从 `example.env` 配置必要的参数后可直接执行 `./deploy.sh` 脚本即可，
+首先需要克隆[官方 Zealot 部署工具](https://github.com/getzealot/zealot-docker.git)。
 
 ```bash
-$ docker-compose -f docker-compose-https.yml up -d
-
-# 查看初始化情况
-$ docker-compose zealot logs
-...
-Zealot server is ready to run ...   # <- 看到这个基本上已经可用了
+$ git clone https://github.com/getzealot/zealot-docker.git
+$ cd zealot-docker
+$ ./deploy
 ```
 
-**第五步**：如果域名是非注册域名则需要绑 host 才可以访问，通常是修改系统的 `/etc/hosts` 文件
+一键部署生成脚本默认内置了三套模板：
+
+- 使用 Let's Encrypt 证书
+- 使用自签名证书
+- 使用 SSL 证书反代网关服务
+
+### Let's Encrypt SSL 证书
+
+**第一步**：执行部署脚本:
+
+```bash
+$ ./deploy
+```
+
+**第二步**：检查和配置 `.env` 文件，主要是 `ZEALOT_DOMAIN` 和 `ZEALOT_CERT_EMAIL` 是否填写正确，
+其他部分可根据实际情况做对应的配置调整
+
+**第三步**：运行 Zealot 服务:
+
+```bash
+$ docker-compose up -d
+```
+
+### 自签名 SSL 证书 (不推荐)
+
+这个非必要情况请不要使用，对于 iOS 使用自签名证书**可能需要设备也要安装 SSL 证书后才能访问和安装应用**，
+以及 Chrome 浏览器也会因为证书拒绝访问。
+
+> 如果域名是非注册域名则需要绑 host 才可以访问，通常是修改系统的 `/etc/hosts` 文件。
 
 ```bash
 $ sudo vim /etc/hosts
@@ -68,23 +63,9 @@ $ sudo vim /etc/hosts
 127.0.0.1 zealot.test
 ```
 
-运行 docker-compose 完成初始化即可完成：
+### 使用 SSL 证书反代网关服务
 
-### Let's Encrypt SSL 证书
-
-参照自签名证书的步骤，跳过第一步，把 `Caddyfile` 的 `tls` 后面参数改为你的常用邮箱即可激活 Let's Encrypt
-的证书自动签发，其他步骤基本上没有什么变化。
-
-### 外部接管 SSL 证书
-
-参照自签名证书的步骤第三步，如果你外部接管证书的 Web 服务器还是 Docker 则需要使用指定 `docker-compose.yml` 的 `network`，如果是宿主机的 Web 服务器需要反代到 IP:13000 端口即可。
+如果已经有 [HAProxy](http://www.haproxy.org/)、
+[Nginx](http://nginx.org/) 或 [Caddy](https://caddyserver.com/) 来做 SSL 证书代理，在运行之后拿到 `zealot_zealot_1` 实例的 IP 地址，端口是 3000 反代给网关服务即可。
 
 > 这里说的比较抽象，后续有时间在展开吧。
-
-```bash
-$ docker-compose up -d
-```
-
-## 源码
-
-> TODO

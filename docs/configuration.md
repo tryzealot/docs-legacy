@@ -1,4 +1,4 @@
-# 配置
+# 项目配置
 
 Zealot 项目仅支持使用 ENV 环境变量来配置，具体可参考项目的 [example.env](https://github.com/getzealot/zealot/blob/develop/example.env)。
 
@@ -8,6 +8,25 @@ Zealot 项目仅支持使用 ENV 环境变量来配置，具体可参考项目�
 # 域名配置
 ZEALOT_DOMAIN=zealot.com
 ```
+
+## HTTPS 证书
+
+如果部署只是一台机器，建议开启 Let's Encrypt 免费 SSL 证书，只需要设置
+
+```bash
+ZEALOT_CERT_EMAIL=zealot@example.com
+```
+
+> 和下面自签名证书文件名二选一，不能同时设置
+
+如果部署的机器只能使用自签名证书，则需要配置：
+
+```bash
+ZEALOT_CERT=zealot.test.pem
+ZEALOT_CERT_KEY=zealot.test-key.pem
+```
+
+> 和 Let's Encrypt 注册电子邮箱名二选一，不能同时设置
 
 ## 邮件服务
 

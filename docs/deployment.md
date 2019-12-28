@@ -33,6 +33,8 @@ $ ./deploy
 - 使用自签名证书
 - 使用 SSL 证书反代网关服务
 
+默认会生成管理员账号：`admin@zealot.com` 和密码 `ze@l0t`。
+
 ### Let's Encrypt SSL 证书
 
 **第一步**：执行部署脚本:

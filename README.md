@@ -1,8 +1,8 @@
 # Zealot 文档
 
-Zealot 文档是一个静态网站资源，由 [docsify](https://docsify.js.org/) 编译生成。
-
 ![Zealot intro](docs/_media/intro.png)
+
+Zealot 文档是一个静态网站资源，由 [docsify](https://docsify.js.org/) 编译生成。
 
 ## 本地预览
 

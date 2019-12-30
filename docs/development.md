@@ -98,14 +98,27 @@ $ source ~/.bash_profile
 
 ### bundler
 
-```
+```bash
 $ [sudo] gem install bundler
 $ bundle install
 ```
 
-### 开始运行 zealot
+### 初始化数据库
 
+```bash
+$ rails db:create
+$ rails db:migrate
 ```
+
+初始化管理员账号和应用样例
+
+```bash
+$ rails db:seed
+```
+
+### 启动 Zealot 服务
+
+```bash
 $ bundle exec guard start
 ```
 

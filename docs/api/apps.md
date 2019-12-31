@@ -44,7 +44,60 @@ GET /api/apps
 
 #### 返回样例
 
-> TODO
+```json
+[
+    {
+        "id": 1,
+        "name": "Zealot",
+        "schemes": [
+            {
+                "id": 1,
+                "name": "测试版",
+                "channels": [
+                    {
+                        "slug": "X1IXN",
+                        "name": "Android",
+                        "device_type": "android",
+                        "bundle_id": "*",
+                        "git_url": null,
+                        "has_password": false
+                    },
+                    {
+                        "slug": "O1qHk",
+                        "name": "iOS",
+                        "device_type": "ios",
+                        "bundle_id": "*",
+                        "git_url": null,
+                        "has_password": false
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "内测版",
+                "channels": [
+                    {
+                        "slug": "l19Tl",
+                        "name": "Android",
+                        "device_type": "android",
+                        "bundle_id": "*",
+                        "git_url": null,
+                        "has_password": false
+                    },
+                    {
+                        "slug": "8selv",
+                        "name": "iOS",
+                        "device_type": "ios",
+                        "bundle_id": "*",
+                        "git_url": null,
+                        "has_password": false
+                    }
+                ]
+            }
+        ]
+    }
+]
+```
 
 ### 应用详情
 
@@ -62,7 +115,36 @@ GET /api/apps/:id
 
 #### 返回样例
 
-> TODO
+```json
+{
+    "id": 1,
+    "name": "Zealot",
+    "schemes": [
+        {
+            "id": 5,
+            "name": "测试版",
+            "channels": [
+                {
+                    "slug": "X1IXN",
+                    "name": "Android",
+                    "device_type": "android",
+                    "bundle_id": "*",
+                    "git_url": null,
+                    "has_password": false
+                },
+                {
+                    "slug": "O1qHk",
+                    "name": "iOS",
+                    "device_type": "ios",
+                    "bundle_id": "*",
+                    "git_url": null,
+                    "has_password": false
+                }
+            ]
+        }
+    ]
+}
+```
 
 ### 应用版本列表
 
@@ -84,7 +166,55 @@ GET /api/apps/versions
 
 #### 返回样例
 
-> TODO
+```json
+{
+    "app_name": "Zealot iOS 测试版",
+    "bundle_id": "*",
+    "git_url": null,
+    "app": {
+        "id": 3,
+        "name": "Zealot"
+    },
+    "scheme": {
+        "id": 5,
+        "name": "测试版"
+    },
+    "releases": [
+        {
+            "version": 2,
+            "app_name": "Zealot iOS 测试版",
+            "bundle_id": "im.ews.zealot",
+            "release_version": "1.0.0",
+            "build_version": "10292024",
+            "source": "Web",
+            "branch": "",
+            "git_commit": "",
+            "ci_url": "",
+            "size": 79712596,
+            "icon_url": "http://localhost:3000/uploads/apps/a3/r21/icons/8ab13dc08321f9f3412a9fa98689d9c3.png",
+            "install_url": "itms-services://?action=download-manifest&url=http://localhost:3000/api/apps/O1qHk/1/install",
+            "changelog": [],
+            "created_at": "2019-12-25T14:26:06.608+08:00"
+        },
+        {
+            "version": 1,
+            "app_name": "Zealot iOS 测试版",
+            "bundle_id": "im.ews.zealot",
+            "release_version": "1.0.0",
+            "build_version": "10291524",
+            "source": "Web",
+            "branch": "",
+            "git_commit": "",
+            "ci_url": "",
+            "size": 79712596,
+            "icon_url": "http://localhost:3000/uploads/apps/a3/r21/icons/8ab13dc08321f9f3412a9fa98689d9c3.png",
+            "install_url": "itms-services://?action=download-manifest&url=http://localhost:3000/api/apps/O1qHk/1/install",
+            "changelog": [],
+            "created_at": "2019-12-25T14:26:06.608+08:00"
+        },
+    ]
+}
+```
 
 ### 应用最新版本
 
@@ -106,7 +236,37 @@ GET /api/apps/latest
 
 #### 返回样例
 
-> TODO
+```json
+{
+    "app_name": "Zealot iOS 测试版",
+    "bundle_id": "*",
+    "git_url": null,
+    "app": {
+        "id": 3,
+        "name": "Zealot"
+    },
+    "scheme": {
+        "id": 5,
+        "name": "测试版"
+    },
+    "releases": {
+        "version": 1,
+        "app_name": "Zealot iOS 测试版",
+        "bundle_id": "im.ews.zealot",
+        "release_version": "1.0.0",
+        "build_version": "10291524",
+        "source": "Web",
+        "branch": "",
+        "git_commit": "",
+        "ci_url": "",
+        "size": 79712596,
+        "icon_url": "http://localhost:3000/uploads/apps/a3/r21/icons/8ab13dc08321f9f3412a9fa98689d9c3.png",
+        "install_url": "itms-services://?action=download-manifest&url=http://localhost:3000/api/apps/O1qHk/1/install",
+        "changelog": [],
+        "created_at": "2019-12-25T14:26:06.608+08:00"
+    }
+}
+```
 
 ### 检查当前版本是否存在
 
@@ -130,4 +290,34 @@ GET /api/apps/version_exist
 
 #### 返回样例
 
-> TODO
+- 版本存在返回 200 状态码并返回版本的信息
+- 版本不存在返回 404 状态码和错误信息
+
+版本存在的返回信息
+
+```json
+{
+    "version": 1,
+    "app_name": "好好住 iOS 测试版",
+    "bundle_id": "com.haohaozhu.hhz",
+    "release_version": "4.1.1",
+    "build_version": "10291524",
+    "source": "Web",
+    "branch": "",
+    "git_commit": "",
+    "ci_url": "",
+    "size": 79712596,
+    "icon_url": "http://localhost:3000/uploads/apps/a3/r21/icons/8ab13dc08321f9f3412a9fa98689d9c3.png",
+    "install_url": "itms-services://?action=download-manifest&url=http://localhost:3000/api/apps/O1qHk/1/install",
+    "changelog": [],
+    "created_at": "2019-12-25T14:26:06.608+08:00"
+}
+```
+
+版本不存在的返回信息：
+
+```json
+{
+    "error": "应用版本不存在"
+}
+```

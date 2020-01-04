@@ -26,6 +26,30 @@ POST /api/debug_files/upload
 
 > TODO
 
+## 下载调试文件
+
+下载 iOS 和 Android 的调试文件
+
+```
+POST /api/debug_files/download
+```
+
+#### 参数
+
+!> 需要[用户认证](api#接口认证)。
+
+| 名称 | 类型 | 是否必须 | 描述 |
+|---|---|---|---|
+| channel_key | `String` | true | 应用具体渠道的 Key |
+| release_version | `String` | true | 发布版本号，iOS 类型可忽略该参数 |
+| build_version | `String` | false | 内部版本号，iOS 类型可忽略该参数 |
+| order | `String` | false | 获取最新的方式，可选值有：<br />`version` = 最新版本 和 `upload_date` = 最新上传时间<br />**仅限接受 release_version 值为 `latest` 有效** |
+
+#### 返回样例
+
+- 版本存在返回 200 状态码并返回 302 重定向到下载地址
+- 版本不存在返回 404 状态码和错误信息
+
 ### 调试文件列表
 
 获取创建的应用列表，支持分页

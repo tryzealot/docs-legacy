@@ -5,12 +5,12 @@
 <a class="github-button" href="https://github.com/getzealot/zealot/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork getzealot/zealot on GitHub">Fork</a>
 <a class="github-button" href="https://github.com/icyleaf" data-size="large" data-show-count="true" aria-label="Follow @icyleaf on GitHub">Follow @icyleaf</a>
 
-[![GitHub release](https://img.shields.io/github/release/getzealot/zealot.svg)](https://github.com/getzealot/zealot/releases)
+[![GitHub release](https://img.shields.io/github/v/release/getzealot/zealot?include_prereleases)](https://github.com/getzealot/zealot/releases)
 [![Docker Pulls](https://img.shields.io/docker/pulls/icyleafcn/zealot.svg)](https://hub.docker.com/r/icyleafcn/zealot/)
 [![Maintainability](https://codeclimate.com/github/getzealot/zealot/badges/gpa.svg)](https://codeclimate.com/github/getzealot/zealot)
 [![License](https://img.shields.io/github/license/getzealot/zealot)](https://github.com/getzealot/zealot/blob/develop/LICENSE)
 
-移动应用上传竟然如此简单、解放开发打包的烦恼，轻松放权给测试、产品、运营等使用 App 的人员，深度与 Jenkins 和 Gitlab 集成。
+移动应用上传下载竟然如此简单、解放开发打包的烦恼，轻松放权给测试、产品、运营等使用 App 的人员，深度与 Jenkins 和 Gitlab 集成。
 
 ![Zealot Dashboard](_media/screenshot/product-1.png)
 

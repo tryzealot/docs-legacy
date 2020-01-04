@@ -33,6 +33,7 @@ Zealot 提供提供 REST APIs 接口服务可用于自定义的查看 App 信息
 定义 | 地址
 ---|---
 上传调试文件 | `/api/debug_files/upload`
+下载调试文件 | `/api/debug_files/download`
 调试文件列表 | `/api/debug_files`
 调试文件详情 | `/api/debug_files/:id`
 更新调试文件 | `/api/debug_files/:id`

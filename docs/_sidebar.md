@@ -5,7 +5,7 @@
 
 - 开发资源
   - [组件库](modules.md)
-  - [API 接口](api.md)
+  - [API](api.md)
   - [开发指南](development.md)
 
 - [功能截图](screenshot.md)

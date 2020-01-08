@@ -14,8 +14,8 @@ POST /api/apps/upload
 
 | 名称 | 类型 | 是否必须 | 描述 |
 |---|---|---|---|
-| channel_key | `String` | true | 应用具体渠道的 Key |
 | file | `File` | true | 应用本地路径的内容 |
+| channel_key | `String` | false | 应用具体渠道的 Key，没有传此参数会字段创建对于的应用、类型和渠道 |
 | name | `String` | false | 应用名称，为空时取 App 的信息 |
 | release_type | `String` | false | 应用类型，比如 debug, beta, adhoc, release, enterprise 等 |
 | source | `String` | false | 上传渠道名称，默认是 api |
@@ -156,8 +156,6 @@ GET /api/apps/versions
 
 #### 参数
 
-!> 需要[用户认证](api#接口认证)。
-
 | 名称 | 类型 | 是否必须 | 描述 |
 |---|---|---|---|
 | channel_key | `String` | true | 应用具体渠道的 Key |
@@ -226,8 +224,6 @@ GET /api/apps/latest
 
 #### 参数
 
-!> 需要[用户认证](api#接口认证)。
-
 | 名称 | 类型 | 是否必须 | 描述 |
 |---|---|---|---|
 | channel_key | `String` | true | 应用具体渠道的 Key |
@@ -277,8 +273,6 @@ GET /api/apps/version_exist
 ```
 
 #### 参数
-
-!> 需要[用户认证](api#接口认证)。
 
 | 名称 | 类型 | 是否必须 | 描述 |
 |---|---|---|---|

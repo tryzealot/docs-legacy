@@ -10,16 +10,16 @@
 
 ## 服务器硬件要求
 
-- 主流单核 CPU，多个更好
+- 主流单核 CPU，多核更好
 - 至少 512 MB 内存
-- 64位 Linux 发行版
+- 64 位 Linux 发行版
 - 至少 20 GB 硬盘空间（取决于应用和上传频率的多少）
 
 ## Docker 部署
 
-本着一键安装的原则，可是现实往往是残酷的，Zealot 配置都是依托于 ENV 环境变量，
-需要配置好之后再执行才可以，目前需要从 `example.env` 配置必要的参数后可直接执行 `./deploy.sh` 脚本即可，
-首先需要克隆[官方 Zealot 部署工具](https://github.com/getzealot/zealot-docker.git)。
+本着一键安装的原则，可是现实往往是残酷的，Zealot 配置都是依托于 ENV 环境变量，需要配置好之后再执行一键部署生成脚本。
+首先需要克隆[官方 Zealot 部署工具](https://github.com/getzealot/zealot-docker.git)，进入 `zealot-docker`
+目录后需要打开 `example.env` 文件配置必要的参数后可直接执行 `./deploy.sh` 脚本：
 
 ```bash
 $ git clone https://github.com/getzealot/zealot-docker.git
@@ -31,9 +31,9 @@ $ ./deploy
 
 - 使用 Let's Encrypt 证书
 - 使用自签名证书
-- 使用 SSL 证书反代网关服务
+- 纯 Zealot 服务（需接触反代网关或负载均衡生成 SSL 证书）
 
-默认会生成管理员账号：`admin@zealot.com` 和密码 `ze@l0t`。
+默认会生成管理员账号：`admin@zealot.com` 和密码 `ze@l0t` 和一些演示应用。
 
 ### Let's Encrypt SSL 证书
 
@@ -65,9 +65,10 @@ $ sudo vim /etc/hosts
 127.0.0.1 zealot.test
 ```
 
-### 使用 SSL 证书反代网关服务
+### 纯 Zealot 服务
 
 如果已经有 [HAProxy](http://www.haproxy.org/)、
-[Nginx](http://nginx.org/) 或 [Caddy](https://caddyserver.com/) 来做 SSL 证书代理，在运行之后拿到 `zealot_zealot_1` 实例的 IP 地址，端口是 3000 反代给网关服务即可。
+[Nginx](http://nginx.org/) 或 [Caddy](https://caddyserver.com/) 之类网关或负载均衡来做 SSL 证书代理，
+在运行之后拿到 `zealot_zealot_1` 实例的 IP 地址，端口是 3000 反代给上述服务即可。
 
-> 这里说的比较抽象，后续有时间在展开吧。
+> 这里说的比较抽象，后续有时间在展开吧，具体的可以看 `templat`

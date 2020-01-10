@@ -63,7 +63,7 @@ $ npm install -g yarn
 
 ### ruby
 
-> 建议使用 2.6+ 版本
+> 不考虑最低 Ruby 版本的情况建议使用 2.6 版本（2020 年 1 月注：2.7 刚发布会有部分依赖不兼容的情况）
 
 #### rvm
 
@@ -82,7 +82,6 @@ $ brew install ruby # 通常是最新版本
 
 - **zsh** shell 添加到 `~/.zshrc`
 - **bash** shell 添加到 `~/.bashrc` 或 `~/.bash_profile`
-
 
 ```bash
 export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:/usr/local/opt/ruby/bin:$PATH"

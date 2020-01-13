@@ -1,6 +1,7 @@
 - 快速上手
   - [安装部署](deployment.md)
   - [项目配置](configuration.md)
+  - [数据存储](storage.md)
   - [网络钩子](webhooks.md)
 
 - 开发资源

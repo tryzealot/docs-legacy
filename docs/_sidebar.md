@@ -9,6 +9,7 @@
   - [API](api.md)
   - [开发指南](development.md)
 
+- [最佳实践](best_practices.md)
 - [功能截图](screenshot.md)
 - [变更日志](changelog.md)
 - [Credits](credits.md)

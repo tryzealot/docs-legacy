@@ -21,6 +21,8 @@
 首先需要克隆[官方 Zealot 部署工具](https://github.com/getzealot/zealot-docker.git)，进入 `zealot-docker`
 目录后需要打开 `example.env` 文件配置必要的参数后可直接执行 `./deploy.sh` 脚本：
 
+> 默认会生成管理员账号：`admin@zealot.com` 和密码 `ze@l0t` 和一些演示应用。
+
 ```bash
 $ git clone https://github.com/getzealot/zealot-docker.git
 $ cd zealot-docker
@@ -33,7 +35,7 @@ $ ./deploy
 - 使用自签名证书
 - 纯 Zealot 服务（需接触反代网关或负载均衡生成 SSL 证书）
 
-默认会生成管理员账号：`admin@zealot.com` 和密码 `ze@l0t` 和一些演示应用。
+对于一键安装部署脚本感兴趣的可以查看 [Docker 手把手部署文档](docker.md)。
 
 ### Let's Encrypt SSL 证书
 

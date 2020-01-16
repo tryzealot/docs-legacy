@@ -1,6 +1,6 @@
 # Docker 安装部署
 
-这是一篇手把手来指导使用 Docker 部署文档，同时也是解释[一键部署脚本]deployment.md)的分解
+这是一篇手把手来指导使用 Docker 部署文档，同时也是解释[一键部署脚本](deployment.md)的分解
 
 ## 安装 Docker
 
@@ -21,6 +21,10 @@
 ## 配置证书
 
 部署脚本提供三种方式，就算使用最后一种生成的也是 https 的协议头
+
+- 使用 Let's Encrypt 证书
+- 使用自签名证书
+- 纯 Zealot 服务（需反代网关或负载均衡生成 SSL 证书）
 
 ## 生成 docker-compose.yml
 

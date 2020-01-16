@@ -33,7 +33,7 @@ $ ./deploy
 
 - 使用 Let's Encrypt 证书
 - 使用自签名证书
-- 纯 Zealot 服务（需接触反代网关或负载均衡生成 SSL 证书）
+- 纯 Zealot 服务（需反代网关或负载均衡生成 SSL 证书）
 
 对于一键安装部署脚本感兴趣的可以查看 [Docker 手把手部署文档](docker.md)。
 
@@ -71,6 +71,43 @@ $ sudo vim /etc/hosts
 
 如果已经有 [HAProxy](http://www.haproxy.org/)、
 [Nginx](http://nginx.org/) 或 [Caddy](https://caddyserver.com/) 之类网关或负载均衡来做 SSL 证书代理，
-在运行之后拿到 `zealot_zealot_1` 实例的 IP 地址，端口是 3000 反代给上述服务即可。
+在运行之后拿到 `zealot-zealot` 实例的 IP 地址，端口是 3000 反代给上述服务即可。
 
-> 这里说的比较抽象，后续有时间在展开吧，具体的可以看 `templat`
+#### Caddy
+
+```
+zealot.test:80, zealot.test:443 {
+  # http 301 到 https
+  redir 301 {
+    if {scheme} is http
+    / https://{host}{uri}
+  }
+
+  log stdout
+
+  # ssl
+  ## 证书文件
+  tls /etc/certs/zealot.key /etc/certs/zealot-cert.key
+  ##
+  tls zealot@exampl.eocm
+
+  # serve assets of zealot
+  root /app/public
+
+  proxy / http://172.10.0.172:3000 {
+    except /assets /packs /uploads /config /favicon.ico /robots.txt
+
+    transparent
+    header_upstream X-Marotagem true
+    header_upstream Host {host}
+    header_upstream X-Real-IP {remote}
+    header_upstream X-Forwarded-For {remote}
+  }
+}
+```
+
+配置只需关系 `tls` 和 `proxy` 后面 ip 的部分即可。
+
+#### Nginx
+
+> 没有配置过，欢迎[补充](https://github.com/getzealot/zealot-docs/issues/new)。

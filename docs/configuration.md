@@ -11,7 +11,7 @@ ZEALOT_DOMAIN=zealot.com
 
 ## HTTPS 证书
 
-如果部署只是一台机器，建议开启 Let's Encrypt 免费 SSL 证书，只需要设置
+如果部署是单台机器的独立服务，建议开启 Let's Encrypt 免费 SSL 证书，只需要设置
 
 ```bash
 ZEALOT_CERT_EMAIL=zealot@example.com

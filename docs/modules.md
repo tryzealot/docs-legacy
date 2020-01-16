@@ -109,14 +109,13 @@ Zealot.create(getApplication())
       .launch();
 ```
 
-## 注意
+### 用户权限
 
 使用 Zealot SDK 需要开启网络权限
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
 ```
-
 
 ## Fastlane 插件
 

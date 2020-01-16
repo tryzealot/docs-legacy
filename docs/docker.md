@@ -38,25 +38,32 @@
 
 ## 创建持久化存储的 docker volumes
 
-保存 zealot 和依赖服务的数据安全
+存储持久化数据
 
-- `zealot-app`: `zealot-zealot` 和 `zealot-worker` 强依赖
-- `zealot-data`: 保存上传的应用、应用图标和调试文件
+- `zealot-data`: 静态资源，JS、CSS、图片以及上传的应用、应用图标和调试文件
 - `zealot-postgres`: 数据库数据
 - `zealot-redis`: 缓存数据
-
-`zealot-app` 和 `zealot-data` 还会被 `zealot-web` 使用用于静态文件托管，比如 js、css、图片和应用文件
-
-> `zealot-app` 的数据仅作多服务之间共享使用实际上没有任何用户生产的数据，在每次 zealot 更新操作都需要删除并重新生成来保证新的变更不会被旧数据替换带来的问题。
 
 ## 拉取（更新）镜像
 
 第一次使用会自动从 Docker hub 下载镜像，后续是更新操作，通常只会更新 zealot 镜像。其他几个依赖服务镜像都是固定版本号
 
+```bash
+docker-compose pull
+```
+
 ## 设置数据库数据
 
 第一次使用会初始化数据库、加载范例应用数据和设置管理员账号，后续这是因 zealot 更新需要的操作
 
+```bash
+docker-compose run --rm zealot run_upgrade
+```
+
 ## 运行 docker-compose
 
-为了安全期间和用户的自定义操作需要手动执行 `docker-compose up -d` 来运行服务
+为了安全期间和用户的自定义操作需要手动执行来运行服务:
+
+```bash
+docker-compose up -d
+```

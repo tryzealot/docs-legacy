@@ -4,15 +4,119 @@ Zealot 提供丰富的全套组件，涉及 iOS、Android 以及打包流程方�
 
 ## iOS 库
 
-iOS 组件提供为 Zealot 检查新版本和安装的服务。
+iOS 组件提供为 Zealot 检查新版本和安装的服务，支持 Swift 和 Objective-C。
 
-> TODO
+### 安装
+
+#### Cocoapods
+
+使用 [Cocoapods](https://cocoapods.org) 安装 Zealot 需要把它加到 `PodFile`:
+
+```ruby
+pod 'Zealot', :git => 'https://github.com/getzealot/zealot-ios.git', :branch => 'master'
+```
+
+保存后开始安装：
+
+```sh
+pod install
+```
+
+### 使用
+
+1. 在 AppDelegate 文件t引入 Zealot 框架头：
+
+```swift
+// Swift
+import Zealot
+```
+
+```objectivec
+// Objective-C
+#import <Zealot/Zealot-Swift.h>
+```
+
+2. 接着在上面文件的 `application:didFinishLaunchingWithOptions:` 方法追加启动代码：
+
+```swift
+// Swift
+let zealot = Zealot(endpoint: "http://zealot.test",
+                  channelKey: "...")
+zealot.checkVersion()
+```
+
+```objectivec
+// Objective-C
+Zealot *zealot = [[Zealot alloc] initWithEndpoint:@"http://zealot.test"
+                                       channelKey:@"..."];
+[zealot checkVersion];
+```
 
 ## Android 库
 
-Android 组件提供为 Zealot 检查新版本和安装的服务。
+Android 组件提供为 Zealot 检查新版本和安装的服务，支持 Kotlin 和 Java。
 
-> TODO
+### 安装
+
+#### JitPack
+
+使用 [jitpack](https://jitpack.io) 安装，先需要添加 maven 仓库：
+
+```groovy
+allprojects {
+  repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+  }
+}
+```
+
+之后在主 app 项目的 `build.gradle` 添加 zealot：
+
+```groovy
+dependencies {
+  implementation 'com.github.getzealot:zealot-android:master-SNAPSHOT'
+}
+```
+
+#### JCenter
+
+> 还未发布暂时不可用
+
+```groovy
+implementation 'im.ews.zealot:zealot:0.1.0'
+```
+
+### 使用
+
+在你的 `Application` 文件的 `onCreate` 方法添加启动代码：
+
+```kotlin
+// Kotlin
+Zealot.create(getApplication())
+      .setEndpoint("https://zealot.test")
+      .setChannelKey("...")
+      .setBuildType(BuildConfig.BUILD_TYPE)
+      .launch()
+```
+
+```java
+// Java
+Zealot.create(getApplication())
+      .setEndpoint("http://172.16.16.29:3000")
+      .setChannelKey("...")
+      .setBuildType(BuildConfig.BUILD_TYPE)
+      .launch();
+```
+
+## 注意
+
+使用 Zealot SDK 需要开启网络权限
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
 
 ## Fastlane 插件
 

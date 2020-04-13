@@ -29,18 +29,18 @@ Zealot 为每个应用渠道都提供一个消息通知的网络钩子，网络�
 
 ```json
 {
-  event: "upload_events",
-  title: "Zealot 样例 iOS 内测版上传了 1.0.0 版本",
-  app_name: "Zealot 样例 iOS 内测版",
-  device_type: "iOS",
-  release_version: "1.0.0",
-  build_version: "1",
-  size: "30 MB",
-  changelog: "",
-  install_url: "https://zealot.test/api/apps/download/12354",
-  icon_url: "https://zealot.test/api/apps/icon.png",
-  qrcode_url: "https://zealot.test/api/apps/354/qrcode",
-  uploaded_at: "2019-12-30 11:33:00"
+  "event": "upload_events",
+  "title": "Zealot 样例 iOS 内测版上传了 1.0.0 版本",
+  "app_name": "Zealot 样例 iOS 内测版",
+  "device_type": "iOS",
+  "release_version": "1.0.0",
+  "build_version": "1",
+  "size": "30 MB",
+  "changelog": "",
+  "install_url": "https://zealot.test/api/apps/download/12354",
+  "icon_url": "https://zealot.test/api/apps/icon.png",
+  "qrcode_url": "https://zealot.test/api/apps/354/qrcode",
+  "uploaded_at": "2019-12-30 11:33:00"
 }
 ```
 
@@ -54,9 +54,7 @@ Zealot 为每个应用渠道都提供一个消息通知的网络钩子，网络�
 {
   "msgtype": "text",
   "text": {
-    "content": "#{@title}\n\n
-      安装地址：#{@install_url}\n
-      上传时间: #{@uploaded_at}"
+    "content": "#{@title}\n\n安装地址：#{@install_url}\n上传时间: #{@uploaded_at}"
   }
 }
 ```
@@ -67,11 +65,7 @@ Zealot 为每个应用渠道都提供一个消息通知的网络钩子，网络�
 {
   "msgtype": "markdown",
   "markdown": {
-    "content": "## #{@title}\n
-      平台: #{@device_type}\n
-      上传时间: #{@uploaded_at}\n
-      安装二维码:\n
-      ![qrcode](#{@qrcode_url})"
+    "content": "## #{@title}\n平台: #{@device_type}\n上传时间: #{@uploaded_at}\n安装二维码:\n![qrcode](#{@qrcode_url})"
   }
 }
 ```

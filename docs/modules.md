@@ -119,7 +119,7 @@ Zealot.create(getApplication())
 
 ## Fastlane 插件
 
-> 第一次听说 fastlane，那你得多 out 了？！快看看[深入浅出 Fastlane 一看你就懂](https://icyleaf.com/2016/07/fastlane-in-action/) 系列教程不补课吧。
+> 第一次听说 fastlane，那你得多 out 了？！快看看[深入浅出 Fastlane 一看你就懂](https://icyleaf.com/2016/07/fastlane-in-action/) 系列教程补补课吧。
 
 [fastlane-plugin-zealot](https://github.com/getzealot/fastlane-plugin-zealot) 是专门为 Zealot 提供
 的上传 iOS、Andorid 应用和调试文件的 fastlane 插件。如果要使用 `fastlane-plugin-zealot` 可通过下面方法添加到 fastlane 体系中：

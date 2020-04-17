@@ -110,4 +110,36 @@ zealot.test:80, zealot.test:443 {
 
 #### Nginx
 
-> 没有配置过，欢迎[补充](https://github.com/getzealot/zealot-docs/issues/new)。
+> 如下是通用配置，如果不可用欢迎[提问题](https://github.com/getzealot/zealot-docs/issues/new)。
+
+```
+server {
+  listen 443;
+  server_name localhost;
+
+  ssl                 on;
+  ssl_certificate     /etc/certs/zealot-cert.key;
+  ssl_certificate_key /etc/certs/zealot.key;
+  ssl_session_timeout 5m;
+  ssl_session_cache   shared:SSL:1m;
+
+  root /app/public;
+
+  location ~* ^(/assets|/favicon.ico) {
+    access_log        off;
+    expires           max;
+  }
+
+  location / {
+    proxy_redirect     off;
+    proxy_set_header   Host               $host:$server_port;
+    proxy_set_header   X-Forwarded-Host   $host:$server_port;
+    proxy_set_header   X-Forwarded-Port   $server_port;
+    proxy_set_header   X-Forwarded-Server $host;
+    proxy_set_header   X-Real-IP          $remote_addr;
+    proxy_set_header   X-Forwarded-For    $proxy_add_x_forwarded_for;
+    proxy_buffering    on;
+    proxy_pass         http://172.10.0.172:3000;
+  }
+}
+```

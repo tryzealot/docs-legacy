@@ -20,7 +20,7 @@
 
 二次校验如果没有配置会再提醒
 
-## 配置证书
+### 配置证书
 
 部署脚本提供三种方式，就算使用最后一种生成的也是 https 的协议头
 
@@ -100,7 +100,6 @@ docker volume create --name zealot-postgres \
 打开 `docker-compose.yml` 拉到最底部找到 `volumes:` 开头的部分，修改为如下内容：
 
 ```yaml
-
 volumes:
   zealot-data:
     driver: local

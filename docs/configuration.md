@@ -45,14 +45,26 @@ ACTION_MAILER_DEFAULT_FROM=you@gmail.com
 ACTION_MAILER_DEFAULT_TO=you@gmail.com
 ```
 
-## 第三方登录
+## 登录
+
+### 开发注册
+
+```bash
+# 开放注册
+ZEALOT_REGISTER_ENABLED=true
+
+# 关闭注册
+ZEALOT_REGISTER_ENABLED=false
+```
+
+### 第三方登录
 
 目前已接入的第三方登录：
 
 - [x] Google
 - [x] LDAP
 
-### Google
+#### Google
 
 ```bash
 ## 从这里获取 Client ID 和 Secret: https://code.google.com/apis/console/
@@ -61,7 +73,7 @@ GOOGLE_CLIENT_ID=
 GOOGLE_SECRET=
 ```
 
-### LDAP
+#### LDAP
 
 ```bash
 LDAP_ENABLED=true

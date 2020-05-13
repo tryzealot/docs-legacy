@@ -2,6 +2,11 @@
 
 这是一篇手把手来指导使用 Docker 部署文档，同时也是解释[一键部署脚本](deployment.md)的分解
 
+## 版本列表
+
+- [x] 测试版本 - develop - `icyleafcn/zealot:nightly` - 基于 develop 分支每次提交构建的版本
+- [ ] 稳定版本 - v4.0.0 - `icyleafcn/zealot:latest` - 还在研发测试中，尚未发布。
+
 ## 步骤解析
 
 ### 安装 Docker

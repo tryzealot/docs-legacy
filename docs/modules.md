@@ -18,7 +18,7 @@ pod 'Zealot', :git => 'https://github.com/getzealot/zealot-ios.git', :branch => 
 
 保存后开始安装：
 
-```sh
+```bash
 pod install
 ```
 
@@ -40,15 +40,36 @@ import Zealot
 
 ```swift
 // Swift
-let zealot = Zealot(endpoint: "http://zealot.test",
-                  channelKey: "...")
+// 单个渠道
+let zealot = Zealot(endpoint: "http://zealot.com", channelKey: "...")
+zealot.checkVersion()
+
+// 多个渠道，比如测试版本，内测版本
+let zealot = Zealot(endpoint: "http://zealot.com",
+                 channelKeys: [
+                   "beta": "xxxxxxx",
+                   "test": "yyyyyyy"],
+          default_enviroment: "beta")
+
+// 最后触发监测方法
 zealot.checkVersion()
 ```
 
 ```objectivec
 // Objective-C
-Zealot *zealot = [[Zealot alloc] initWithEndpoint:@"http://zealot.test"
+// 单个渠道
+Zealot *zealot = [[Zealot alloc] initWithEndpoint:@"http://zealot.com"
                                        channelKey:@"..."];
+
+// 多个渠道，比如测试版本，内测版本
+Zealot *zealot = [[Zealot alloc] initWithEndpoint:@"http://zealot.com"
+                                      channelKeys:@{
+                                              @"beta": @"xxxxxxx",
+                                              @"gray": @"yyyyyyy"
+                                          }
+                               default_enviroment:@"beta"];
+
+// 最后触发监测方法
 [zealot checkVersion];
 ```
 
@@ -93,18 +114,38 @@ implementation 'im.ews.zealot:zealot:0.1.0'
 
 ```kotlin
 // Kotlin
+
+// 单个渠道
 Zealot.create(getApplication())
-      .setEndpoint("https://zealot.test")
+      .setEndpoint("https://zealot.com")
       .setChannelKey("...")
+      .setBuildType(BuildConfig.BUILD_TYPE)
+      .launch()
+
+// 多个渠道，比如测试版本，内测版本
+Zealot.create(getApplication())
+      .setEndpoint("https://zealot.com")
+      .setChannelKey("beta", "xxxxxxx")
+      .setCHannelKey("test", "yyyyyyy")
       .setBuildType(BuildConfig.BUILD_TYPE)
       .launch()
 ```
 
 ```java
 // Java
+
+// 单个渠道
 Zealot.create(getApplication())
-      .setEndpoint("http://172.16.16.29:3000")
+      .setEndpoint("https://zealot.com")
       .setChannelKey("...")
+      .setBuildType(BuildConfig.BUILD_TYPE)
+      .launch();
+
+// 多个渠道，比如测试版本，内测版本
+Zealot.create(getApplication())
+      .setEndpoint("https://zealot.com")
+      .setChannelKey("beta", "xxxxxxx")
+      .setCHannelKey("test", "yyyyyyy")
       .setBuildType(BuildConfig.BUILD_TYPE)
       .launch();
 ```

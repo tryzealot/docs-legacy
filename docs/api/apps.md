@@ -19,9 +19,10 @@ POST /api/apps/upload
 | name | `String` | false | 应用名称，为空时取 App 的信息 |
 | release_type | `String` | false | 应用类型，比如 debug, beta, adhoc, release, enterprise 等 |
 | source | `String` | false | 上传渠道名称，默认是 api |
-| changelog | `String` | false | 变更日志 |
+| changelog | `String` | false | 变更日志，接受纯文本或 JSON 格式化的数据 |
 | git_commit | `String` | false | 上传应用时的 git commit hash |
 | ci_url | `String` | false | CI 项目构建地址 |
+| custom_fields | `String` | false | 自定义字段，用于在 Web 版本详情展示 |
 
 #### 返回样例
 

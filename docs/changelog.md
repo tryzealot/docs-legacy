@@ -13,15 +13,20 @@
 ### 修复
 
 - [Docker] 修复因为 volume 存储 public 文件夹造成内部静态资源不会更新
+- [Docker] 容器内的版本和
 - [Web] 解决版本详情中二维码在中等分辨率会超出父视图
 - [Web] 解决应用渠道一些值为空确没有不显示默认值
 - [Web] 优化在线解析 iOS 包的内容展示（和永远展示假数据的问题）
 - [Web] 解决版本详情在使用 [fastlane-plugin-ci_changelog](https://github.com/icyleaf/fastlane-plugin-ci_changelog) 生成的变更日志没有展示提交者信息
+- [Web] 修复并优化检查新版本逻辑
+- [Web] 修复删除调试文件确认弹窗信息获取为空
+- [Web] 优化版本详情设备列表在一些手机的显示方式
 
 ### 变更
 
 - [Web] font-awesome 从 4.7.0 升级至 5.13.0，可能会有遗漏的 Icon 显示不正常
 - [Web] 调整邀请邮件的文案
+- [Web] 应用和调试文件下载路径统一到 `/download` 路径
 
 ## [4.0.0.beta4] (2020-05-07)
 

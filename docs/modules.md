@@ -116,17 +116,17 @@ implementation 'im.ews.zealot:zealot:0.1.0'
 // Kotlin
 
 // 单个渠道
-Zealot.create(getApplication())
+Zealot.create(getActivity())
       .setEndpoint("https://zealot.com")
       .setChannelKey("...")
       .setBuildType(BuildConfig.BUILD_TYPE)
       .launch()
 
 // 多个渠道，比如测试版本，内测版本
-Zealot.create(getApplication())
+Zealot.create(getActivity())
       .setEndpoint("https://zealot.com")
-      .setChannelKey("beta", "xxxxxxx")
-      .setCHannelKey("test", "yyyyyyy")
+      .setChannelKey("xxxxxxx", "beta")
+      .setCHannelKey("yyyyyyy", "test")
       .setBuildType(BuildConfig.BUILD_TYPE)
       .launch()
 ```
@@ -135,17 +135,17 @@ Zealot.create(getApplication())
 // Java
 
 // 单个渠道
-Zealot.create(getApplication())
+Zealot.create(getActivity())
       .setEndpoint("https://zealot.com")
       .setChannelKey("...")
       .setBuildType(BuildConfig.BUILD_TYPE)
       .launch();
 
 // 多个渠道，比如测试版本，内测版本
-Zealot.create(getApplication())
+Zealot.create(getActivity())
       .setEndpoint("https://zealot.com")
-      .setChannelKey("beta", "xxxxxxx")
-      .setCHannelKey("test", "yyyyyyy")
+      .setChannelKey("xxxxxxx", "beta")
+      .setCHannelKey("yyyyyyy", "test")
       .setBuildType(BuildConfig.BUILD_TYPE)
       .launch();
 ```

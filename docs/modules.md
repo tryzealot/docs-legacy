@@ -171,13 +171,17 @@ $ fastlane add_plugin zealot
 
 插件包含多个 action：
 
-- `zealot`: 上传应用
+- `zealot`: 上传 iOS 或 Android 应用
+- `zealot_debug_file`: 上传调试文件（iOS 是 dSYM，Android 是 Proguard）
+- `zealot_version_check`: 检查当前版本是否已存在
 
-传入如下参数插件会在成功打包后自动获取 app 的路径并进行上传：
+### zealot
+
+上传 iOS 或 Android 应用，传入如下参数插件会在成功打包后自动获取 app 的路径并进行上传：
 
 ```ruby
 zealot(
-  endpoint: 'https://example.com',
+  endpoint: 'https://zealot.com',
   token: '...',
   channel_key: '...',
 )
@@ -186,29 +190,147 @@ zealot(
 #### 参数
 
 ```
-+-----------------+-------------------------------------------------+------------------------+----------+
-|                                            zealot Options                                             |
-+-----------------+-------------------------------------------------+------------------------+----------+
-| Key             | Description                                     | Env Var                | Default  |
-+-----------------+-------------------------------------------------+------------------------+----------+
-| endpoint        | The endpoint of zealot                          | ZEALOT_ENDPOINT        |          |
-| token           | The token of user                               | ZEALOT_TOKEN           |          |
-| channel_key     | The key of app's channel                        | ZEALOT_CHANNEL_KEY     |          |
-| file            | The path of app file. Optional if you use the   | ZEALOT_FILE            |          |
-|                 | `gym`, `ipa`, `xcodebuild` or `gradle` action.  |                        |          |
-| name            | The name of app to display on zealot            | ZEALOT_NAME            |          |
-| changelog       | The changelog of app                            | ZEALOT_CHANGELOG       |          |
-| slug            | The slug of app                                 | ZEALOT_SLUG            |          |
-| release_type    | The release type of app                         | ZEALOT_RELEASE_TYPE    |          |
-| branch          | The name of git branch                          | ZEALOT_BRANCH          |          |
-| git_commit      | The hash of git commit                          | ZEALOT_GIT_COMMIT      |          |
-| password        | The password of app to download                 | ZEALOT_PASSWORD        |          |
-| source          | The name of upload source                       | ZEALOT_SOURCE          | fastlane |
-| timeout         | Request timeout in seconds                      | ZEALOT_TIMEOUT         |          |
-| hide_user_token | replase user token to *** to keep secret        | ZEALOT_HIDE_USER_TOKEN | true     |
-| fail_on_error   | Should an error uploading app cause a failure?  | ZEALOT_FAIL_ON_ERROR   | false    |
-|                 | (true/false)                                    |                        |          |
-+-----------------+-------------------------------------------------+------------------------+----------+
++-----------------+---------------------------------+------------------------+----------+
+|                                    zealot Options                                     |
++-----------------+---------------------------------+------------------------+----------+
+| Key             | Description                     | Env Var                | Default  |
++-----------------+---------------------------------+------------------------+----------+
+| endpoint        | The endpoint of zealot          | ZEALOT_ENDPOINT        |          |
+| token           | The token of user               | ZEALOT_TOKEN           |          |
+| channel_key     | The key of app's channel        | ZEALOT_CHANNEL_KEY     |          |
+| file            | The path of app file. Optional  | ZEALOT_FILE            |          |
+|                 | if you use the `gym`, `ipa`,    |                        |          |
+|                 | `xcodebuild` or `gradle`        |                        |          |
+|                 | action.                         |                        |          |
+| name            | The name of app to display on   | ZEALOT_NAME            |          |
+|                 | zealot                          |                        |          |
+| changelog       | The changelog of app            | ZEALOT_CHANGELOG       |          |
+| slug            | The slug of app                 | ZEALOT_SLUG            |          |
+| release_type    | The release type of app         | ZEALOT_RELEASE_TYPE    |          |
+| branch          | The name of git branch          | ZEALOT_BRANCH          |          |
+| git_commit      | The hash of git commit          | ZEALOT_GIT_COMMIT      |          |
+| custom_fields   | The key-value hash of custom    | ZEALOT_CUSTOM_FIELDS   |          |
+|                 | fields                          |                        |          |
+| password        | The password of app to download | ZEALOT_PASSWORD        |          |
+| source          | The name of upload source       | ZEALOT_SOURCE          | fastlane |
+| ci_url          | The name of upload source       | ZEALOT_CI_CURL         |          |
+| timeout         | Request timeout in seconds      | ZEALOT_TIMEOUT         |          |
+| hide_user_token | replase user token to *** to    | ZEALOT_HIDE_USER_TOKEN | true     |
+|                 | keep secret                     |                        |          |
+| verify_ssl      | Should verify SSL of zealot     | ZEALOT_VERIFY_SSL      | true     |
+|                 | service                         |                        |          |
+| fail_on_error   | Should an error uploading app   | ZEALOT_FAIL_ON_ERROR   | false    |
+|                 | cause a failure                 |                        |          |
++-----------------+---------------------------------+------------------------+----------+
+* = default value is dependent on the user's system
+
++-----------------------+---------------------------------------------+
+|                       zealot Output Variables                       |
++-----------------------+---------------------------------------------+
+| Key                   | Description                                 |
++-----------------------+---------------------------------------------+
+| ZEALOT_APP_ID         | The id of app                               |
+| ZEALOT_RELEASE_ID     | The id of app's release                     |
+| ZEALOT_RELEASE_URL    | The release URL of the newly uploaded build |
+| ZEALOT_INSTALL_URL    | The install URL of the newly uploaded build |
+| ZEALOT_QRCODE_URL     | The QRCode URL of the newly uploaded build  |
+| ZEAALOT_ERROR_MESSAGE | The error message during upload process     |
++-----------------------+---------------------------------------------+
+```
+
+#### 环境变量
+
+```
++-----------------------+---------------------------------------------+
+|                       zealot Output Variables                       |
++-----------------------+---------------------------------------------+
+| Key                   | Description                                 |
++-----------------------+---------------------------------------------+
+| ZEALOT_APP_ID         | The id of app                               |
+| ZEALOT_RELEASE_ID     | The id of app's release                     |
+| ZEALOT_RELEASE_URL    | The release URL of the newly uploaded build |
+| ZEALOT_INSTALL_URL    | The install URL of the newly uploaded build |
+| ZEALOT_QRCODE_URL     | The QRCode URL of the newly uploaded build  |
+| ZEAALOT_ERROR_MESSAGE | The error message during upload process     |
++-----------------------+---------------------------------------------+
+Access the output values using `lane_context[SharedValues::VARIABLE_NAME]`
+```
+
+### zealot_debug_file
+
+自动寻找调试文件并打 zip 包上传（iOS 是 dSYM，Android 是 Proguard）
+
+#### 参数
+
+```
++--------------------+---------------------------------+---------------------------+---------+
+|                                 zealot_debug_file Options                                  |
++--------------------+---------------------------------+---------------------------+---------+
+| Key                | Description                     | Env Var                   | Default |
++--------------------+---------------------------------+---------------------------+---------+
+| endpoint           | The endpoint of zealot          | ZEALOT_ENDPOINT           |         |
+| token              | The token of user               | ZEALOT_TOKEN              |         |
+| channel_key        | The key of app's channel        | ZEALOT_CHANNEL_KEY        |         |
+| platform           | The name of platfrom, avaiable  | ZEALOT_PLATFORM           |         |
+|                    | value are                       |                           |         |
+|                    | ios,mac,macos,osx,android       |                           |         |
+| path               | The path of debug file          | ZEALOT_PATH               |         |
+|                    | (iOS/macOS is archive path for  |                           |         |
+|                    | Xcode, Android is path for app  |                           |         |
+|                    | project)                        |                           |         |
+| xcode_scheme       | The scheme name of app          | ZEALOT_XCODE_SCHEME       |         |
+| android_build_type | The build type of app           | ZEALOT_ANDROID_BUILD_TYPE | release |
+| android_flavor     | The product flavor of app       | ZEALOT_ANDROID_FLAVOR     |         |
+| extra_files        | A set file names                | ZEALOT_EXTRA_FILES        | []      |
+| output_path        | The output path of compressed   | DF_DSYM_OUTPUT_PATH       | .       |
+|                    | dSYM file                       |                           |         |
+| release_version    | The release version of app      | ZEALOT_RELEASE_VERSION    |         |
+| build_version      | The build version of app        | ZEALOT_BUILD_VERSION      |         |
+| overwrite          | Overwrite output compressed     | DF_DSYM_OVERWRITE         | false   |
+|                    | file if it existed              |                           |         |
+| timeout            | Request timeout in seconds      | ZEALOT_TIMEOUT            |         |
+| verify_ssl         | Should verify SSL of zealot     | ZEALOT_VERIFY_SSL         | true    |
+|                    | service                         |                           |         |
+| fail_on_error      | Should an error uploading app   | ZEALOT_FAIL_ON_ERROR      | false   |
+|                    | cause a failure? (true/false)   |                           |         |
++--------------------+---------------------------------+---------------------------+---------+
+```
+
+### zealot_version_check
+
+检查当前版本是否已经上传，减少重复打包和上传。
+
+```ruby
+zealot_version_check(
+  endpoint: 'https://zealot.com',
+  token: '...',
+  bundle_id: 'com.example.app.name',
+  release_version: '1.0.0',
+  build_version: '1'
+)
+```
+
+#### 参数
+
+```
++-----------------+---------------------------------+------------------------+---------+
+|                             zealot_version_check Options                             |
++-----------------+---------------------------------+------------------------+---------+
+| Key             | Description                     | Env Var                | Default |
++-----------------+---------------------------------+------------------------+---------+
+| endpoint        | The endpoint of zealot          | ZEALOT_ENDPOINT        |         |
+| token           | The token of user               | ZEALOT_TOKEN           |         |
+| channel_key     | The key of app's channel        | ZEALOT_CHANNEL_KEY     |         |
+| bundle_id       | The bundle id(package name) of  | ZEALOT_BUNDLE_ID       |         |
+|                 | app                             |                        |         |
+| release_version | The release version of app      | ZEALOT_RELEASE_VERSION |         |
+| build_version   | The build version of app        | ZEALOT_BUILD_VERSION   |         |
+| git_commit      | The latest git commit of app    | ZEALOT_GIT_COMMIT      |         |
+| verify_ssl      | Should verify SSL of zealot     | ZEALOT_VERIFY_SSL      | true    |
+|                 | service                         |                        |         |
+| fail_on_error   | Should an error http request    | ZEALOT_FAIL_ON_ERROR   | false   |
+|                 | cause a failure? (true/false)   |                        |         |
++-----------------+---------------------------------+------------------------+---------+
 ```
 
 #### 其他有用插件

@@ -6,9 +6,12 @@
 
 ### 新功能
 
-- [Web] 上传 App 后在版本详情显示原本应用的名称
-- [Web] 版本详情最近上传关联 git commit 链接（如果在渠道设置了 git url）
+- [Web] 支持获取 iOS 设备 UDID 功能 [#203](https://github.com/getzealot/zealot/pull/203)
 - [Web] 支持定期数据初始化且有功能限制的演示模式 [#198](https://github.com/getzealot/zealot/pull/198)
+- [Web] 上传 App 后在版本详情显示原本应用的名称
+- [Web] 可通过版本、Git 分支、打包类型筛选过滤应用列表
+- [Web] 版本详情最近上传关联 git commit 链接（如果在渠道设置了 git url）
+- [Task] 支持通过 rails 命令管理生成恢复数据备份功能（数据库、上传文件数据）[#207](https://github.com/getzealot/zealot/pull/207)
 
 ### 修复
 

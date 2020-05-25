@@ -256,7 +256,46 @@ zealot(
 Access the output values using `lane_context[SharedValues::VARIABLE_NAME]`
 ```
 
+### zealot_version_check
+
+检查当前版本是否已经上传，减少重复打包和上传。
+
+```ruby
+zealot_version_check(
+  endpoint: 'https://zealot.com',
+  token: '...',
+  bundle_id: 'com.example.app.name',
+  release_version: '1.0.0',
+  build_version: '1'
+)
+```
+
+#### 参数
+
+```
++-----------------+---------------------------------+------------------------+---------+
+|                             zealot_version_check Options                             |
++-----------------+---------------------------------+------------------------+---------+
+| Key             | Description                     | Env Var                | Default |
++-----------------+---------------------------------+------------------------+---------+
+| endpoint        | The endpoint of zealot          | ZEALOT_ENDPOINT        |         |
+| token           | The token of user               | ZEALOT_TOKEN           |         |
+| channel_key     | The key of app's channel        | ZEALOT_CHANNEL_KEY     |         |
+| bundle_id       | The bundle id(package name) of  | ZEALOT_BUNDLE_ID       |         |
+|                 | app                             |                        |         |
+| release_version | The release version of app      | ZEALOT_RELEASE_VERSION |         |
+| build_version   | The build version of app        | ZEALOT_BUILD_VERSION   |         |
+| git_commit      | The latest git commit of app    | ZEALOT_GIT_COMMIT      |         |
+| verify_ssl      | Should verify SSL of zealot     | ZEALOT_VERIFY_SSL      | true    |
+|                 | service                         |                        |         |
+| fail_on_error   | Should an error http request    | ZEALOT_FAIL_ON_ERROR   | false   |
+|                 | cause a failure? (true/false)   |                        |         |
++-----------------+---------------------------------+------------------------+---------+
+```
+
 ### zealot_debug_file
+
+> fastlane-plugin-zealot `0.2.0` 版本开始支持。
 
 自动寻找调试文件并打 zip 包上传（iOS 是 dSYM，Android 是 Proguard）
 
@@ -296,41 +335,46 @@ Access the output values using `lane_context[SharedValues::VARIABLE_NAME]`
 +--------------------+---------------------------------+---------------------------+---------+
 ```
 
-### zealot_version_check
+### zealot_sync_devices
 
-检查当前版本是否已经上传，减少重复打包和上传。
+> fastlane-plugin-zealot `0.4.1` 版本开始支持。
+
+同步并关联苹果开发者中心（Apple Developer Portal)的测试设备名称到 Zealot 服务。
 
 ```ruby
-zealot_version_check(
+zealot_sync_devices(
   endpoint: 'https://zealot.com',
   token: '...',
-  bundle_id: 'com.example.app.name',
-  release_version: '1.0.0',
-  build_version: '1'
+  username: 'user@example.com',
+  team_id: '...'
 )
 ```
 
 #### 参数
 
 ```
-+-----------------+---------------------------------+------------------------+---------+
-|                             zealot_version_check Options                             |
-+-----------------+---------------------------------+------------------------+---------+
-| Key             | Description                     | Env Var                | Default |
-+-----------------+---------------------------------+------------------------+---------+
-| endpoint        | The endpoint of zealot          | ZEALOT_ENDPOINT        |         |
-| token           | The token of user               | ZEALOT_TOKEN           |         |
-| channel_key     | The key of app's channel        | ZEALOT_CHANNEL_KEY     |         |
-| bundle_id       | The bundle id(package name) of  | ZEALOT_BUNDLE_ID       |         |
-|                 | app                             |                        |         |
-| release_version | The release version of app      | ZEALOT_RELEASE_VERSION |         |
-| build_version   | The build version of app        | ZEALOT_BUILD_VERSION   |         |
-| git_commit      | The latest git commit of app    | ZEALOT_GIT_COMMIT      |         |
-| verify_ssl      | Should verify SSL of zealot     | ZEALOT_VERIFY_SSL      | true    |
-|                 | service                         |                        |         |
-| fail_on_error   | Should an error http request    | ZEALOT_FAIL_ON_ERROR   | false   |
-|                 | cause a failure? (true/false)   |                        |         |
-+-----------------+---------------------------------+------------------------+---------+
++---------------+----------------------------------+------------------------+---------+
+|                             zealot_sync_devices Options                             |
++---------------+----------------------------------+------------------------+---------+
+| Key           | Description                      | Env Var                | Default |
++---------------+----------------------------------+------------------------+---------+
+| endpoint      | The endpoint of zealot           | ZEALOT_ENDPOINT        |         |
+| token         | The token of user                | ZEALOT_TOKEN           |         |
+| username      | The apple id (username) of       | DELIVER_USER           | *       |
+|               | Apple Developer Portal           |                        |         |
+| team_id       | The ID of your Developer Portal  | ZEALOT_APPLE_TEAM_ID   | *       |
+|               | team if you're in multiple       |                        |         |
+|               | teams                            |                        |         |
+| team_name     | The name of your Developer       | ZEALOT_APPLE_TEAM_NAME | *       |
+|               | Portal team if you're in         |                        |         |
+|               | multiple teams                   |                        |         |
+| platform      | The platform to use (optional)   | ZEALOT_APPLE_PLATFORM  | ios     |
+| verify_ssl    | Should verify SSL of zealot      | ZEALOT_VERIFY_SSL      | true    |
+|               | service                          |                        |         |
+| timeout       | Request timeout in seconds       | ZEALOT_TIMEOUT         |         |
+| fail_on_error | Should an error http request     | ZEALOT_FAIL_ON_ERROR   | false   |
+|               | cause a failure? (true/false)    |                        |         |
++---------------+----------------------------------+------------------------+---------+
 ```
 
 #### 其他有用插件

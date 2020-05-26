@@ -6,6 +6,8 @@
 
 ### 新功能
 
+- [Web] 支持显示 iOS AdHoc 版本测试设备的名称 [#211](https://github.com/getzealot/zealot/pull/211)
+- [Web] 支持解析已上传版本安装包的内容 [#210](https://github.com/getzealot/zealot/pull/210)
 - [Web] 支持获取 iOS 设备 UDID 功能 [#203](https://github.com/getzealot/zealot/pull/203)
 - [Web] 支持定期数据初始化且有功能限制的演示模式 [#198](https://github.com/getzealot/zealot/pull/198)
 - [Web] 上传 App 后在版本详情显示原本应用的名称
@@ -16,7 +18,7 @@
 ### 修复
 
 - [Docker] 修复因为 volume 存储 public 文件夹造成内部静态资源不会更新
-- [Docker] 容器内的版本和
+- [Docker] 容器内的版本和外部不一致
 - [Web] 解决版本详情中二维码在中等分辨率会超出父视图
 - [Web] 解决应用渠道一些值为空确没有不显示默认值
 - [Web] 优化在线解析 iOS 包的内容展示（和永远展示假数据的问题）
@@ -24,12 +26,15 @@
 - [Web] 修复并优化检查新版本逻辑
 - [Web] 修复删除调试文件确认弹窗信息获取为空
 - [Web] 优化版本详情设备列表在一些手机的显示方式
+- [Web] 修复解析应用在不传参数提交的报错
 
 ### 变更
 
 - [Web] font-awesome 从 4.7.0 升级至 5.13.0，可能会有遗漏的 Icon 显示不正常
 - [Web] 调整邀请邮件的文案
 - [Web] 应用和调试文件下载路径统一到 `/download` 路径
+- [Web] 在线解析应用需要登录权限
+- [Web] 优化已经删除的或不存在的版本详情地址会自动跳转最新版本
 
 ## [4.0.0.beta4] (2020-05-07)
 

@@ -54,6 +54,15 @@ $ brew services start postgresql
 $ brew services start redis
 ```
 
+Postgresql 还需要创建默认用户名：
+
+```bash
+$ createuser --superuser zealot
+
+# 如果担心权限过高可以只开启创建数据库权限
+$ createuser --createdb zealot
+```
+
 ### node
 
 ```bash

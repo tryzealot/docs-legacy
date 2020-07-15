@@ -6,6 +6,7 @@
 
 ### 新功能
 
+- [Web] 新增游客模式 [#243](https://github.com/getzealot/zealot/pull/243)
 - [Web] 支持显示 iOS AdHoc 版本测试设备的名称 [#211](https://github.com/getzealot/zealot/pull/211)
 - [Web] 支持解析已上传版本安装包的内容 [#210](https://github.com/getzealot/zealot/pull/210)
 - [Web] 支持获取 iOS 设备 UDID 功能 [#203](https://github.com/getzealot/zealot/pull/203)
@@ -30,6 +31,8 @@
 - [Web] 优化版本列表在手机查看
 - [Web] 渠道版本的最近上传动态仅显示底部分页，上部改为版本总数
 - [Web] 修复管理员编辑用户留空密码提示不能为空
+- [Web/API] 修复在线下载和安装版本不存在时会采用最新版本
+- [Task] 修复定时任务来清理老版本时因版本判断错误发生的误删版本
 
 ### 变更
 

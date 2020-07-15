@@ -47,10 +47,20 @@ ACTION_MAILER_DEFAULT_TO=you@gmail.com
 
 ## 登录
 
-### 开发注册
+### 开启游客模式
 
 ```bash
-# 开放注册
+# 开启游客模式
+ZEALOT_GUEST_MODE=true
+
+# 关闭游客模式
+ZEALOT_GUEST_MODE=false
+```
+
+### 是否开启注册
+
+```bash
+# 开启注册
 ZEALOT_REGISTER_ENABLED=true
 
 # 关闭注册

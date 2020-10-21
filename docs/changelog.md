@@ -4,8 +4,21 @@
 
 > 如下罗列的变更是还未发布的列表
 
+### 变更
+
+- [Docker] **重大变更** 合并 rails 和 worker 到同一镜像部署需要同步更新 zealot-docker 库 [#235](https://github.com/getzealot/zealot/pull/235)
+- [Docker] Ruby 升级 2.7 部署
+- [Web] font-awesome 从 4.7.0 升级至 5.13.0，可能会有遗漏的 Icon 显示不正常
+- [Web] 调整邀请邮件的文案
+- [Web] 应用和调试文件下载路径统一到 `/download` 路径
+- [Web] 在线解析应用需要登录权限
+- [Web] 优化已经删除的或不存在的版本详情地址会自动跳转最新版本
+
 ### 新功能
 
+- [Web] 涉及下载文件不存在会提示无法下载
+- [Web] 在线解析支持 .mobileprovision 格式文件以及解析 .ipa 新增开启功能等
+- [Web] 部分系统设置可以使用管理员面板在线修改 [#245](https://github.com/getzealot/zealot/pull/245)
 - [Web] 新增游客模式 [#243](https://github.com/getzealot/zealot/pull/243)
 - [Web] 支持显示 iOS AdHoc 版本测试设备的名称 [#211](https://github.com/getzealot/zealot/pull/211)
 - [Web] 支持解析已上传版本安装包的内容 [#210](https://github.com/getzealot/zealot/pull/210)
@@ -15,11 +28,13 @@
 - [Web] 可通过版本、Git 分支、打包类型筛选过滤应用列表
 - [Web] 版本详情最近上传关联 git commit 链接（如果在渠道设置了 git url）
 - [Task] 支持通过 rails 命令管理生成恢复数据备份功能（数据库、上传文件数据）[#207](https://github.com/getzealot/zealot/pull/207)
+- [API] 新增检查调试文件是否存在接口 `/api/debug_files/version_exist`
 
 ### 修复
 
 - [Docker] 修复因为 volume 存储 public 文件夹造成内部静态资源不会更新
 - [Docker] 容器内的版本和外部不一致
+- [Web] 修复上传 App 填写变更日志解析报错
 - [Web] 解决版本详情中二维码在中等分辨率会超出父视图
 - [Web] 解决应用渠道一些值为空确没有不显示默认值
 - [Web] 优化在线解析 iOS 包的内容展示（和永远展示假数据的问题）
@@ -33,14 +48,6 @@
 - [Web] 修复管理员编辑用户留空密码提示不能为空
 - [Web/API] 修复在线下载和安装版本不存在时会采用最新版本
 - [Task] 修复定时任务来清理老版本时因版本判断错误发生的误删版本
-
-### 变更
-
-- [Web] font-awesome 从 4.7.0 升级至 5.13.0，可能会有遗漏的 Icon 显示不正常
-- [Web] 调整邀请邮件的文案
-- [Web] 应用和调试文件下载路径统一到 `/download` 路径
-- [Web] 在线解析应用需要登录权限
-- [Web] 优化已经删除的或不存在的版本详情地址会自动跳转最新版本
 
 ## [4.0.0.beta4] (2020-05-07)
 

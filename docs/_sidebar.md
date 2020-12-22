@@ -4,6 +4,9 @@
   - [数据存储](storage.md)
   - [网络钩子](webhooks.md)
 
+- 详细指南
+  - [用户权限](permissions.md)
+
 - 开发资源
   - [组件库](modules.md)
   - [API](api.md)

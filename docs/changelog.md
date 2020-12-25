@@ -4,6 +4,7 @@
 
 > 如下罗列的变更是还未发布的列表，代码变更历史：[未发布]
 
+## 4.0.0.rc2 (2020-12-25)
 ### 新功能
 
 - [Web] 新的文件解析会保存到列表，上传的应用也会同步一份文件解析（异步任务） [#346](https://github.com/getzealot/zealot/pull/346)
@@ -18,6 +19,9 @@
 
 - [Web] 修复禁用 LDAP 登录认证报错（ IP 白名单设置错误）
 - [Web] 修正 Android 微信打开版本详情提示的文案
+
+
+> 代码变更历史：[4.0.0.rc2]
 
 ## 4.0.0.rc1 (2020-10-29)
 
@@ -146,7 +150,8 @@
 
 🌈 第一个公测版本发布啦
 
-[未发布]: https://github.com/getzealot/zealot/compare/4.0.0.rc1...HEAD
+[未发布]: https://github.com/getzealot/zealot/compare/4.0.0.rc2...HEAD
+[4.0.0.rc2]: https://github.com/getzealot/zealot/compare/4.0.0.rc1...4.0.0.rc2
 [4.0.0.rc1]: https://github.com/getzealot/zealot/compare/4.0.0.beta4...4.0.0.rc1
 [4.0.0.beta4]: https://github.com/getzealot/zealot/compare/4.0.0.beta3...4.0.0.beta4
 [4.0.0.beta3]: https://github.com/getzealot/zealot/compare/4.0.0.beta2...4.0.0.beta3

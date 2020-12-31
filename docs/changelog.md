@@ -4,6 +4,15 @@
 
 > 如下罗列的变更是还未发布的列表，代码变更历史：[未发布]
 
+## 4.0.0 (2020-12-31)
+
+### 修复
+
+- [Web] 修正文件解析 iOS 证书对失效时间判断异常造成的页面错误显示
+- [Web] 忽略默认开发版本号检查新版本
+
+> 代码变更历史：[4.0.0]
+
 ## 4.0.0.rc2 (2020-12-25)
 ### 新功能
 
@@ -150,7 +159,8 @@
 
 🌈 第一个公测版本发布啦
 
-[未发布]: https://github.com/getzealot/zealot/compare/4.0.0.rc2...HEAD
+[未发布]: https://github.com/getzealot/zealot/compare/4.0.0...HEAD
+[4.0.0]: https://github.com/getzealot/zealot/compare/4.0.0.rc2...4.0.0
 [4.0.0.rc2]: https://github.com/getzealot/zealot/compare/4.0.0.rc1...4.0.0.rc2
 [4.0.0.rc1]: https://github.com/getzealot/zealot/compare/4.0.0.beta4...4.0.0.rc1
 [4.0.0.beta4]: https://github.com/getzealot/zealot/compare/4.0.0.beta3...4.0.0.beta4

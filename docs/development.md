@@ -7,7 +7,7 @@
 
 **环境依赖:**
 
-- Ruby 2.4+
+- Ruby 2.4+ (推荐 2.7)
 - Postgres 9.5+
 - Redis
 - Nodejs 8+
@@ -72,13 +72,13 @@ $ npm install -g yarn
 
 ### ruby
 
-> 不考虑最低 Ruby 版本的情况建议使用 2.6 版本（2020 年 1 月注：2.7 刚发布会有部分依赖不兼容的情况）
+> 不考虑最低 Ruby 版本的情况建议使用 2.7 版本（2021 年 1 月注：3.0 刚发布会有部分依赖不兼容的情况）
 
 #### rvm
 
 ```bash
 $ curl -sSL https://get.rvm.io | bash -s stable
-$ rvm install 2.6 --disable-binary
+$ rvm install 2.7 --disable-binary
 ```
 
 ### homebrew
@@ -93,7 +93,7 @@ $ brew install ruby # 通常是最新版本
 - **bash** shell 添加到 `~/.bashrc` 或 `~/.bash_profile`
 
 ```bash
-export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:/usr/local/opt/ruby/bin:$PATH"
 ```
 
 添加后记得重载下配置文件

@@ -18,13 +18,13 @@
 ## Docker 部署
 
 本着一键安装的原则，可是现实往往是残酷的，Zealot 配置都是依托于 ENV 环境变量，需要配置好之后再执行一键部署生成脚本。
-首先需要克隆[官方 Zealot 部署工具](https://github.com/getzealot/zealot-docker.git)，进入 `zealot-docker`
+首先需要克隆[官方 Zealot 部署工具](https://github.com/tryzealot/zealot-docker.git)，进入 `zealot-docker`
 目录后需要打开 `example.env` 文件配置必要的参数后可直接执行 `./deploy.sh` 脚本：
 
 > 默认会生成管理员账号：`admin@zealot.com` 和密码 `ze@l0t` 和一些演示应用。
 
 ```bash
-$ git clone https://github.com/getzealot/zealot-docker.git
+$ git clone https://github.com/tryzealot/zealot-docker.git
 $ cd zealot-docker
 $ ./deploy
 ```
@@ -110,7 +110,7 @@ zealot.test:80, zealot.test:443 {
 
 #### Nginx
 
-> 如下是通用配置，如果不可用欢迎[提问题](https://github.com/getzealot/zealot-docs/issues/new)。
+> 如下是通用配置，如果不可用欢迎[提问题](https://github.com/tryzealot/zealot-docs/issues/new)。
 
 ```
 server {

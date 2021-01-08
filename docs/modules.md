@@ -13,7 +13,7 @@ iOS 组件提供为 Zealot 检查新版本和安装的服务，支持 Swift 和 
 使用 [Cocoapods](https://cocoapods.org) 安装 Zealot 需要把它加到 `PodFile`:
 
 ```ruby
-pod 'Zealot', :git => 'https://github.com/getzealot/zealot-ios.git', :branch => 'master'
+pod 'Zealot', :git => 'https://github.com/tryzealot/zealot-ios.git', :branch => 'master'
 ```
 
 保存后开始安装：
@@ -96,7 +96,7 @@ allprojects {
 
 ```groovy
 dependencies {
-  implementation 'com.github.getzealot:zealot-android:master-SNAPSHOT'
+  implementation 'com.github.tryzealot:zealot-android:master-SNAPSHOT'
 }
 ```
 
@@ -162,7 +162,7 @@ Zealot.create(getActivity())
 
 > 第一次听说 fastlane，那你得多 out 了？！快看看[深入浅出 Fastlane 一看你就懂](https://icyleaf.com/2016/07/fastlane-in-action/) 系列教程补补课吧。
 
-[fastlane-plugin-zealot](https://github.com/getzealot/fastlane-plugin-zealot) 是专门为 Zealot 提供
+[fastlane-plugin-zealot](https://github.com/tryzealot/fastlane-plugin-zealot) 是专门为 Zealot 提供
 的上传 iOS、Andorid 应用和调试文件的 fastlane 插件。如果要使用 `fastlane-plugin-zealot` 可通过下面方法添加到 fastlane 体系中：
 
 ```bash

@@ -1,6 +1,6 @@
 # 项目配置
 
-Zealot 项目仅支持使用 ENV 环境变量来配置，具体可参考项目的 [example.env](https://github.com/getzealot/zealot/blob/develop/example.env)。
+Zealot 项目仅支持使用 ENV 环境变量来配置，具体可参考项目的 [example.env](https://github.com/tryzealot/zealot/blob/develop/example.env)。
 
 ## 配置域名
 

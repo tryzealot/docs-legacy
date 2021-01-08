@@ -1,14 +1,14 @@
 # Zealot
 
-<a class="github-button" href="https://github.com/getzealot/zealot" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star getzealot/zealot on GitHub">Star</a>
-<a class="github-button" href="https://github.com/getzealot/zealot/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="Watch getzealot/zealot on GitHub">Watch</a>
-<a class="github-button" href="https://github.com/getzealot/zealot/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork getzealot/zealot on GitHub">Fork</a>
+<a class="github-button" href="https://github.com/tryzealot/zealot" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star tryzealot/zealot on GitHub">Star</a>
+<a class="github-button" href="https://github.com/tryzealot/zealot/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="Watch tryzealot/zealot on GitHub">Watch</a>
+<a class="github-button" href="https://github.com/tryzealot/zealot/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork tryzealot/zealot on GitHub">Fork</a>
 <a class="github-button" href="https://github.com/icyleaf" data-size="large" data-show-count="true" aria-label="Follow @icyleaf on GitHub">Follow @icyleaf</a>
 
-[![GitHub release](https://img.shields.io/github/v/release/getzealot/zealot?include_prereleases)](https://github.com/getzealot/zealot/releases)
-[![Docker Pulls](https://img.shields.io/docker/pulls/icyleafcn/zealot.svg)](https://hub.docker.com/r/icyleafcn/zealot/)
-[![Maintainability](https://codeclimate.com/github/getzealot/zealot/badges/gpa.svg)](https://codeclimate.com/github/getzealot/zealot)
-[![License](https://img.shields.io/github/license/getzealot/zealot)](https://github.com/getzealot/zealot/blob/develop/LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/tryzealot/zealot?include_prereleases)](https://github.com/tryzealot/zealot/releases)
+[![Docker Pulls](https://img.shields.io/docker/pulls/tryzealot/zealot.svg)](https://hub.docker.com/r/tryzealot/zealot/)
+[![Maintainability](https://codeclimate.com/github/tryzealot/zealot/badges/gpa.svg)](https://codeclimate.com/github/tryzealot/zealot)
+[![License](https://img.shields.io/github/license/tryzealot/zealot)](https://github.com/tryzealot/zealot/blob/develop/LICENSE)
 
 移动应用上传下载竟然如此简单、解放开发打包的烦恼，轻松放权给测试、产品、运营等使用 App 的人员，深度与 Jenkins 和 Gitlab 集成。
 
@@ -24,11 +24,11 @@
 - [x] 支持获取 iOS 设备 UDID 及显示支持安装的应用
 - [x] 支持 OAuth 认证登录（目前以接入 Google，LDAP）
 - [x] 提供检查新版本和安装服务的 iOS 和 Android 组件
-- [x] 提供 fastlane 插件 [zealot](https://github.com/getzealot/fastlane-plugin-zealot) 提供上传应用和调试文件服务
+- [x] 提供 fastlane 插件 [zealot](https://github.com/tryzealot/fastlane-plugin-zealot) 提供上传应用和调试文件服务
 - [x] 可接入 Gitlab 服务直接挂钩源码管理
 - [ ] 可接入 Jenkins 服务实现远程构建
 - [x] 支持丰富的 REST APIs
-- [x] 支持 [Docker 一键部署](https://github.com/getzealot/zealot-docker)
+- [x] 支持 [Docker 一键部署](https://github.com/tryzealot/zealot-docker)
 - [ ] 支持 GraphGL 接口
 
 ## 演示

@@ -4,7 +4,7 @@
 
 ## 贡献成员
 
-项目代码贡献名单请参见 [Github 页面](https://github.com/getzealot/zealot/graphs/contributors)，感谢你们让 Zealot 变得更有用！
+项目代码贡献名单请参见 [Github 页面](https://github.com/tryzealot/zealot/graphs/contributors)，感谢你们让 Zealot 变得更有用！
 
 ## 项目名
 
@@ -16,4 +16,4 @@ Zealot 来自星际争霸种神族基础兵种。
 
 ## 发布协议
 
-Zealot 是一个基于 MIT 发布协议 (MIT) 发布的开源项目，协议内容请参见[协议文件](https://github.com/getzealot/zealot/blob/develop/LICENSE)。
+Zealot 是一个基于 MIT 发布协议 (MIT) 发布的开源项目，协议内容请参见[协议文件](https://github.com/tryzealot/zealot/blob/develop/LICENSE)。

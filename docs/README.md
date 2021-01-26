@@ -12,7 +12,7 @@
 
 开源自部署移动应用分发平台，提供 iOS、Android SDK、fastlane 等丰富组件库，打包分发流程、上传应用竟然如此简单、解决开发人员频繁打包的烦恼 🖖
 
-![Zealot Dashboard](_media/screenshot/product-1.png)
+![Zealot Dashboard](_media/showcase.png)
 
 ## 特性
 

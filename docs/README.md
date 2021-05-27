@@ -32,7 +32,7 @@
 
 ## 在线演示
 
-- 演示地址：https://tryzealot.ews.im/
+- 演示地址：https://tryzealot.herokuapp.com/
 - 电子邮箱: `admin@zealot.com`
 - 登录密码：`ze@l0t`
 

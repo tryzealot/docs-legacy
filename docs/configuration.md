@@ -5,7 +5,7 @@ Zealot 项目仅支持使用 ENV 环境变量来配置，具体可参考项目�
 ## 配置域名
 
 ```bash
-# 域名配置
+# 域名配置，无需配置 http:// 或 https://
 ZEALOT_DOMAIN=zealot.com
 ```
 
@@ -49,6 +49,8 @@ ACTION_MAILER_DEFAULT_TO=you@gmail.com
 
 ### 开启游客模式
 
+开启游客模式后允许应用的查看、下载和安装，建议公司内部对权限依赖不高的状况使用，具体权限对比可以[看这里查看详情](permissions.md)
+
 ```bash
 # 开启游客模式
 ZEALOT_GUEST_MODE=true
@@ -58,6 +60,8 @@ ZEALOT_GUEST_MODE=false
 ```
 
 ### 是否开启注册
+
+关闭注册之后，管理员可以通过管理面板的用户管理手动添加用户。
 
 ```bash
 # 开启注册
@@ -71,13 +75,26 @@ ZEALOT_REGISTER_ENABLED=false
 
 目前已接入的第三方登录：
 
+- [x] 飞书
 - [x] Google
 - [x] LDAP
+
+#### 飞书
+
+```bash
+## 从这里获取 App ID 和 Secret: https://open.feishu.cn/app/
+## 配置教程参见： https://github.com/tryzealot/zealot/pull/499
+
+FEISHU_ENABLED=true
+FEISHU_APP_ID=
+FEISHU_APP_SECRET=
+```
 
 #### Google
 
 ```bash
 ## 从这里获取 Client ID 和 Secret: https://code.google.com/apis/console/
+
 GOOGLE_OAUTH_ENABLED=true
 GOOGLE_CLIENT_ID=
 GOOGLE_SECRET=
@@ -102,6 +119,8 @@ LDAP_UID=uid
 
 按照官方开发者长期的使用观察一个可靠的清理老版本的逻辑是时刻关注当前主版本的所有上传版本，
 之前上传的历史版本只需要保留最后一个上传构建版本基本上就满足绝大数情况，举个例子：
+
+> 额外补充：当前逻辑相对省事但缺乏灵活度，其实有想过支持多种处理逻辑，具体参见 https://github.com/tryzealot/zealot/issues/376
 
 ```
 - 2.0

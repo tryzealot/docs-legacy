@@ -4,8 +4,8 @@
 
 ## 版本列表
 
-- [x] 测试版本 - develop - `tryzealot/zealot:nightly` - 基于 develop 分支每次提交构建的版本
-- [ ] 稳定版本 - 4.0.0 - `tryzealot/zealot:latest` - 还在研发测试中，尚未发布。
+- 稳定版本 - 4.1.0 - `tryzealot/zealot:latest`
+- 测试版本 - develop - `tryzealot/zealot:nightly` - 基于 develop 分支每次提交构建的版本
 
 ## 步骤解析
 

@@ -5,7 +5,7 @@ Zealot 项目仅支持使用 ENV 环境变量来配置，具体可参考项目�
 ## 配置域名
 
 ```bash
-# 域名配置
+# 域名配置，无需配置 http:// 或 https://
 ZEALOT_DOMAIN=zealot.com
 ```
 
@@ -49,6 +49,8 @@ ACTION_MAILER_DEFAULT_TO=you@gmail.com
 
 ### 开启游客模式
 
+开启游客模式后允许应用的查看、下载和安装，建议公司内部对权限依赖不高的状况使用，具体权限对比可以[看这里查看详情](permissions.md)
+
 ```bash
 # 开启游客模式
 ZEALOT_GUEST_MODE=true
@@ -58,6 +60,8 @@ ZEALOT_GUEST_MODE=false
 ```
 
 ### 是否开启注册
+
+关闭注册之后，管理员可以通过管理面板的用户管理手动添加用户。
 
 ```bash
 # 开启注册
@@ -71,19 +75,68 @@ ZEALOT_REGISTER_ENABLED=false
 
 目前已接入的第三方登录：
 
-- [x] Google
-- [x] LDAP
+服务 | 标识符
+---|---
+飞书 | `feishu`
+Gitlab | `gitlab`
+Google | `google_oauth2`
+LDAP | `ldap`
+
+如果以上服务需要设置回调地址的话请统一设置为：
+
+```
+http://zealot.com/users/auth/:provider/callback
+```
+
+其中 `:provider` 是上面支持第三方服务的标识符，例如开启了飞书那就把 `:provider` 替换成 `feishu`。
+
+#### 飞书
+
+1. 去注册一个飞书账号并下载手机 App
+1. 注册[飞书开发平台](https://open.feishu.cn/app/)并创建企业自建应用获得 app_id, app_secret
+1. 填写 callback url 为 `http://zealot.com/users/auth/feishu/callback` (域名根据实际情况修改）
+1. 添加用户字段信息授权：`email 地址` （可选）
+1. 至少勾选一个应用方式并创建新版本后发布
+
+```bash
+FEISHU_ENABLED=true
+FEISHU_APP_ID=
+FEISHU_APP_SECRET=
+```
+
+#### Gitlab
+
+1. 注册[官方](http://gitlab.com)或自部署 Gitlab 服务
+1. 在用户设置（Preferences） -> 应用（Applications） 创建一个新应用
+1. 回调地址（Redirect URI） 配置为  `http://zealot.com/users/auth/gitlab/callback` (域名根据实际情况修改）
+1. 添加用户字段信息授权（scope）：`read_user`，默认 zealot 仅用此授权，如果你的授权范围是 `api` 也没问题
+
+```bash
+GITLAB_ENABLED=true
+GITLAB_SITE=https://gitlab.com/api/v4
+GITLAB_SCOPE=read_user
+GITLAB_APP_ID=
+GITLAB_SECRET=
+```
 
 #### Google
 
+1. 注册 Google 账号
+1. 开通 [Google Cloud Platform](https://console.cloud.google.com/apis/dashboard) 服务
+1. 选择或创建 Project 并前往 Credentials
+1. 创建 OAuth Client ID 选择 Web Application 后添加回调地址（Authorized redirect URI） 配置为 `http://zealot.com/users/auth/google_oauth2/callback` (域名根据实际情况修改）
+1. 创建成功后获得 Client ID 和 Client Secret
+
 ```bash
-## 从这里获取 Client ID 和 Secret: https://code.google.com/apis/console/
 GOOGLE_OAUTH_ENABLED=true
 GOOGLE_CLIENT_ID=
 GOOGLE_SECRET=
 ```
 
 #### LDAP
+
+1. 自部署或使用现有的 LDAP 服务
+1. 自配置或查找如下参数的值
 
 ```bash
 LDAP_ENABLED=true
@@ -102,6 +155,8 @@ LDAP_UID=uid
 
 按照官方开发者长期的使用观察一个可靠的清理老版本的逻辑是时刻关注当前主版本的所有上传版本，
 之前上传的历史版本只需要保留最后一个上传构建版本基本上就满足绝大数情况，举个例子：
+
+> 额外补充：当前逻辑相对省事但缺乏灵活度，其实有想过支持多种处理逻辑，具体参见 https://github.com/tryzealot/zealot/issues/376
 
 ```
 - 2.0

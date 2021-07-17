@@ -9,6 +9,7 @@
 ### 变更
 
 - [Web] 因 iPad 的 User-Agent 和 Desktop 一样更改获取设备 UDID 的显示逻辑
+- [Docker] 设置 Gihub Container Registry (gcr.io) 作为默认 Docker 镜像源
 
 ### 新功能
 

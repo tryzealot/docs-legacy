@@ -4,7 +4,22 @@
 
 > 如下罗列的变更是还未发布的列表，代码变更历史：[未发布]
 
-## 4.1.0 (2021-07-?)
+### 变更
+
+- [Web] `文件解析`改名为`应用解包` #[529](https://github.com/tryzealot/zealot/pull/529)
+
+### 新功能
+
+- [Web] 新增手机设备在渠道详情页对应用类型和渠道快速筛选项，#[510](https://github.com/tryzealot/zealot/issues/510) 感谢 [huacnlee](https://github.com/huacnlee)
+- [Docker] 新增支持 [Github Container Registry](https://github.com/tryzealot/zealot/pkgs/container/zealot) 镜像同步更新
+
+### 修复
+
+- [Web] 修复在 iPad 和 M1 芯片的 macOS 无法显示 iOS 安装按钮 #[519](https://github.com/tryzealot/zealot/issues/519) 感谢 [ohdarling](https://github.com/ohdarling)
+- [Web] 修复注册但未验证邮件的同时使用第三方登录失败 #[517](https://github.com/tryzealot/zealot/issues/517) 感谢 [huacnlee](https://github.com/huacnlee)
+- [Web] 修复使用网页上传没有触发应用解包
+
+## 4.1.0 (2021-07-17)
 
 ### 变更
 

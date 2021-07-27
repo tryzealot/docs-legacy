@@ -69,44 +69,8 @@ $ sudo vim /etc/hosts
 
 ### 纯 Zealot 服务
 
-如果已经有 [HAProxy](http://www.haproxy.org/)、
-[Nginx](http://nginx.org/) 或 [Caddy](https://caddyserver.com/) 之类网关或负载均衡来做 SSL 证书代理，
+如果已经有 [Nginx](http://nginx.org/)、[Caddy](https://caddyserver.com/) 之类网关或负载均衡来做 SSL 证书代理，
 在运行之后拿到 `zealot-zealot` 实例的 IP 地址，端口是 3000 反代给上述服务即可。
-
-#### Caddy
-
-```
-zealot.test:80, zealot.test:443 {
-  # http 301 到 https
-  redir 301 {
-    if {scheme} is http
-    / https://{host}{uri}
-  }
-
-  log stdout
-
-  # ssl
-  ## 证书文件
-  tls /etc/certs/zealot.key /etc/certs/zealot-cert.key
-  ##
-  tls zealot@exampl.eocm
-
-  # serve assets of zealot
-  root /app/public
-
-  proxy / http://172.10.0.172:3000 {
-    except /assets /packs /uploads /config /favicon.ico /robots.txt
-
-    transparent
-    header_upstream X-Marotagem true
-    header_upstream Host {host}
-    header_upstream X-Real-IP {remote}
-    header_upstream X-Forwarded-For {remote}
-  }
-}
-```
-
-配置只需关系 `tls` 和 `proxy` 后面 ip 的部分即可。
 
 #### Nginx
 
@@ -143,3 +107,40 @@ server {
   }
 }
 ```
+
+#### Caddy 1.x
+
+> 待更新至 2.x 版本
+
+```
+zealot.test:80, zealot.test:443 {
+  # http 301 到 https
+  redir 301 {
+    if {scheme} is http
+    / https://{host}{uri}
+  }
+
+  log stdout
+
+  # ssl
+  ## 证书文件
+  tls /etc/certs/zealot.key /etc/certs/zealot-cert.key
+  ##
+  tls zealot@exampl.eocm
+
+  # serve assets of zealot
+  root /app/public
+
+  proxy / http://172.10.0.172:3000 {
+    except /assets /packs /uploads /config /favicon.ico /robots.txt
+
+    transparent
+    header_upstream X-Marotagem true
+    header_upstream Host {host}
+    header_upstream X-Real-IP {remote}
+    header_upstream X-Forwarded-For {remote}
+  }
+}
+```
+
+配置只需关系 `tls` 和 `proxy` 后面 ip 的部分即可。

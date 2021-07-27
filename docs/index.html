@@ -39,9 +39,9 @@
             if (/githubusercontent\.com/.test(vm.route.file)) {
               url = vm.route.file
                 .replace('raw.githubusercontent.com', 'github.com')
-                .replace(/\/develop/, '/blob/develop')
+                .replace(/\/master/, '/blob/master')
             } else {
-              url = 'https://github.com/tryzealot/zealot/blob/develop/docs/' + vm.route.file
+              url = 'https://github.com/tryzealot/zealot-docs/blob/master/' + vm.route.file
             }
             var editHtml = '<a href="' + url + '" style="float:right">:memo:在 Github 编辑文档</a>\n'
             return html

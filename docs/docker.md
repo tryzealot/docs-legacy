@@ -4,8 +4,13 @@
 
 ## 版本列表
 
-- 稳定版本 - 4.1.0 - `tryzealot/zealot:latest`
-- 测试版本 - develop - `tryzealot/zealot:nightly` - 基于 develop 分支每次提交构建的版本
+- 稳定版本 - 4.1.0 - `ghcr.io/tryzealot/zealot:latest`
+- 测试版本 - develop - `ghcr.io/tryzealot/zealot:nightly` - 基于 develop 分支每次提交构建的版本
+
+## 镜像仓库
+
+- Github Container Registry: https://github.com/tryzealot/zealot/pkgs/container/zealot (**推荐**)
+- Docker Hub: https://hub.docker.com/r/tryzealot/zealot
 
 ## 步骤解析
 

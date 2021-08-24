@@ -4,12 +4,25 @@ Zealot 项目仅支持使用 ENV 环境变量来配置，具体可参考项目�
 
 ## 配置域名
 
+必须配置否则下载应用和一些静态资源会无法正确访问到
+
 ```bash
 # 域名配置，无需配置 http:// 或 https://
 ZEALOT_DOMAIN=zealot.com
 ```
 
+## 配置管理员账户和密码
+
+默认不配置如下也会生成下面的账户和密码作为管理员权限的账户，建议配置后重新修改密码。
+
+```bash
+ZEALOT_ADMIN_EMAIL=admin@zealot.com
+ZEALOT_ADMIN_PASSWORD=ze@l0t
+```
+
 ## HTTPS 证书
+
+**因苹果的硬性要求线上部署和下载服务强制 HTTPS**，因此再部署的时候下载应用会强制走 HTTPS 协议。
 
 如果部署是单台机器的独立服务，建议开启 Let's Encrypt 免费 SSL 证书，只需要设置
 
@@ -19,7 +32,7 @@ ZEALOT_CERT_EMAIL=zealot@example.com
 
 > 和下面自签名证书文件名二选一，不能同时设置
 
-如果部署的机器只能使用自签名证书，则需要配置：
+如果部署的机器只能使用自签名证书，则需要配置，但需要注意的是 iOS 的下载需要在 iOS 设备授权自签名的证书后才允许下载安装。（不推荐）
 
 ```bash
 ZEALOT_CERT=zealot.test.pem
@@ -147,6 +160,28 @@ LDAP_BIND_DN="cn=Manager,dc=example,dc=com"
 LDAP_PASSWORD=password
 LDAP_BASE="ou=People,dc=example,dc=com"
 LDAP_UID=uid
+```
+
+## 外部存储
+
+假如你有可以复用的 postgresql 和 redis 服务也可以自定义配置使用，而无需使用 docker-compose 默认配置的服务。
+
+### Postgresql
+
+```bash
+ZEALOT_POSTGRES_HOST=127.0.0.1
+ZEALOT_POSTGRES_PORT=5432
+ZEALOT_POSTGRES_USERNAME=postgres
+ZEALOT_POSTGRES_PASSWORD=ze@l0t
+ZEALOT_POSTGRES_DB_NAME=zealot
+```
+
+### Redis
+
+主要是为了兼容 heroku 才采用的 URL 连接方式
+
+```bash
+REDIS_URL=redis://user:pass@127.0.0.1:6379/0
 ```
 
 ## 定时任务

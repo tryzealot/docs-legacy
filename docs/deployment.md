@@ -1,7 +1,8 @@
 # 安装部署
 
-> :bell: 官方建议安装首选使用 [Docker](https://www.docker.io/) 安装部署 Zealot。
-> 鉴于 iOS 使用下载服务依赖开启 SSL/TLS 证书，建议使用经过授权的证书服务，比如 [Let's Encrypt](https://letsencrypt.org/)。
+> :bell: 强烈建议安装首选使用 [Docker](https://www.docker.io/) 安装部署 Zealot，除非你对本服务的技术栈特别熟悉。
+> 鉴于 iOS 使用下载服务依赖开启 SSL/TLS 证书，建议使用经过授权的证书服务，比如 [Let's Encrypt](https://letsencrypt.org/)，
+> 如果使用自签名证书需要每个 iOS 设备在下载安装应用前必须安装自签名证书才行。
 
 ## 为什么仅提供 Docker 镜像？
 
@@ -14,6 +15,11 @@
 - 至少 512 MB 内存
 - 64 位 Linux 发行版
 - 建议 20 GB 以上硬盘空间（取决于应用和上传频率的多少）
+
+## 软件版本要求
+
+- Docker 20.10.0+
+- Docker Compose 1.28.0+
 
 ## Docker 部署
 
@@ -33,7 +39,7 @@ $ ./deploy
 
 - 使用 Let's Encrypt 证书
 - 使用自签名证书
-- 纯 Zealot 服务（需反代网关或负载均衡生成 SSL 证书）
+- 纯 Zealot 服务（**需要反代网关或负载均衡生成 SSL 证书**）
 
 对于一键安装部署脚本感兴趣的可以查看 [Docker 手把手部署文档](docker.md)。
 
@@ -70,7 +76,7 @@ $ sudo vim /etc/hosts
 ### 纯 Zealot 服务
 
 如果已经有 [Nginx](http://nginx.org/)、[Caddy](https://caddyserver.com/) 之类网关或负载均衡来做 SSL 证书代理，
-在运行之后拿到 `zealot-zealot` 实例的 IP 地址，端口是 3000 反代给上述服务即可。
+在运行之后拿到 `zealot-zealot` 实例的 IP 地址，端口是 80 反代给上述服务即可。
 
 #### Nginx
 
@@ -103,44 +109,22 @@ server {
     proxy_set_header   X-Real-IP          $remote_addr;
     proxy_set_header   X-Forwarded-For    $proxy_add_x_forwarded_for;
     proxy_buffering    on;
-    proxy_pass         http://172.10.0.172:3000;
+    proxy_pass         http://172.10.0.172:80;
   }
 }
 ```
 
-#### Caddy 1.x
-
-> 待更新至 2.x 版本
+#### Caddy 2
 
 ```
-zealot.test:80, zealot.test:443 {
-  # http 301 到 https
-  redir 301 {
-    if {scheme} is http
-    / https://{host}{uri}
-  }
+:443
 
-  log stdout
+log
 
-  # ssl
-  ## 证书文件
-  tls /etc/certs/zealot.key /etc/certs/zealot-cert.key
-  ##
-  tls zealot@exampl.eocm
+## 使用 Let's Encrypt 服务
+tls zealot@exampl.com
 
-  # serve assets of zealot
-  root /app/public
-
-  proxy / http://172.10.0.172:3000 {
-    except /assets /packs /uploads /config /favicon.ico /robots.txt
-
-    transparent
-    header_upstream X-Marotagem true
-    header_upstream Host {host}
-    header_upstream X-Real-IP {remote}
-    header_upstream X-Forwarded-For {remote}
-  }
-}
+reverse_proxy 127.0.0.1:80
 ```
 
 配置只需关系 `tls` 和 `proxy` 后面 ip 的部分即可。

@@ -4,20 +4,34 @@
 
 > 如下罗列的变更是还未发布的列表，代码变更历史：[未发布]
 
+## 4.1.1 (2021-08-26)
 ### 变更
 
 - [Web] `文件解析`改名为`应用解包` #[529](https://github.com/tryzealot/zealot/pull/529)
+- [API] 上传应用的自定义字段图标支持 fontawesome css 的值，比如 [flag](https://fontawesome.com/v5.15/icons/flag?style=solid) 的值是 `fas fa-flag`
+- [Docker] 镜像由 caddy 作为反代提供服务并对 volume 持久化做了变更，涉及迁移，具体看 #[540](https://github.com/tryzealot/zealot/pull/540)
 
 ### 新功能
 
 - [Web] 新增手机设备在渠道详情页对应用类型和渠道快速筛选项，#[510](https://github.com/tryzealot/zealot/issues/510) 感谢 [huacnlee](https://github.com/huacnlee)
+- [Web] 环境变量涉及隐私的做部分加密处理
 - [Docker] 新增支持 [Github Container Registry](https://github.com/tryzealot/zealot/pkgs/container/zealot) 镜像同步更新
-
+- [Docker] 新增支持环境变量配置 postgres 端口号
 ### 修复
 
 - [Web] 修复在 iPad 和 M1 芯片的 macOS 无法显示 iOS 安装按钮 #[519](https://github.com/tryzealot/zealot/issues/519) 感谢 [ohdarling](https://github.com/ohdarling)
 - [Web] 修复注册但未验证邮件的同时使用第三方登录失败 #[517](https://github.com/tryzealot/zealot/issues/517) 感谢 [huacnlee](https://github.com/huacnlee)
 - [Web] 修复使用网页上传没有触发应用解包
+- [Web] 修复 tubrolink 开启下左侧导航样式错位
+- [Web] Android 上传应用也显示解包链接
+- [Web] 优化解包文件列表判断为空的显示提示
+- [Web] 修复 LDAP 参数获取错误 #[541](https://github.com/tryzealot/zealot/pull/542) 感谢 [Martwu](https://github.com/Martwu)
+- [Web] 优化捕获页面上传应用错误改为可读的错误信息
+- [Web] 修复创建应用类型出错判断异常
+- [Web] 补充在应用删除全部渠道后点击详情报错的一个异常情况的判断
+- [Web] 修复上传应用因解析过程变量释放错误
+- [Web] 修复应用设置密码保护校验时报错
+- [Docker] 修复镜像初始化 logrotate 错误
 
 ## 4.1.0 (2021-07-17)
 

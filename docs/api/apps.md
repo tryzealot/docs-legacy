@@ -22,7 +22,18 @@ POST /api/apps/upload
 | changelog | `String` | false | 变更日志，接受纯文本或 JSON 格式化的数据 |
 | git_commit | `String` | false | 上传应用时的 git commit hash |
 | ci_url | `String` | false | CI 项目构建地址 |
-| custom_fields | `String` | false | 自定义字段，用于在 Web 版本详情展示 |
+| custom_fields | `String` | false | 这是一个用 JSON 字符串定义的自定义字段，<br />可配置名称，值以及 fontawesome 图标用于在页面详情展示 |
+
+对于 `custom_fields` 的用法，它是一个使用 JSON 格式的以键值对为单位的数组，比如需要自定义国家 country=China 并配置图标为 fontawesome 的 [flag](https://fontawesome.com/v5.15/icons/flag?style=solid)
+
+```diff
+curl -X POST \
+  'https://tryzealot.herokuapp.com//api/apps/upload' \
+   --form 'token="token"' \
+   --form 'channel_key="channel_key"' \
++  --form 'custom_fields="[{"name":"country","value":"China","icon":"fas fa-flag"}]"' \
+   --form 'file=@/path/to/your/app'
+```
 
 #### 返回样例
 

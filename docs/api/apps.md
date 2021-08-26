@@ -39,7 +39,7 @@ curl -X POST \
 
 > TODO
 
-### 应用列表
+## 应用列表
 
 获取创建的应用列表，支持分页
 
@@ -47,14 +47,14 @@ curl -X POST \
 GET /api/apps
 ```
 
-#### 参数
+### 参数
 
 | 名称 | 类型 | 是否必须 | 描述 |
 |---|---|---|---|
 | page | `Integer` | false | 页数|
 | per_page | `Integer` | false | 每页返回最大数目 |
 
-#### 返回样例
+### 返回样例
 
 ```json
 [
@@ -111,7 +111,7 @@ GET /api/apps
 ]
 ```
 
-### 应用详情
+## 应用详情
 
 查看应用的明细：应用类型、渠道等信息
 
@@ -119,13 +119,13 @@ GET /api/apps
 GET /api/apps/:id
 ```
 
-#### 参数
+### 参数
 
 | 名称 | 类型 | 是否必须 | 描述 |
 |---|---|---|---|
 | id | `String` | true | 应用 ID |
 
-#### 返回样例
+### 返回样例
 
 ```json
 {
@@ -158,7 +158,7 @@ GET /api/apps/:id
 }
 ```
 
-### 应用版本列表
+## 应用版本列表
 
 获取应用已上传的版本列表，按照上传时间倒序排列
 
@@ -166,7 +166,7 @@ GET /api/apps/:id
 GET /api/apps/versions
 ```
 
-#### 参数
+### 参数
 
 | 名称 | 类型 | 是否必须 | 描述 |
 |---|---|---|---|
@@ -174,7 +174,7 @@ GET /api/apps/versions
 | page | `Integer` | false | 页数|
 | per_page | `Integer` | false | 每页返回最大数目 |
 
-#### 返回样例
+### 返回样例
 
 ```json
 {
@@ -226,7 +226,7 @@ GET /api/apps/versions
 }
 ```
 
-### 应用最新版本
+## 应用最新版本
 
 获取指定应用的最新版本信息
 
@@ -234,7 +234,7 @@ GET /api/apps/versions
 GET /api/apps/latest
 ```
 
-#### 参数
+### 参数
 
 | 名称 | 类型 | 是否必须 | 描述 |
 |---|---|---|---|
@@ -242,7 +242,7 @@ GET /api/apps/latest
 | release_version | `String` | true | 应用的发布版本 |
 | build_version | `String` | true | 应用的构建版本 |
 
-#### 返回样例
+### 返回样例
 
 ```json
 {
@@ -276,7 +276,7 @@ GET /api/apps/latest
 }
 ```
 
-### 检查当前版本是否存在
+## 检查当前版本是否存在
 
 使用 bundle_id、release_version、build_verion 或 bundle_id、git_commit 组合检查当前版本是否存在
 
@@ -284,7 +284,7 @@ GET /api/apps/latest
 GET /api/apps/version_exist
 ```
 
-#### 参数
+### 参数
 
 | 名称 | 类型 | 是否必须 | 描述 |
 |---|---|---|---|
@@ -294,7 +294,7 @@ GET /api/apps/version_exist
 | build_version | `String` | false | 应用的构建版本 |
 | git_commit | `String` | false | 上传应用时的 git commit hash |
 
-#### 返回样例
+### 返回样例
 
 - 版本存在返回 200 状态码并返回版本的信息
 - 版本不存在返回 404 状态码和错误信息

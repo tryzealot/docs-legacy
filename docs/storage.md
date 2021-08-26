@@ -17,3 +17,8 @@ Zealot 服务除了依赖 postgresql、redis 之外还有一部分的磁盘存�
 
 - apps 上传应用的目录
 - debugs_files 上传调试文件的目录
+
+## 备份存储
+
+Zealot 服务目前支持命令生成备份数据，备份数据会包含数据库及上传应用和调试文件的二进制包，
+目前是存储在文件系统之中，目录位于 `public/backup`。

@@ -1,6 +1,6 @@
 # 项目配置
 
-Zealot 项目仅支持使用 ENV 环境变量来配置，具体可参考项目的 [example.env](https://github.com/tryzealot/zealot/blob/develop/example.env)。
+Zealot 项目仅支持使用 ENV 环境变量来配置，具体可参考项目的 [config.env](https://github.com/tryzealot/zealot-docker/blob/master/config.env)。
 
 ## 配置域名
 
@@ -119,7 +119,7 @@ FEISHU_APP_SECRET=
 
 #### Gitlab
 
-1. 注册[官方](http://gitlab.com)或自部署 Gitlab 服务
+1. 注册 Gitlab [官方](http://gitlab.com)账户或自部署 Gitlab 服务
 1. 在用户设置（Preferences） -> 应用（Applications） 创建一个新应用
 1. 回调地址（Redirect URI） 配置为  `http://zealot.com/users/auth/gitlab/callback` (域名根据实际情况修改）
 1. 添加用户字段信息授权（scope）：`read_user`，默认 zealot 仅用此授权，如果你的授权范围是 `api` 也没问题
@@ -188,7 +188,7 @@ REDIS_URL=redis://user:pass@127.0.0.1:6379/0
 
 ### 清理老版本
 
-按照官方开发者长期的使用观察一个可靠的清理老版本的逻辑是时刻关注当前主版本的所有上传版本，
+按照项目维护者长期的使用观察一个可靠的清理老版本的逻辑是时刻关注当前主版本的所有上传版本，
 之前上传的历史版本只需要保留最后一个上传构建版本基本上就满足绝大数情况，举个例子：
 
 > 额外补充：当前逻辑相对省事但缺乏灵活度，其实有想过支持多种处理逻辑，具体参见 https://github.com/tryzealot/zealot/issues/376

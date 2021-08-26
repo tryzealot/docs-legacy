@@ -7,7 +7,7 @@
 
 **环境依赖:**
 
-- Ruby 2.4+ (推荐 2.7)
+- Ruby 2.7+
 - Postgres 9.5+
 - Redis
 - Nodejs 8+
@@ -72,7 +72,17 @@ $ npm install -g yarn
 
 ### ruby
 
-> 不考虑最低 Ruby 版本的情况建议使用 2.7 版本（2021 年 1 月注：3.0 刚发布会有部分依赖不兼容的情况）
+可以通过 asdf、rvm 或 homebrew 任意一种方式安装
+
+#### asdf
+
+一个支持主流开发语言版本切换的工具，请按照[官方安装教程](http://asdf-vm.com/guide/getting-started.html)好之后安装 ruby
+
+```bash
+asdf plugin add ruby
+asdf install ruby 2.7.0
+asdf global ruby 2.7.0
+```
 
 #### rvm
 

@@ -7,7 +7,7 @@
 ## 为什么仅提供 Docker 镜像？
 
 部署基于 Rails 应用是异常复杂，即使你可以在部署服务器安装了 Ruby、ImageMagick、 Node、Postgres 和 Redis，
-你仍然需要操心如何运行 Zealot 服务和 Sidekiq 异步任务服务。官方提供的 Docker 镜像把这些烦人的事情都放到了镜像通过一键部署安装脚本完成初始化工作。
+你仍然需要操心如何运行 Zealot 服务和 Sidekiq 异步任务服务。项目提供的 Docker 镜像把这些烦人的事情都放到了镜像通过一键部署安装脚本完成初始化工作。
 
 ## 服务器硬件要求
 

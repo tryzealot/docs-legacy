@@ -32,11 +32,12 @@
 - [Web] 修复创建应用类型出错判断异常
 - [Web] 补充在应用删除全部渠道后点击详情报错的一个异常情况的判断
 - [Web] 修复上传应用因解析过程变量释放错误
-- [Web] 修复应用设置密码保护校验时报错
-- [Web] 修复管理员面板编辑用户资料报错
+- [Web] 修复应用设置密码保护校验时报错 #[564](https://github.com/tryzealot/zealot/issues/564) 感谢 [EasierLu](https://github.com/EasierLu)
+- [Web] 修复管理员面板编辑用户资料报错 #[564](https://github.com/tryzealot/zealot/issues/564) 感谢 [EasierLu](https://github.com/EasierLu)
 - [Web] 修复应用详情页面 "安装" 按钮会在错误的系统和设备上异常显示（正常只有 iOS 应用在 iOS 及 macOS 设备才会显示）
 - [Web] 优化应用解包对于开发者证书因包含特殊字符集（目前已知的是中文编码）解析失败及 UI 样式的重新布局
 - [Docker] 修复镜像初始化 logrotate 错误
+- [Docker] 修复使用 Caddy 部署需要确认 #[551](https://github.com/tryzealot/zealot/issues/551) 感谢 [ReverseScale](https://github.com/ReverseScale)
 
 ## 4.1.0 (2021-07-17)
 

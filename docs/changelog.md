@@ -7,12 +7,15 @@
 ### 变更
 
 - [Web] `文件解析`改名为`应用解包` #[529](https://github.com/tryzealot/zealot/pull/529)
+- [Web] 下线应用解包中对已上传应用的解包支持（现在上传的应用都会自动触发额外的应用解包）
 - [API] 上传应用的自定义字段图标支持 fontawesome css 的值，比如 [flag](https://fontawesome.com/v5.15/icons/flag?style=solid) 的值是 `fas fa-flag`
 - [Docker] 镜像由 caddy 作为反代提供服务并对 volume 持久化做了变更，涉及迁移，具体看 #[540](https://github.com/tryzealot/zealot/pull/540)
 
 ### 新功能
 
+- [Web] 支持 macOS 应用的上传、解析和下载 #[562](https://github.com/tryzealot/zealot/pull/562)
 - [Web] 新增手机设备在渠道详情页对应用类型和渠道快速筛选项，#[510](https://github.com/tryzealot/zealot/issues/510) 感谢 [huacnlee](https://github.com/huacnlee)
+- [Web] 管理员面板可配置应用的类型模板和默认注册用户的权限 #[562](https://github.com/tryzealot/zealot/pull/562) #[568](https://github.com/tryzealot/zealot/pull/568)
 - [Web] 环境变量涉及隐私的做部分加密处理
 - [Docker] 新增支持 [Github Container Registry](https://github.com/tryzealot/zealot/pkgs/container/zealot) 镜像同步更新
 - [Docker] 新增支持环境变量配置 postgres 端口号
@@ -30,6 +33,9 @@
 - [Web] 补充在应用删除全部渠道后点击详情报错的一个异常情况的判断
 - [Web] 修复上传应用因解析过程变量释放错误
 - [Web] 修复应用设置密码保护校验时报错
+- [Web] 修复管理员面板编辑用户资料报错
+- [Web] 修复应用详情页面 "安装" 按钮会在错误的系统和设备上异常显示（正常只有 iOS 应用在 iOS 及 macOS 设备才会显示）
+- [Web] 优化应用解包对于开发者证书因包含特殊字符集（目前已知的是中文编码）解析失败及 UI 样式的重新布局
 - [Docker] 修复镜像初始化 logrotate 错误
 
 ## 4.1.0 (2021-07-17)

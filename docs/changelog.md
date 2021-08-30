@@ -6,6 +6,7 @@
 
 ### 变更
 
+- [Web] 清理老版本逻辑默认改为关闭，如需开启请设置环境变量 `ZEALOT_KEEP_UPLOADS=false` #[570](https://github.com/tryzealot/zealot/pull/570)
 - [Web] `文件解析`改名为`应用解包` #[529](https://github.com/tryzealot/zealot/pull/529)
 - [Web] 下线应用解包中对已上传应用的解包支持（现在上传的应用都会自动触发额外的应用解包）
 - [API] 上传应用的自定义字段图标支持 fontawesome css 的值，比如 [flag](https://fontawesome.com/v5.15/icons/flag?style=solid) 的值是 `fas fa-flag`

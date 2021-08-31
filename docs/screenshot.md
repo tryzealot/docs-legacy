@@ -6,13 +6,17 @@ Zealot 使用响应式 Web 前端框架构建，可在电脑、平板和手机�
 
 ![截图](_media/screenshot/product-1.png)
 
-### 应用类型及渠道
+### 应用详情
 
 ![截图](_media/screenshot/product-2.png)
 
-### 应用详情
 
-![截图](_media/screenshot/product-3.png)
+### 应用类型及渠道
+
+![截图](_media/screenshot/product-3-1.png)
+
+
+![截图](_media/screenshot/product-3-2.png)
 
 ### 调试文件
 
@@ -25,3 +29,11 @@ Zealot 使用响应式 Web 前端框架构建，可在电脑、平板和手机�
 ### 获取 iOS 设备 UDID
 
 ![截图](_media/screenshot/product-6.png)
+
+### 系统设置
+
+![截图](_media/screenshot/product-7.png)
+
+### 环境信息
+
+![截图](_media/screenshot/product-8.png)

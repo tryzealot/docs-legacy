@@ -18,6 +18,7 @@
 - [Web] 新增手机设备在渠道详情页对应用类型和渠道快速筛选项，#[510](https://github.com/tryzealot/zealot/issues/510) 感谢 [huacnlee](https://github.com/huacnlee)
 - [Web] 管理员面板可配置应用的类型模板和默认注册用户的权限 #[562](https://github.com/tryzealot/zealot/pull/562) #[568](https://github.com/tryzealot/zealot/pull/568)
 - [Web] 环境变量涉及隐私的做部分加密处理
+- [Web] 内存和磁盘使用率增加图形展示
 - [Docker] 新增支持 [Github Container Registry](https://github.com/tryzealot/zealot/pkgs/container/zealot) 镜像同步更新
 - [Docker] 新增支持环境变量配置 postgres 端口号
 ### 修复
@@ -37,6 +38,8 @@
 - [Web] 修复管理员面板编辑用户资料报错 #[564](https://github.com/tryzealot/zealot/issues/564) 感谢 [EasierLu](https://github.com/EasierLu)
 - [Web] 修复应用详情页面 "安装" 按钮会在错误的系统和设备上异常显示（正常只有 iOS 应用在 iOS 及 macOS 设备才会显示）
 - [Web] 优化应用解包对于开发者证书因包含特殊字符集（目前已知的是中文编码）解析失败及 UI 样式的重新布局
+- [Web] 修复无法编辑当前用户
+- [Web] 改正调试文件的标题重复
 - [Docker] 修复镜像初始化 logrotate 错误
 - [Docker] 修复使用 Caddy 部署需要确认 #[551](https://github.com/tryzealot/zealot/issues/551) 感谢 [ReverseScale](https://github.com/ReverseScale)
 

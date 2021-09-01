@@ -4,9 +4,9 @@
 
 上传应用，仅支持 iOS 和 Android 类型。
 
-```
+```  
 POST /api/apps/upload
-```
+```  
 
 ### 参数
 
@@ -20,6 +20,7 @@ POST /api/apps/upload
 | release_type | `String` | false | 应用类型，比如 debug, beta, adhoc, release, enterprise 等 |
 | source | `String` | false | 上传渠道名称，默认是 api |
 | changelog | `String` | false | 变更日志，接受纯文本或 JSON 格式化的数据 |
+| branch | `String` |false|上传应用时的git branch名称|
 | git_commit | `String` | false | 上传应用时的 git commit hash |
 | ci_url | `String` | false | CI 项目构建地址 |
 | custom_fields | `String` | false | 这是一个用 JSON 字符串定义的自定义字段，<br />可配置名称，值以及 fontawesome 图标用于在页面详情展示 |
@@ -37,7 +38,48 @@ curl -X POST \
 
 #### 返回样例
 
-> TODO
+```json  
+{
+	"id": 50,
+	"version": 7,
+	"app_name": "Test Android",
+	"bundle_id": "com.test.app",
+	"release_version": "1.0",
+	"build_version": "1",
+	"source": "SOURCE",
+	"branch": "master",
+	"git_commit": "e9de48513dbb6abfbxxxxxxxxxxxxxxxxxxxxxxxx",
+	"ci_url": "",
+	"size": 1565486,
+	"icon_url": "/uploads/apps/a1/r1/icons/app_icon.png",
+	"release_url": "https://ZEALOT_URL/channels/1XmpC/releases/1",
+	"install_url": "https://ZEALOT_URL/download/releases/1",
+	"qrcode_url": "https://ZEALOT_URL/channels/1XmpC/releases/1/qrcode?size=thumb",
+	"changelog_list": [
+		{
+			"message": "日志日志日志日志"
+		}
+	],
+	"custom_fields": [],
+	"created_at": "2021-09-01T11:43:33.977+08:00",
+	"app": {
+		"id": 1,
+		"name": "服务接口测试"
+	},
+	"scheme": {
+		"id": 8,
+		"name": "Test"
+	},
+	"channel": {
+		"slug": "1XmpC",
+		"name": "Android",
+		"device_type": "android",
+		"bundle_id": "*",
+		"git_url": null,
+		"has_password": false
+	}
+}
+```  
 
 ## 应用列表
 

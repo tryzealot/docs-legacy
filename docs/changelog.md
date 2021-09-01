@@ -4,6 +4,8 @@
 
 > 如下罗列的变更是还未发布的列表，代码变更历史：[未发布]
 
+## 4.2.0 (2021-09-01)
+
 ### 变更
 
 - [Web] 清理老版本逻辑默认改为关闭，如需开启请设置环境变量 `ZEALOT_KEEP_UPLOADS=false` #[570](https://github.com/tryzealot/zealot/pull/570)
@@ -222,7 +224,8 @@
 
 🌈 第一个公测版本发布啦
 
-[未发布]: https://github.com/tryzealot/zealot/compare/4.1.0...HEAD
+[未发布]: https://github.com/tryzealot/zealot/compare/4.2.0...HEAD
+[4.2.0]: https://github.com/tryzealot/zealot/compare/4.1.0...4.2.0
 [4.1.0]: https://github.com/tryzealot/zealot/compare/4.0.0...4.1.0
 [4.0.0]: https://github.com/tryzealot/zealot/compare/4.0.0.rc2...4.0.0
 [4.0.0.rc2]: https://github.com/tryzealot/zealot/compare/4.0.0.rc1...4.0.0.rc2

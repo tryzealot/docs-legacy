@@ -4,6 +4,18 @@
 
 > 如下罗列的变更是还未发布的列表，代码变更历史：[未发布]
 
+## 4.2.1 (2021-09-?)
+
+### 变更
+
+- [Web] 应用的图标不再按照预设尺寸裁切并移除图片处理依赖减少将近 200MB 镜像体积
+- [Docker] 反代服务 Caddy 不再输出日志到 STDOUT 而是直接到文件
+### 修复
+
+- [Web] 修复上传应用后图标没有正常处理和显示
+- [Web] 兼容上传 dSYM 不同的 zip 解压缩逻辑
+- [Web] 修复安装 iOS 无法显示应用图标
+
 ## 4.2.0 (2021-09-01)
 
 ### 变更
@@ -224,7 +236,8 @@
 
 🌈 第一个公测版本发布啦
 
-[未发布]: https://github.com/tryzealot/zealot/compare/4.2.0...HEAD
+[未发布]: https://github.com/tryzealot/zealot/compare/4.2.1...HEAD
+[4.2.1]: https://github.com/tryzealot/zealot/compare/4.2.0...4.2.1
 [4.2.0]: https://github.com/tryzealot/zealot/compare/4.1.0...4.2.0
 [4.1.0]: https://github.com/tryzealot/zealot/compare/4.0.0...4.1.0
 [4.0.0]: https://github.com/tryzealot/zealot/compare/4.0.0.rc2...4.0.0

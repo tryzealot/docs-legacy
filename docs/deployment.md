@@ -109,7 +109,19 @@ server {
     proxy_set_header   X-Real-IP          $remote_addr;
     proxy_set_header   X-Forwarded-For    $proxy_add_x_forwarded_for;
     proxy_buffering    on;
-    proxy_pass         http://172.10.0.172:80;
+    proxy_pass         http://127.0.0.1;
+  }
+
+  location /cable {
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_pass http://127.0.0.1;
+  }
+
+  error_page 500 502 503 504 /500.html;
+  location = /500.html {
+    root /app/public;
   }
 }
 ```

@@ -11,7 +11,6 @@
 - Postgres 9.5+
 - Redis
 - Nodejs 8+
-- ImageMagick/GraphicsMagick
 
 如下整理了不同操作系统的本地部署开发教程。
 
@@ -31,14 +30,6 @@ $ xcode-select --install
 
 ```bash
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
-### git 和 imagemagick
-
-之后开始安装环境依赖
-
-```bash
-$ brew install git imagemagick
 ```
 
 ### postgresql 和 redis

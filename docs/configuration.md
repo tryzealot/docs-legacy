@@ -1,6 +1,6 @@
 # 项目配置
 
-Zealot 项目仅支持使用 ENV 环境变量来配置，具体可参考项目的 [config.env](https://github.com/tryzealot/zealot-docker/blob/master/config.env)。
+Zealot 项目绝大多数的配置使用 ENV 环境变量（部分通过管理面板的设置页面）来配置，关于环境变量可参考项目的 [config.env](https://github.com/tryzealot/zealot-docker/blob/master/config.env)。
 
 ## 配置域名
 
@@ -188,7 +188,7 @@ REDIS_URL=redis://user:pass@127.0.0.1:6379/0
 
 ### 清理老版本
 
-> 4.2.0 之前默认开启此功能，4.2.0 版本开始改为关闭状态。
+> 4.2.0 版本之后版本默认为关闭状态，之前版本是默认开启。
 
 按照项目维护者长期的使用观察一个可靠的清理老版本的逻辑是时刻关注当前主版本的所有上传版本，
 之前上传的历史版本只需要保留最后一个上传构建版本基本上就满足绝大数情况，举个例子：

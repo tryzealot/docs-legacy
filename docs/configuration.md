@@ -2,6 +2,19 @@
 
 Zealot 项目绝大多数的配置使用 ENV 环境变量（部分通过管理面板的设置页面）来配置，关于环境变量可参考项目的 [config.env](https://github.com/tryzealot/zealot-docker/blob/master/config.env)。
 
+## 配置语言包
+
+Zealot 自 4.3.0 开始支持多语言包，目前已支持的语言包：
+
+语言包 | 值
+---|---
+zh-CN | 简体中文 (默认)
+en | 英文
+
+```bash
+LOCALE=zh-CN
+```
+
 ## 配置域名
 
 必须配置否则下载应用和一些静态资源会无法正确访问到

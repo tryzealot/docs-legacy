@@ -16,12 +16,18 @@
 - [Web] 重写并优化应用列表的样式布局
 - [Web] 优化基础的邮件模板
 - [Web] 调整登录窗口的样式和错误逻辑
-- [Web] 管里面板的环境变量页面新增文件权限检查 #[608](https://github.com/tryzealot/zealot/pull/608)
+- [Web] 管里面板的环境变量页面新增文件权限检查 [#608](https://github.com/tryzealot/zealot/pull/608)
 
 ### 修复
 
-- [Web] 解决了针对部分 apk Android 文件解析异常问题 #[587](https://github.com/tryzealot/zealot/pull/529)
 - [Web] 修复设置页面默认情况下 boolean 值类型的参数勾选状态错误
+
+## 4.2.2 (2021-10-15)
+
+### 修复
+
+- [API] 解决因批量替换造成的参数不匹配没有正确输出错误信息 [#615](https://github.com/tryzealot/zealot/issues/615) 感谢 [gin7758258](https://github.com/gin7758258)
+- [Web] 解决了针对部分 apk Android 文件解析异常问题 [#587](https://github.com/tryzealot/zealot/pull/529)
 
 ## 4.2.1 (2021-09-14)
 
@@ -43,42 +49,42 @@
 
 ### 变更
 
-- [Web] 清理老版本逻辑默认改为关闭，如需开启请设置环境变量 `ZEALOT_KEEP_UPLOADS=false` #[570](https://github.com/tryzealot/zealot/pull/570)
-- [Web] `文件解析`改名为`应用解包` #[529](https://github.com/tryzealot/zealot/pull/529)
+- [Web] 清理老版本逻辑默认改为关闭，如需开启请设置环境变量 `ZEALOT_KEEP_UPLOADS=false` [#570](https://github.com/tryzealot/zealot/pull/570)
+- [Web] `文件解析`改名为`应用解包` [#529](https://github.com/tryzealot/zealot/pull/529)
 - [Web] 下线应用解包中对已上传应用的解包支持（现在上传的应用都会自动触发额外的应用解包）
 - [API] 上传应用的自定义字段图标支持 fontawesome css 的值，比如 [flag](https://fontawesome.com/v5.15/icons/flag?style=solid) 的值是 `fas fa-flag`
-- [Docker] 镜像由 caddy 作为反代提供服务并对 volume 持久化做了变更，涉及迁移，具体看 #[540](https://github.com/tryzealot/zealot/pull/540)
+- [Docker] 镜像由 caddy 作为反代提供服务并对 volume 持久化做了变更，涉及迁移，具体看 [#540](https://github.com/tryzealot/zealot/pull/540)
 
 ### 新功能
 
-- [Web] 支持 macOS 应用的上传、解析和下载 #[562](https://github.com/tryzealot/zealot/pull/562)
-- [Web] 新增手机设备在渠道详情页对应用类型和渠道快速筛选项，#[510](https://github.com/tryzealot/zealot/issues/510) 感谢 [huacnlee](https://github.com/huacnlee)
-- [Web] 管理员面板可配置应用的类型模板和默认注册用户的权限 #[562](https://github.com/tryzealot/zealot/pull/562) #[568](https://github.com/tryzealot/zealot/pull/568)
+- [Web] 支持 macOS 应用的上传、解析和下载 [#562](https://github.com/tryzealot/zealot/pull/562)
+- [Web] 新增手机设备在渠道详情页对应用类型和渠道快速筛选项 [#510](https://github.com/tryzealot/zealot/issues/510) 感谢 [huacnlee](https://github.com/huacnlee)
+- [Web] 管理员面板可配置应用的类型模板和默认注册用户的权限 [#562](https://github.com/tryzealot/zealot/pull/562) [#568](https://github.com/tryzealot/zealot/pull/568)
 - [Web] 环境变量涉及隐私的做部分加密处理
 - [Web] 内存和磁盘使用率增加图形展示
 - [Docker] 新增支持 [Github Container Registry](https://github.com/tryzealot/zealot/pkgs/container/zealot) 镜像同步更新
 - [Docker] 新增支持环境变量配置 postgres 端口号
 ### 修复
 
-- [Web] 修复在 iPad 和 M1 芯片的 macOS 无法显示 iOS 安装按钮 #[519](https://github.com/tryzealot/zealot/issues/519) 感谢 [ohdarling](https://github.com/ohdarling)
-- [Web] 修复注册但未验证邮件的同时使用第三方登录失败 #[517](https://github.com/tryzealot/zealot/issues/517) 感谢 [huacnlee](https://github.com/huacnlee)
+- [Web] 修复在 iPad 和 M1 芯片的 macOS 无法显示 iOS 安装按钮 [#519](https://github.com/tryzealot/zealot/issues/519) 感谢 [ohdarling](https://github.com/ohdarling)
+- [Web] 修复注册但未验证邮件的同时使用第三方登录失败 [#517](https://github.com/tryzealot/zealot/issues/517) 感谢 [huacnlee](https://github.com/huacnlee)
 - [Web] 修复使用网页上传没有触发应用解包
 - [Web] 修复 tubrolink 开启下左侧导航样式错位
 - [Web] Android 上传应用也显示解包链接
 - [Web] 优化解包文件列表判断为空的显示提示
-- [Web] 修复 LDAP 参数获取错误 #[541](https://github.com/tryzealot/zealot/pull/542) 感谢 [Martwu](https://github.com/Martwu)
+- [Web] 修复 LDAP 参数获取错误 [#541](https://github.com/tryzealot/zealot/pull/542) 感谢 [Martwu](https://github.com/Martwu)
 - [Web] 优化捕获页面上传应用错误改为可读的错误信息
 - [Web] 修复创建应用类型出错判断异常
 - [Web] 补充在应用删除全部渠道后点击详情报错的一个异常情况的判断
 - [Web] 修复上传应用因解析过程变量释放错误
-- [Web] 修复应用设置密码保护校验时报错 #[564](https://github.com/tryzealot/zealot/issues/564) 感谢 [EasierLu](https://github.com/EasierLu)
-- [Web] 修复管理员面板编辑用户资料报错 #[564](https://github.com/tryzealot/zealot/issues/564) 感谢 [EasierLu](https://github.com/EasierLu)
+- [Web] 修复应用设置密码保护校验时报错 [#564](https://github.com/tryzealot/zealot/issues/564) 感谢 [EasierLu](https://github.com/EasierLu)
+- [Web] 修复管理员面板编辑用户资料报错 [#564](https://github.com/tryzealot/zealot/issues/564) 感谢 [EasierLu](https://github.com/EasierLu)
 - [Web] 修复应用详情页面 "安装" 按钮会在错误的系统和设备上异常显示（正常只有 iOS 应用在 iOS 及 macOS 设备才会显示）
 - [Web] 优化应用解包对于开发者证书因包含特殊字符集（目前已知的是中文编码）解析失败及 UI 样式的重新布局
 - [Web] 修复无法编辑当前用户
 - [Web] 改正调试文件的标题重复
 - [Docker] 修复镜像初始化 logrotate 错误
-- [Docker] 修复使用 Caddy 部署需要确认 #[551](https://github.com/tryzealot/zealot/issues/551) 感谢 [ReverseScale](https://github.com/ReverseScale)
+- [Docker] 修复使用 Caddy 部署需要确认 [#551](https://github.com/tryzealot/zealot/issues/551) 感谢 [ReverseScale](https://github.com/ReverseScale)
 
 ## 4.1.0 (2021-07-17)
 
@@ -259,7 +265,8 @@
 
 🌈 第一个公测版本发布啦
 
-[未发布]: https://github.com/tryzealot/zealot/compare/4.2.1...HEAD
+[未发布]: https://github.com/tryzealot/zealot/compare/4.2.2...HEAD
+[4.2.2]: https://github.com/tryzealot/zealot/compare/4.2.1...4.2.2
 [4.2.1]: https://github.com/tryzealot/zealot/compare/4.2.0...4.2.1
 [4.2.0]: https://github.com/tryzealot/zealot/compare/4.1.0...4.2.0
 [4.1.0]: https://github.com/tryzealot/zealot/compare/4.0.0...4.1.0

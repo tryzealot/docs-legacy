@@ -4,9 +4,9 @@
 
 上传应用，仅支持 iOS 和 Android 类型。
 
-```  
+```
 POST /api/apps/upload
-```  
+```
 
 ### 参数
 
@@ -38,7 +38,7 @@ curl -X POST \
 
 #### 返回样例
 
-```json  
+```json
 {
 	"id": 50,
 	"version": 7,
@@ -55,7 +55,7 @@ curl -X POST \
 	"release_url": "https://ZEALOT_URL/channels/1XmpC/releases/1",
 	"install_url": "https://ZEALOT_URL/download/releases/1",
 	"qrcode_url": "https://ZEALOT_URL/channels/1XmpC/releases/1/qrcode?size=thumb",
-	"changelog_list": [
+	"array_changelog": [
 		{
 			"message": "日志日志日志日志"
 		}
@@ -79,7 +79,7 @@ curl -X POST \
 		"has_password": false
 	}
 }
-```  
+```
 
 ## 应用列表
 

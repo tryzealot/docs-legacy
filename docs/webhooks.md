@@ -36,17 +36,17 @@ Zealot 为每个应用渠道都提供一个消息通知的网络钩子，网络�
   "release_version": "1.0.0",
   "build_version": "1",
   "size": "30 MB",
-  "changelog": "",
   "install_url": "https://zealot.test/api/apps/download/12354",
   "icon_url": "https://zealot.test/api/apps/icon.png",
   "qrcode_url": "https://zealot.test/api/apps/354/qrcode",
-  "uploaded_at": "2019-12-30 11:33:00"
+  "uploaded_at": "2019-12-30 11:33:00",
+  "changelog": "- 新增了 A 功能\n- 修复了 B 问题\n- 发布 1.0.0 版本",
 }
 ```
 
 ## 企业微信
 
-企业微信的网络钩子结构体通常支持 text 和 markdown 两种方式，可通过如下配置实现：
+[企业微信](https://work.weixin.qq.com/api/doc/90000/90136/91770)的网络钩子结构体通常支持 text 和 markdown 两种方式，可通过如下配置实现：
 
 ### Text 文本格式
 
@@ -72,8 +72,93 @@ Zealot 为每个应用渠道都提供一个消息通知的网络钩子，网络�
 
 ## 钉钉
 
-> TODO
+[钉钉](https://developers.dingtalk.com/document/robots/custom-robot-access#section-e4x-4y8-9k0)的网络钩子结构体通常支持 text 和 markdown 两种方式，可通过如下配置实现：
+
+### Text 文本格式
+
+```ruby
+{
+  "msgtype": "text",
+  "text": {
+    "content": "#{@title}\n\n安装地址：#{@install_url}\n上传时间: #{@uploaded_at}"
+  }
+}
+```
+
+### Markdown 格式
+
+title 字段仅在对话列表展示，进入对话框的聊天内容则展示 text 字段
+
+```ruby
+{
+  "msgtype": "markdown",
+  "markdown": {
+    "title": @title,
+    "text": "## #{@title}\n平台: #{@device_type}\n上传时间: #{@uploaded_at}\n安装二维码:\n![qrcode](#{@qrcode_url})"
+  }
+}
+```
 
 ## Slack
 
-> TODO
+[Slack](https://api.slack.com/messaging/webhooks) 的网络钩子使用 Incoming Webhooks 其结构体通常支持 text 和 block 两种方式，可通过如下配置实现：
+
+### 文本格式
+
+```ruby
+{
+  "text": "## #{@title}\n平台: #{@device_type}\n上传时间: #{@uploaded_at}"
+}
+```
+
+### Block 格式
+
+一个简单的支持 markdown 的 block
+
+```ruby
+{
+  blocks: [
+    {
+      type: "section",
+      text: {
+        type: "mrkdwn",
+        text: "## #{@title}\n平台: #{@device_type}\n上传时间: #{@uploaded_at}\n安装二维码:\n![qrcode](#{@qrcode_url})"
+      }
+    }
+  ]
+}
+```
+
+稍微好看点有些结构展示的 block
+
+```ruby
+{
+  blocks: [
+    {
+      type: "section",
+      text: {
+        type: "mrkdwn",
+        text: @title,
+      }
+    },
+    {
+      type: "section",
+      fields: [
+        {
+          type: "mrkdwn",
+          text: "*平台:*\n#{@device_type}"
+        },
+        {
+          type: "mrkdwn",
+          text: "*上传时间:*\n#{@uploaded_at}"
+        }
+      ]
+    },
+    accessory: {
+      type: "image",
+      image_url: @qrcode_url,
+      alt_text: "install qrcode"
+    }
+  ]
+}
+```

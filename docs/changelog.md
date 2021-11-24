@@ -8,8 +8,9 @@
 
 - [Web] 使用默认提示的结构体作为网络钩子的数据结构，不再是一个奇怪的结构
 - [Web] 设置页面不再提供第三方登录授权的参数变更（依赖服务重启）
-- [API] 版本详情接口返回的 `changelog_list` 改名 `array_changelog` [719f0b1e](https://github.com/tryzealot/zealot/commit/719f0b1eff92f358d246ededd6c1e6f9863f7f85)
-- [WebHook] 变更日志输出的内容不再是一个数组内容，而是改为兼容 markdown list 格式的文本内容 [719f0b1e](https://github.com/tryzealot/zealot/commit/719f0b1eff92f358d246ededd6c1e6f9863f7f85)
+- [API] 上传应用接口和版本详情返回主体新增 `text_changelog` [650f1ffd](https://github.com/tryzealot/zealot/commit/650f1ffd3731f6a1f4cc703430be1b1b6f5d1cee)
+- [API] 上传应用接口返回主体 `changelog_list` 改名 `changelog` [719f0b1e](https://github.com/tryzealot/zealot/commit/719f0b1eff92f358d246ededd6c1e6f9863f7f85)
+- [Web] 变更日志输出的内容不再是一个数组内容，而是改为兼容 markdown list 格式的文本内容 [719f0b1e](https://github.com/tryzealot/zealot/commit/719f0b1eff92f358d246ededd6c1e6f9863f7f85)
 
 ### 新增
 
@@ -26,6 +27,8 @@
 
 - [Web] 修复设置页面默认情况下 boolean 值类型的参数勾选状态错误
 - [Web] 修复在钉钉 App 点击安装或下载出现异常问题（改为微信逻辑处理）
+- [Web] 修复在环境页面无法显示构建日期（构建 docker 镜像时的时间戳）
+- [Web] 修复异步通知域名作用域无法生效
 
 ## 4.2.2 (2021-10-15)
 

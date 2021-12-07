@@ -1,30 +1,31 @@
-# 组件库
+# Modules
 
-Zealot 提供丰富的全套组件，涉及 iOS、Android 以及打包流程方方面面。
+Zealot offers a rich set of components for iOS, Android, and all aspects of the packaging process.
 
-## iOS 库
+## iOS SDK
 
-iOS 组件提供为 Zealot 检查新版本和安装的服务，支持 Swift 和 Objective-C。
+The iOS component provides a service to check for new versions and installations for Zealot,
+supporting Swift and Objective-C.
 
-### 安装
+### Install
 
 #### Cocoapods
 
-使用 [Cocoapods](https://cocoapods.org) 安装 Zealot 需要把它加到 `Podfile`:
+Adding below code into `Podfile`:
 
 ```ruby
 pod 'Zealot', :git => 'https://github.com/tryzealot/zealot-ios.git', :branch => 'master'
 ```
 
-保存后开始安装：
+Install it：
 
 ```bash
 pod install
 ```
 
-### 使用
+### Usages
 
-1. 在 AppDelegate 文件引入 Zealot 框架头：
+1. Add the code in your `AppDelegate`：
 
 ```swift
 // Swift
@@ -36,32 +37,32 @@ import Zealot
 #import <Zealot/Zealot-Swift.h>
 ```
 
-2. 接着在上面文件的 `application:didFinishLaunchingWithOptions:` 方法追加启动代码：
+2. Add the following code in  `application:didFinishLaunchingWithOptions:` method block：
 
 ```swift
 // Swift
-// 单个渠道
+// Single channel
 let zealot = Zealot(endpoint: "http://zealot.com", channelKey: "...")
 zealot.checkVersion()
 
-// 多个渠道，比如测试版本，内测版本
+// Multi-channel, such as beta, adhoc versions
 let zealot = Zealot(endpoint: "http://zealot.com",
                  channelKeys: [
                    "beta": "xxxxxxx",
                    "test": "yyyyyyy"],
           default_enviroment: "beta")
 
-// 最后触发监测方法
+// Active it
 zealot.checkVersion()
 ```
 
 ```objectivec
 // Objective-C
-// 单个渠道
+// Single channel
 Zealot *zealot = [[Zealot alloc] initWithEndpoint:@"http://zealot.com"
                                        channelKey:@"..."];
 
-// 多个渠道，比如测试版本，内测版本
+// Multi-channel, such as beta, adhoc versions
 Zealot *zealot = [[Zealot alloc] initWithEndpoint:@"http://zealot.com"
                                       channelKeys:@{
                                               @"beta": @"xxxxxxx",
@@ -69,19 +70,19 @@ Zealot *zealot = [[Zealot alloc] initWithEndpoint:@"http://zealot.com"
                                           }
                                default_enviroment:@"beta"];
 
-// 最后触发监测方法
+// Active it
 [zealot checkVersion];
 ```
 
-## Android 库
+## Android SDK
 
-Android 组件提供为 Zealot 检查新版本和安装的服务，支持 Kotlin 和 Java。
+The Android component provides a service to check for new versions and installations for Zealot, supporting both Kotlin and Java.
 
-### 安装
+### Install
 
 #### JitPack
 
-使用 [jitpack](https://jitpack.io) 安装，先需要添加 maven 仓库：
+Using [jitpack](https://jitpack.io) to install：
 
 ```groovy
 allprojects {
@@ -92,7 +93,7 @@ allprojects {
 }
 ```
 
-之后在主 app 项目的 `build.gradle` 添加 zealot：
+In `build.gradle` file of main app project add:
 
 ```groovy
 dependencies {
@@ -100,21 +101,21 @@ dependencies {
 }
 ```
 
-### 使用
+### Usages
 
-在你的 `Application` 文件的 `onCreate` 方法添加启动代码：
+Add the start code to the `onCreate` method block of your `Application` file:
 
 ```kotlin
 // Kotlin
 
-// 单个渠道
+// Single channel
 Zealot.create(getActivity())
       .setEndpoint("https://zealot.com")
       .setChannelKey("...")
       .setBuildType(BuildConfig.BUILD_TYPE)
       .launch()
 
-// 多个渠道，比如测试版本，内测版本
+// Multi-channel, such as beta, adhoc versions
 Zealot.create(getActivity())
       .setEndpoint("https://zealot.com")
       .setChannelKey("xxxxxxx", "beta")
@@ -126,14 +127,14 @@ Zealot.create(getActivity())
 ```java
 // Java
 
-// 单个渠道
+// Single channel
 Zealot.create(getActivity())
       .setEndpoint("https://zealot.com")
       .setChannelKey("...")
       .setBuildType(BuildConfig.BUILD_TYPE)
       .launch();
 
-// 多个渠道，比如测试版本，内测版本
+// Multi-channel, such as beta, adhoc versions
 Zealot.create(getActivity())
       .setEndpoint("https://zealot.com")
       .setChannelKey("xxxxxxx", "beta")
@@ -142,7 +143,7 @@ Zealot.create(getActivity())
       .launch();
 ```
 
-### 用户权限
+### Permission
 
 使用 Zealot SDK 需要开启网络权限
 
@@ -150,7 +151,7 @@ Zealot.create(getActivity())
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-## Fastlane 插件
+## Fastlane plugins
 
 > 第一次听说 fastlane，那你得多 out 了？！快看看[深入浅出 Fastlane 一看你就懂](https://icyleaf.com/2016/07/fastlane-in-action/) 系列教程补补课吧。
 
@@ -179,7 +180,7 @@ zealot(
 )
 ```
 
-#### 参数
+#### Parameters
 
 ```
 +-----------------+---------------------------------+------------------------+----------+
@@ -262,7 +263,7 @@ zealot_version_check(
 )
 ```
 
-#### 参数
+#### Parameters
 
 ```
 +-----------------+---------------------------------+------------------------+---------+
@@ -291,7 +292,7 @@ zealot_version_check(
 
 自动寻找调试文件并打 zip 包上传（iOS 是 dSYM，Android 是 Proguard）
 
-#### 参数
+#### Parameters
 
 ```
 +--------------------+---------------------------------+---------------------------+---------+
@@ -342,7 +343,7 @@ zealot_sync_devices(
 )
 ```
 
-#### 参数
+#### Parameters
 
 ```
 +---------------+----------------------------------+------------------------+---------+
@@ -369,7 +370,7 @@ zealot_sync_devices(
 +---------------+----------------------------------+------------------------+---------+
 ```
 
-#### 其他有用插件
+#### Usefully plugins
 
 除此之外，作为项目的作者还开源了不少其他的 fastlane 插件总有一个你会用到：
 

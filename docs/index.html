@@ -5,7 +5,7 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta charset="UTF-8">
-  <title>Zealot</title>
+  <title>Zealot Doc</title>
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
   <link rel="icon" href="_media/favicon.png">
 </head>
@@ -25,12 +25,12 @@
       ga: '',
       search: {
         noData: {
-          '/': '没有结果!'
+          '/': 'No reslut!'
         },
         paths: 'auto',
         depth: 3,
         placeholder: {
-          '/': '搜索'
+          '/': 'Search'
         }
       },
       plugins: [
@@ -43,10 +43,10 @@
             } else {
               url = 'https://github.com/tryzealot/zealot-docs/blob/master/' + vm.route.file
             }
-            var editHtml = '<a href="' + url + '" style="float:right">:memo:在 Github 编辑文档</a>\n'
+            var editHtml = '<a href="' + url + '" style="float:right">:memo:Edit it on Github</a>\n'
             return html
               + '\n\n----\n\n'
-              + '最后于 {docsify-updated} 更新'
+              + 'Last updated on {docsify-updated}'
               + editHtml
           })
         },
@@ -54,7 +54,7 @@
         function (hook, vm) {
           hook.doneEach(function () {
             try {
-              if (vm.route.path === '/' || vm.route.path === '/README') {
+              if (vm.route.path === '/' || vm.route.path === '/README' || vm.route.path === '/en/' || vm.route.path === '/en/README') {
                 (function (d, script) {
                   script = d.createElement('script')
                   script.type = 'text/javascript'

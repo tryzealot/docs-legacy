@@ -4,6 +4,10 @@
 
 > 如下罗列的变更是还未发布的列表，代码变更历史：[未发布]
 
+## 4.3.0 (2021-12-08)
+
+> 画重点：支持 aab 格式解析、多语言支持！
+
 ### 变更
 
 - [Web] 使用默认提示的结构体作为网络钩子的数据结构，不再是一个奇怪的结构
@@ -11,17 +15,21 @@
 - [API] 上传应用接口和版本详情返回主体新增 `text_changelog` [650f1ffd](https://github.com/tryzealot/zealot/commit/650f1ffd3731f6a1f4cc703430be1b1b6f5d1cee)
 - [API] 上传应用接口返回主体 `changelog_list` 改名 `changelog` [719f0b1e](https://github.com/tryzealot/zealot/commit/719f0b1eff92f358d246ededd6c1e6f9863f7f85)
 - [Web] 变更日志输出的内容不再是一个数组内容，而是改为兼容 markdown list 格式的文本内容 [719f0b1e](https://github.com/tryzealot/zealot/commit/719f0b1eff92f358d246ededd6c1e6f9863f7f85)
+- [Web] 一些隐私的配置 key 或 token 仅在管理员权限下明文显示；其他权限不可见；演示只读且会做部分加密处理 [#644](https://github.com/tryzealot/zealot/pull/644)
+- [Web] 构建日期和哈希值无法获取不显示
 
 ### 新增
 
 - [Web] 支持 Android App Bundle (aab) 文件格式和 webp 图标的解析
 - [Web] 支持语言国际化，可选语言包：简体中文，英文 (支持页面配置)
+- [Web] 支持配置更多的系统设置项 [#643](https://github.com/tryzealot/zealot/pull/643)
 - [Web] 管理面板支持网络钩子的编辑功能
 - [Web] 重写并优化应用列表的样式布局
 - [Web] 优化基础的邮件模板
 - [Web] 调整登录窗口的样式和错误逻辑
 - [Web] 管理面板的环境变量页面新增文件权限检查 [#608](https://github.com/tryzealot/zealot/pull/608)
 - [Web] 管理面板的新增错误异步任务的详情展示，最大错误数量为 5000
+- [Web] 使用更好的日志输出格式 [#646](https://github.com/tryzealot/zealot/pull/646)
 
 ### 修复
 
@@ -29,6 +37,10 @@
 - [Web] 修复在钉钉 App 点击安装或下载出现异常问题（改为微信逻辑处理）
 - [Web] 修复在环境页面无法显示构建日期（构建 docker 镜像时的时间戳）
 - [Web] 修复异步通知域名作用域无法生效
+- [Web] 修复获取 gems 异常
+- [Web] 修复iOS 证书过期时间判断异常
+- [Web] 修复使用虚拟机开发挂载磁盘空间无法获取
+- [Web] 修复演示模式下的一些已知错误
 
 ## 4.2.2 (2021-10-15)
 

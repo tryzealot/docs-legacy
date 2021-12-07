@@ -1,9 +1,9 @@
 # Zealot
 
-<a class="github-button" href="https://github.com/tryzealot/zealot" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star tryzealot/zealot on GitHub">Star</a>
-<a class="github-button" href="https://github.com/tryzealot/zealot/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="Watch tryzealot/zealot on GitHub">Watch</a>
-<a class="github-button" href="https://github.com/tryzealot/zealot/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork tryzealot/zealot on GitHub">Fork</a>
-<a class="github-button" href="https://github.com/icyleaf" data-size="large" data-show-count="true" aria-label="Follow @icyleaf on GitHub">Follow @icyleaf</a>
+<a class="github-button" href="https://github.com/tryzealot/zealot" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star tryzealot/zealot on GitHub">加星</a>
+<a class="github-button" href="https://github.com/tryzealot/zealot/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="Watch tryzealot/zealot on GitHub">关注</a>
+<a class="github-button" href="https://github.com/tryzealot/zealot/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork tryzealot/zealot on GitHub">分叉</a>
+<a class="github-button" href="https://github.com/icyleaf" data-size="large" data-show-count="true" aria-label="Follow @icyleaf on GitHub">关注 @icyleaf</a>
 
 [![GitHub release](https://img.shields.io/github/v/release/tryzealot/zealot?include_prereleases)](https://github.com/tryzealot/zealot/releases)
 [![Docker Pulls](https://img.shields.io/docker/pulls/tryzealot/zealot.svg)](https://hub.docker.com/r/tryzealot/zealot/)
@@ -16,7 +16,7 @@
 
 ## 特性
 
-- [x] 支持 iOS、Android 和 macOS 应用的上传、在线安装和本地下载
+- [x] 支持 iOS、Android (apk, aab) 和 macOS 应用的上传、在线安装和本地下载
 - [x] 支持创建类型（Debug、AdHoc、Release）及渠道（小米商店等）
 - [x] 支持自定义网络钩子通知各种服务（钉钉、企业微信、Slack 等）
 - [x] 支持 iOS dSYM 和 Android Progruard 文件的解析和上传

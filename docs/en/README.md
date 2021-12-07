@@ -30,7 +30,7 @@
 
 ## Demo
 
-Simpleize Chinese by default, change the locale in Setting page of Admin panel.
+Simplified Chinese by default, change the locale in Setting page of Admin panel.
 
 - URL：https://tryzealot.herokuapp.com/
 - Admin account: `admin@zealot.com`

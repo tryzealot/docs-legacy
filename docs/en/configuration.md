@@ -9,7 +9,7 @@ Zealot supports multiple language packs since [4.3.0](changelog.md#_430-2021-12-
 
 Packs | value
 ---|---
-zh-CN | Simplize Chinese (default)
+zh-CN | Simplified Chinese (default)
 en | English
 
 ```bash

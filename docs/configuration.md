@@ -4,7 +4,7 @@ Zealot 项目绝大多数的配置使用 ENV 环境变量（部分通过管理�
 
 ## 配置语言包
 
-Zealot 自 4.3.0 开始支持多语言包，目前已支持的语言包：
+Zealot 自 [4.3.0](changelog.md#_430-2021-12-07) 开始支持多语言包，目前已支持的语言包：
 
 语言包 | 值
 ---|---
@@ -12,7 +12,7 @@ zh-CN | 简体中文 (默认)
 en | 英文
 
 ```bash
-LOCALE=zh-CN
+DEFAULT_LOCALE=en
 ```
 
 ## 配置域名
@@ -53,23 +53,6 @@ ZEALOT_CERT_KEY=zealot.test-key.pem
 ```
 
 > 和 Let's Encrypt 注册电子邮箱名二选一，不能同时设置
-
-## 邮件服务
-
-```bash
-# 发送邮件配置
-SMTP_ADDRESS=smtp.gmail.com
-SMTP_PORT=587
-SMTP_DOMAIN=gmail.com
-SMTP_USERNAME=you@gmail.com
-SMTP_PASSWORD=yourpassword
-SMTP_AUTH_METHOD=plain
-SMTP_ENABLE_STARTTLS_AUTO=true
-
-# 邮件默认收发人配置
-ACTION_MAILER_DEFAULT_FROM=you@gmail.com
-ACTION_MAILER_DEFAULT_TO=you@gmail.com
-```
 
 ## 登录
 
@@ -175,6 +158,25 @@ LDAP_BASE="ou=People,dc=example,dc=com"
 LDAP_UID=uid
 ```
 
+## 邮件服务
+
+目前仅支持 smtp 的方式配置邮件通知服务，邮件通知主要影响用户注册、发送激活邮件、更改密码服务，如果不开启也不影响使用，账户激活的链接也会在用户管理那边找到。
+
+```bash
+# 发送邮件配置
+SMTP_ADDRESS=smtp.gmail.com
+SMTP_PORT=587
+SMTP_DOMAIN=gmail.com
+SMTP_USERNAME=you@gmail.com
+SMTP_PASSWORD=yourpassword
+SMTP_AUTH_METHOD=plain
+SMTP_ENABLE_STARTTLS_AUTO=true
+
+# 邮件默认收发人配置
+ACTION_MAILER_DEFAULT_FROM=you@gmail.com
+ACTION_MAILER_DEFAULT_TO=you@gmail.com
+```
+
 ## 外部存储
 
 假如你有可以复用的 postgresql 和 redis 服务也可以自定义配置使用，而无需使用 docker-compose 默认配置的服务。
@@ -238,4 +240,4 @@ REDIS_URL=redis://user:pass@127.0.0.1:6379/0
   - 5
 ```
 
-如需开启磁盘空间无所谓的话，可以通过设置环境变量 `ZEALOT_KEEP_UPLOADS=true` 来关闭定时任务的清理。
+如果磁盘空间有限，可以通过设置环境变量 `ZEALOT_KEEP_UPLOADS=false` 来开启定时任务的清理。

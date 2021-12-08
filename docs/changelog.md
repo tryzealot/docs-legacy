@@ -288,6 +288,11 @@
 
 🌈 第一个公测版本发布啦
 
+## 更早的版本
+
+之前多年一直是公司内部开发和运营并没有开源，曾经承担过很多的功能到现在脱离出来专注提供应用托管和分发的服务。
+
+
 [未发布]: https://github.com/tryzealot/zealot/compare/4.3.0...HEAD
 [4.3.0]: https://github.com/tryzealot/zealot/compare/4.2.2...4.3.0
 [4.2.2]: https://github.com/tryzealot/zealot/compare/4.2.1...4.2.2

@@ -285,7 +285,8 @@
 
 🌈 第一个公测版本发布啦
 
-[未发布]: https://github.com/tryzealot/zealot/compare/4.2.2...HEAD
+[未发布]: https://github.com/tryzealot/zealot/compare/4.3.0...HEAD
+[4.3.0]: https://github.com/tryzealot/zealot/compare/4.2.2...4.3.0
 [4.2.2]: https://github.com/tryzealot/zealot/compare/4.2.1...4.2.2
 [4.2.1]: https://github.com/tryzealot/zealot/compare/4.2.0...4.2.1
 [4.2.0]: https://github.com/tryzealot/zealot/compare/4.1.0...4.2.0

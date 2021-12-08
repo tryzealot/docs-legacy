@@ -47,7 +47,7 @@ The one-click deployment generation script has three built-in templates by defau
 
 - Using Let's Encrypt SSL
 - Using Self-signed SSL
-- Using Reverse proxy with SSL
+- Using non-SSL (needs gateway or reverse proxy to manage SSL）
 
 For those interested in one-click installation deployment scripts,
 you can check out the [Deployment Documentation with Docker](docker.md).
@@ -84,7 +84,7 @@ $ sudo vim /etc/hosts
 127.0.0.1 zealot.test
 ```
 
-### Using reverse proxy
+### Using non-SSL (Reverse proxy required)
 
 If you already have a gateway or load balance such as [Nginx](http://nginx.org/),
 [Caddy](https://caddyserver.com/) for SSL certificate proxy, you can run it.

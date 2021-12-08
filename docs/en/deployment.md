@@ -1,18 +1,16 @@
 # Deployment
 
-> :bell: Strongly recommended that Deploy Zealot using a [Docker](https://www.docker.io/),
+> :bell: Strongly recommended to deploy Zealot using [Docker](https://www.docker.io/),
 > unless you are familiar with the technology stack for this service.
-> Given that iOS uses a download service that relies on opening SSL/TLS certificates,
-> it is recommended to use an authorized certificate service, such as [Let's Encrypt](https://letsencrypt.org/),
-> and if you use a self-signed certificate you must install the self-signed certificate
-> on each iOS device before downloading and installing the application.
+> The app protection policy settings for iOS/iPadOS devices, it needs a public network over SSL,
+> free to use [Let's Encrypt](https://letsencrypt.org/).
+>
+> If you use a self-signed certificate you must [install the self-signed certificate](https://support.apple.com/en-us/HT204477)
+> on each iOS device before installing any app.
 ## Why support docker image only?
 
-Deploying a Rails-based application is incredibly complex, and even though you can have Ruby,
-ImageMagick, Node, Postgres, and Redis installed on your deployment server,
-you still need to worry about running the Zealot service and the Sidekiq asynchronous task service.
-
-The Docker image provided by the project takes all this hassle and puts it into the image to do the initialization via a one-click deployment and installation script.
+Deploying a Rails-based application is incredibly complex, and even though you must install many dependenices,
+and you still need to worry how to launch and make it as a daemon to run in the background.
 
 ## Hardware requirements
 
@@ -29,14 +27,14 @@ The Docker image provided by the project takes all this hassle and puts it into 
 ## Install on Docker
 
 In the principle of one-click installation, but reality is often harsh,
-Zealot configuration is dependent on ENV environment variables,
+Zealot configuration is dependent on `ENV` environment variables,
 you need to configure it and then execute the one-click deployment generation script.
 
 First you need to clone the [deployment script](https://github.com/tryzealot/zealot-docker.git),
 After entering the `zealot-docker` directory, you need to open the `example.env` file to
-configure the necessary parameters and then you can directly execute `. /deploy.sh` script.
+configure the necessary parameters and then you can directly execute `./deploy.sh` script.
 
-> By default, the administrator account: `admin@zealot.com` and password `ze@l0t`
+> By default, the administrator account: `admin@zealot.com` and password `ze@l0t` (you can change it)
 > and some demo applications will be generated.
 
 ```bash
@@ -48,7 +46,7 @@ $ ./deploy
 The one-click deployment generation script has three built-in templates by default:
 
 - Using Let's Encrypt SSL
-- Using self-signed SSL
+- Using Self-signed SSL
 - Using Reverse proxy with SSL
 
 For those interested in one-click installation deployment scripts,
@@ -94,7 +92,7 @@ After running, get the IP address of the `zealot-zealot` instance on port 80 and
 
 #### Nginx config file
 
-> The following is the general configuration, if not available welcome to [file a issue](https://github.com/tryzealot/zealot-docs/issues/new)。
+> The following is the general configuration, if not effects welcome to [file a issue](https://github.com/tryzealot/zealot-docs/issues/new)。
 
 ```
 server {

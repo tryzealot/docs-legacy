@@ -145,7 +145,7 @@ Zealot.create(getActivity())
 
 ### Permission
 
-使用 Zealot SDK 需要开启网络权限
+Zealot needs internet permission
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
@@ -153,24 +153,27 @@ Zealot.create(getActivity())
 
 ## Fastlane plugins
 
-> 第一次听说 fastlane，那你得多 out 了？！快看看[深入浅出 Fastlane 一看你就懂](https://icyleaf.com/2016/07/fastlane-in-action/) 系列教程补补课吧。
+> [fastlane]((https://fastlane.tools/)) is an open source platform aimed at simplifying Android and iOS deployment.
+> fastlane lets you automate every aspect of your development and release workflow,
+> customize your deployment workflows using the hundreds of community built fastlane actions and plugins.
 
-[fastlane-plugin-zealot](https://github.com/tryzealot/fastlane-plugin-zealot) 是专门为 Zealot 提供
-的上传 iOS、Andorid 应用和调试文件的 fastlane 插件。如果要使用 `fastlane-plugin-zealot` 可通过下面方法添加到 fastlane 体系中：
+[fastlane-plugin-zealot](https://github.com/tryzealot/fastlane-plugin-zealot) provides upload app, debug_file and
+version check actions to Zealot, install it in shell：
 
 ```bash
 $ fastlane add_plugin zealot
 ```
 
-插件包含多个 action：
+The plugins includes multi-actions:
 
-- `zealot`: 上传 iOS 或 Android 应用
-- `zealot_debug_file`: 上传调试文件（iOS 是 dSYM，Android 是 Proguard）
-- `zealot_version_check`: 检查当前版本是否已存在
+- `zealot`: Provides upload iOS and Android app
+- `zealot_debug_file`: Provides upload debug file (dSYM for iOS, Proguard for Android)
+- `zealot_version_check`: Check the build exists or not on Zealot service
+- `zealot_sync_devices`: Syncing iOS UDID devices to relates existed value in Zealot
 
 ### zealot
 
-上传 iOS 或 Android 应用，传入如下参数插件会在成功打包后自动获取 app 的路径并进行上传：
+Uploading iOS or Android app, it requires three params:
 
 ```ruby
 zealot(
@@ -231,7 +234,7 @@ zealot(
 +-----------------------+---------------------------------------------+
 ```
 
-#### 环境变量
+#### Output Variables
 
 ```
 +-----------------------+---------------------------------------------+
@@ -251,7 +254,7 @@ Access the output values using `lane_context[SharedValues::VARIABLE_NAME]`
 
 ### zealot_version_check
 
-检查当前版本是否已经上传，减少重复打包和上传。
+Check given build exists or not on Zealot
 
 ```ruby
 zealot_version_check(
@@ -288,9 +291,9 @@ zealot_version_check(
 
 ### zealot_debug_file
 
-> fastlane-plugin-zealot `0.2.0` 版本开始支持。
+> Available begin fastlane-plugin-zealot `0.2.0`.
 
-自动寻找调试文件并打 zip 包上传（iOS 是 dSYM，Android 是 Proguard）
+Searching, zipping and uploading debug file automatily (dSYM for iOS, Proguard for Android)
 
 #### Parameters
 
@@ -330,9 +333,9 @@ zealot_version_check(
 
 ### zealot_sync_devices
 
-> fastlane-plugin-zealot `0.4.1` 版本开始支持。
+> Available begin fastlane-plugin-zealot `0.4.1`.
 
-同步并关联苹果开发者中心（Apple Developer Portal)的测试设备名称到 Zealot 服务。
+Use Apple Developer account to syncing UDIDs and relates the value in Zealot.
 
 ```ruby
 zealot_sync_devices(
@@ -372,13 +375,13 @@ zealot_sync_devices(
 
 #### Usefully plugins
 
-除此之外，作为项目的作者还开源了不少其他的 fastlane 插件总有一个你会用到：
+In addition, as the author of the project also open source a number of other fastlane plug-ins there is always one you will use:
 
-插件 | 说明 |
+Plugin | Description |
 ---|---
-[fastlane-plugin-ci_changelog](https://github.com/icyleaf/fastlane-plugin-ci_changelog)  | 支持多种 CI 系统自动生成变更历史
-[fastlane-plugin-update_jenkins_build](https://github.com/icyleaf/fastlane-plugin-update_jenkins_build)  | 自动更新 Jenkins Build 描述
-[fastlane-plugin-humanable_build_number](https://github.com/icyleaf/fastlane-plugin-humanable_build_number)  | 生成开发可识别的构建版本号
-[fastlane-plugin-app_info](https://github.com/icyleaf/fastlane-plugin-app_info) | 解析 apk/ipa 包的 metadata 并打印
-[fastlane-plugin-android_channels](https://github.com/icyleaf/fastlane-plugin-android_channels)  | 通用性 Android 多渠道打包
-[fastlane-plugin-ram_disk](https://github.com/icyleaf/fastlane-plugin-ram_disk)  | 利用内存做虚拟磁盘加速打包
+[fastlane-plugin-ci_changelog](https://github.com/icyleaf/fastlane-plugin-ci_changelog) | Automate generate changelog between previous and the latest commit of SCM during the CI services.
+[fastlane-plugin-update_jenkins_build](https://github.com/icyleaf/fastlane-plugin-update_jenkins_build)  | Update build's description of jenkins.
+[fastlane-plugin-humanable_build_number](https://github.com/icyleaf/fastlane-plugin-humanable_build_number)  | Automatic generate app build number unque and human readable friendly
+[fastlane-plugin-app_info](https://github.com/icyleaf/fastlane-plugin-app_info) | Teardown tool for mobile app(ipa, apk and aab file), analysis metedata like version, name, icon etc.
+[fastlane-plugin-android_channels](https://github.com/icyleaf/fastlane-plugin-android_channels)  | Package unsign apk with channels and write empty file to META-INF with channel in general way
+[fastlane-plugin-ram_disk](https://github.com/icyleaf/fastlane-plugin-ram_disk)  | Use a virtual ram disk to do anything else

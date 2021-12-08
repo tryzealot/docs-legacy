@@ -47,8 +47,8 @@ Output:
 
 ## Slack
 
-[Slack](https://api.slack.com/messaging/webhooks) 的网络钩子使用 Incoming Webhooks 其结构体通常支持文本和 block 富文本两种方式，可通过如下配置实现：
-
+[Slack](https://api.slack.com/messaging/webhooks) use Incoming Webhooks whose constructs
+typically support both text and block rich text, and can be configured as follows:
 ### Text format
 
 ```ruby
@@ -112,7 +112,8 @@ Better look at some of the structures shown in the block
 
 ## Wecom
 
-[Wecom](https://work.weixin.qq.com/api/doc/90000/90136/91770)的网络钩子结构体通常支持文本和 markdown 两种方式，可通过如下配置实现：
+[企业微信](https://work.weixin.qq.com/api/doc/90000/90136/91770) use Incoming Webhooks whose constructs
+typically support both text and markdown, and can be configured as follows:
 
 ### Text format
 
@@ -138,8 +139,10 @@ Better look at some of the structures shown in the block
 
 ## Dingtalk
 
-[Dingtalk](https://developers.dingtalk.com/document/robots/custom-robot-access#section-e4x-4y8-9k0)的网络钩子结构体通常支持文本和 markdown 两种方式，
-由于系统限制尽量使用关键词或 IP 地址白名单机制来接受消息。可通过如下配置实现：
+[钉钉](https://developers.dingtalk.com/document/robots/custom-robot-access#section-e4x-4y8-9k0) use Incoming Webhooks whose constructs
+typically support both text and markdown, and can be configured as follows:
+
+> Due to system limitations try to use keyword or IP address whitelist mechanism to receive messages.
 ### Text format
 
 ```ruby
@@ -153,7 +156,7 @@ Better look at some of the structures shown in the block
 
 ### Markdown format
 
-title 字段仅在对话列表展示，进入对话框的聊天内容则展示 text 字段
+The title field is only displayed in the dialog list, the text field is displayed for the chat content entering the dialog.
 
 ```ruby
 {
@@ -165,10 +168,12 @@ title 字段仅在对话列表展示，进入对话框的聊天内容则展示 t
 }
 ```
 
-## Feishu (lark)
+## Feishu
 
-[Feishu](https://open.feishu.cn/document/ukTMukTMukTM/ucTM5YjL3ETO24yNxkjN)的网络钩子结构体通常支持文本和卡片两种方式，
-由于系统限制尽量使用关键词或 IP 地址白名单机制来接受消息。可通过如下配置实现：
+[飞书](https://open.feishu.cn/document/ukTMukTMukTM/ucTM5YjL3ETO24yNxkjN) use Incoming Webhooks whose constructs
+typically support both text and interactive card, and can be configured as follows:
+
+> Due to system limitations try to use keyword or IP address whitelist mechanism to receive messages.
 
 ### Text format
 
@@ -183,7 +188,7 @@ title 字段仅在对话列表展示，进入对话框的聊天内容则展示 t
 
 ### Interactive card format
 
-通过这种格式可以实现支持 markdown 的部分语法：
+Use card format could use partly of markdown syntax:
 
 ```ruby
 {

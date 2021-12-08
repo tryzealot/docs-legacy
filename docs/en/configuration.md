@@ -1,7 +1,7 @@
 # Configuration
 
-The majority of the Zealot project is configured using ENV environment variables (partly through the settings page of the admin panel),
-which can be found in the project's [config.env](https://github.com/tryzealot/zealot-docker/blob/master/config.env)。
+The majority of the Zealot project is configured using `ENV` environment variables (and all mostly configures through the settings page of the admin panel),
+which can be found in the project's sample [config.env](https://github.com/tryzealot/zealot-docker/blob/master/config.env).
 
 ## Locale (Language)
 
@@ -77,10 +77,10 @@ ZEALOT_GUEST_MODE=false
 After closing the registration, the administrator can add users manually through the user management in the administration panel.
 
 ```bash
-# 开启注册
+# Open registration
 ZEALOT_REGISTER_ENABLED=true
 
-# 关闭注册
+# Close registration
 ZEALOT_REGISTER_ENABLED=false
 ```
 
@@ -88,7 +88,7 @@ ZEALOT_REGISTER_ENABLED=false
 
 Avaiable services:
 
-Service | Value
+Service Name | provider value
 ---|---
 Feishu | `feishu`
 Gitlab | `gitlab`
@@ -97,13 +97,16 @@ LDAP | `ldap`
 
 If the above services need to set the callback address please set it uniformly as follows
 
-
 ```
 http://zealot.com/users/auth/:provider/callback
 ```
 
-where `:provider` is the identifier of the above supported third-party service, for example, if Google is enabled, then replace `:provider` with `google_oauth2`.
+where `:provider` is the identifier of the above supported third-party service, for example:
 
+```bash
+# if Google is enabled, then replace `:provider` with `google_oauth2`.
+http://zealot.com/users/auth/google_oauth2/callback
+```
 
 #### Gitlab
 
@@ -162,8 +165,8 @@ LDAP_UID=uid
 
 ## Send Mail
 
-Currently, only smtp is supported to configure email notification service.
-Email notification mainly affects user registration, sending activation emails and
+Currently, only `smtp` is supported to configure email notification service.
+Email notification mainly affects are user registration, sending activation emails and
 changing password service, but it does not affect the use if it is not turned on.
 
 ```bash

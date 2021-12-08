@@ -1,45 +1,38 @@
-# User Permissions
+# User Permissions and roles
 
 Zealot offers four types of user permissions.
 
 - Guest
-- Regular user
+- User
 - Developer
 - Administrator
 
 ## Comparison
 
-Permission | Guest mode[On/Off] | User | Developer | Admin
+Action | Guest mode[On/Off] | User | Developer | Administrator
 ---|---|---|---|---
-浏览控制台 | ✓/✕ | ✓ | ✓ | ✓
-浏览应用列表 | ✓/✕ | ✓ | ✓ | ✓
-浏览应用渠道列表 | ✓/✕ | ✓ | ✓ | ✓
-浏览版本详情 | ✓/✕ <br />支持密码访问 | ✓ | ✓ | ✓
-浏览应用解包 | ✓/✕ | ✓ | ✓ | ✓
-浏览应用解包详情 | ✓/✕ | ✓ | ✓ | ✓
-浏览渠道的网络钩子 | ✓/✕ | ✓ | ✓ | ✓
-浏览调试文件 | ✓/✕ | ✓ | ✓ | ✓
-上传应用版本 | ✓ | ✓ | ✓ | ✓
-浏览调试文件 | ✓ | ✓ | ✓ | ✓
-下载/安装应用 | ✓ | ✓ | ✓ | ✓
-下载调试文件 | ✓ | ✓ | ✓ | ✓
-新增应用 |  |  | ✓ | ✓
-编辑应用 |  |  | ✓ | ✓
-删除应用 |  |  | ✓ | ✓
-新增应用渠道 |  |  | ✓ | ✓
-编辑应用渠道 |  |  | ✓ | ✓
-删除应用渠道 |  |  | ✓ | ✓
-添加调试文件 |  |  | ✓ | ✓
-测试网络钩子 |  |  | ✓ | ✓
-开启、关闭网络钩子 |  |  | ✓ | ✓
-删除调试文件 |  |  | ✓ | ✓
-删除应用 |  |  | ✓ | ✓
-删除版本详情 |  |  | ✓ | ✓
-删除应用详情 |  |  | ✓ | ✓
-删除应用解包 |  |  | ✓ | ✓
-管理用户  |  |  |  | ✓
-管理网络钩子  |  |  |  | ✓
-管理系统设置  |  |  |  | ✓
-浏览环境信息  |  |  |  | ✓
-管理后台任务  |  |  |  | ✓
-浏览数据库分析  |  |  |  | ✓
+`Dashboard`:<br />View all data | ✓/✕ | ✓ | ✓ | ✓
+`App`:<br />View app list | ✓/✕ | ✓ | ✓ | ✓
+`App`:<br />View app scheme(s) and channel(s) detail | ✓/✕ | ✓ | ✓ | ✓
+`App`:<br />View the build(release) of app | ✓/✕ <br />Password Auth | ✓ | ✓ | ✓
+`App`:<br />View webhook list | ✓/✕ | ✓ | ✓ | ✓
+`App`:<br />Upload/Install/Download app | ✓ | ✓ | ✓ | ✓
+`App`:<br />Create/Edit/Delete an app |  |  | ✓ | ✓
+`App`:<br />Create/Edit/Delete a scheme/channel of app |  |  | ✓ | ✓
+`App`:<br />Delete a given version of app |  |  | ✓ | ✓
+`App`:<br />Test a webhook network connection |  |  | ✓ | ✓
+`App`:<br />Enable/Disable webhook |  |  | ✓ | ✓
+`App`:<br />Delete an app |  |  | ✓ | ✓
+`DebugFile`:<br />View debug file list | ✓/✕ | ✓ | ✓ | ✓
+`DebugFile`:<br />View debug file detail | ✓ | ✓ | ✓ | ✓
+`DebugFile`:<br />Download debug file | ✓ | ✓ | ✓ | ✓
+`DebugFile`:<br />Upload/Delete a debug file |  |  | ✓ | ✓
+`Teardown`:<br />View teardown list | ✓/✕ | ✓ | ✓ | ✓
+`Teardown`:<br />View teardown detail | ✓/✕ | ✓ | ✓ | ✓
+`Teardown`:<br />Delete a teardown |  |  | ✓ | ✓
+`Admin`:<br />View and manage users |  |  |  | ✓
+`Admin`:<br />View and manage webhooks |  |  |  | ✓
+`Admin`:<br />View and manage settings |  |  |  | ✓
+`Admin`:<br />View system informations |  |  |  | ✓
+`Admin`:<br />View and manage background jobs|  |  |  | ✓
+`Admin`:<br />View page analytices |  |  |  | ✓

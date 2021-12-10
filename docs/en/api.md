@@ -1,39 +1,41 @@
 # APIs
 
-Zealot 提供提供 REST APIs 接口服务可用于自定义的查看 App 信息或者上传、下载 App。
+Use the Zealot APIs to view, upload, download the build of app or debug file.
 
 ## Authentication
 
-接口请求目前仅支持 User Token 的 query 认证，在登录用户的详情页面最下面 `API - 密钥` 找到。
+Requests currently only support query authentication for User Token, found in `API - Key` at the bottom of the login user details page.
+
 > example : `https://YOUR_ZEALOT_URL/api?token=YOUR_TOKEN`
 
 ## Version
 
-当前是 `v1` 版本，接口无需显性传递版本参数，另外 GraphGL 接口也在逐步开发中后续会考虑两个版本同时存在。
+The current version is `v1`, the APIs does not need to explicitly pass the version parameter,
+and the GraphGL interface is being developed gradually.
 
 ## Apps
 
-定义 | 地址
+Resource | Available endpoints
 ---|---
-上传应用 | `/api/apps/upload`
-应用列表 | `/api/apps`
-应用详情 | `/api/apps/:id`
-应用版本列表 | `/api/apps/versions`
-应用最新版本 | `/api/apps/latest`
-检查当前版本 | `/api/apps/version_exist`
+Upload an App | `/api/apps/upload`
+List Apps | `/api/apps`
+Get an App by id | `/api/apps/:id`
+List verions from an App | `/api/apps/versions`
+Get the latest Release from an App | `/api/apps/latest`
+Check an Release from App exists | `/api/apps/version_exist`
 
-> 全部接口：[api/apps](en/api/apps.md)
+> Full APIs to check [api/apps](en/api/apps.md) page.
 
 ## Debug files
 
-定义 | 地址
+Resource | Available endpoints
 ---|---
-上传调试文件 | `/api/debug_files/upload`
-下载调试文件 | `/api/debug_files/download`
-调试文件列表 | `/api/debug_files`
-调试文件详情 | `/api/debug_files/:id`
-检查调试文件是否存在 | `/api/debug_files/version_exist`
-更新调试文件 | `/api/debug_files/:id`
-删除调试文件 | `/api/debug_files/:id`
+Upload a debug file | `/api/debug_files/upload`
+Download a debug file by id | `/api/debug_files/download`
+List Debug files | `/api/debug_files`
+Get an debug file by id | `/api/debug_files/:id`
+Check a debug file exists by id | `/api/debug_files/version_exist`
+Update a debug file by id | `/api/debug_files/:id`
+Delete a debug file by id  | `/api/debug_files/:id`
 
-> 全部接口：[api/debug_files](en/api/debug_files.md)
+> Full APIs to check [api/debug_files](en/api/debug_files.md) page.

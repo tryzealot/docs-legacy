@@ -2,7 +2,7 @@
 
 ## 上传应用
 
-上传应用，仅支持 iOS 和 Android 类型。
+上传应用，仅支持 iOS, Android 和 macOS 类型。
 
 ```
 POST /api/apps/upload
@@ -29,7 +29,7 @@ POST /api/apps/upload
 
 ```diff
 curl -X POST \
-  'https://tryzealot.herokuapp.com//api/apps/upload' \
+  'https://YOUR_ZEALOT_URL/api/apps/upload' \
    --form 'token="token"' \
    --form 'channel_key="channel_key"' \
 +  --form 'custom_fields="[{"name":"country","value":"China","icon":"fas fa-flag"}]"' \
@@ -52,14 +52,18 @@ curl -X POST \
 	"ci_url": "",
 	"size": 1565486,
 	"icon_url": "/uploads/apps/a1/r1/icons/app_icon.png",
-	"release_url": "https://ZEALOT_URL/channels/1XmpC/releases/1",
-	"install_url": "https://ZEALOT_URL/download/releases/1",
-	"qrcode_url": "https://ZEALOT_URL/channels/1XmpC/releases/1/qrcode?size=thumb",
-	"array_changelog": [
+	"release_url": "https://YOUR_ZEALOT_URL/channels/1XmpC/releases/1",
+	"install_url": "https://YOUR_ZEALOT_URL/download/releases/1",
+	"qrcode_url": "https://YOUR_ZEALOT_URL/channels/1XmpC/releases/1/qrcode?size=thumb",
+	"changelog": [
 		{
-			"message": "日志日志日志日志"
+			"message": "Changelog message 1"
+		},
+    {
+			"message": "Changelog message 2"
 		}
 	],
+  "text_changelog": "- Changelog message 1\n- Changelog message 2",
 	"custom_fields": [],
 	"created_at": "2021-09-01T11:43:33.977+08:00",
 	"app": {

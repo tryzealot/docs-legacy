@@ -1,8 +1,8 @@
 # App APIs
 
-## Upload app
+## Upload an app
 
-上传应用，仅支持 iOS 和 Android 类型。
+This allows you to upload an single iOS, Android or macOS file.
 
 ```
 POST /api/apps/upload
@@ -10,26 +10,53 @@ POST /api/apps/upload
 
 ### Parameters
 
-!> 需要[用户认证](api#接口认证)。
+!> [Authentication](/en/api#authentication) required.
 
-| 名称 | 类型 | 是否必须 | 描述 |
+| Attribute | Type | Required | Description |
 |---|---|---|---|
-| file | `File` | true | 应用本地路径的内容 |
-| channel_key | `String` | false | 应用具体渠道的 Key，没有传此参数会字段创建对于的应用、类型和渠道 |
-| name | `String` | false | 应用名称，为空时取 App 的信息 |
-| release_type | `String` | false | 应用类型，比如 debug, beta, adhoc, release, enterprise 等 |
-| source | `String` | false | 上传渠道名称，默认是 api |
-| changelog | `String` | false | 变更日志，接受纯文本或 JSON 格式化的数据 |
-| branch | `String` |false|上传应用时的git branch名称|
-| git_commit | `String` | false | 上传应用时的 git commit hash |
-| ci_url | `String` | false | CI 项目构建地址 |
-| custom_fields | `String` | false | 这是一个用 JSON 字符串定义的自定义字段，<br />可配置名称，值以及 fontawesome 图标用于在页面详情展示 |
+| file | `File` | true | an App file |
+| channel_key | `String` | false | Channel key<br />Create a new App if leave it empty |
+| name | `String` | false | the name of App<br />Use app name from parsed metadata in given file if leave it empty |
+| release_type | `String` | false | Eg, debug, beta, adhoc, release, enterprise 等 |
+| source | `String` | false | the source of upload (default is `api`) |
+| changelog | `String` | false | Changelog<br />Avaiables in plain text or JSON formatted struct |
+| branch | `String` |false| a branch name from git |
+| git_commit | `String` | false | git commit |
+| ci_url | `String` | false | the build url of a C |
+| custom_fields | `String` | false | JSON formatted custom fileds<br />It could configures and display title, <br />value and icon from fontawesome in a Release page from an App |
 
-对于 `custom_fields` 的用法，它是一个使用 JSON 格式的以键值对为单位的数组，比如需要自定义国家 country=China 并配置图标为 fontawesome 的 [flag](https://fontawesome.com/v5.15/icons/flag?style=solid)
+For `changelog` attribute which it accepts both `plain text` and `JSON` formatted contents:
+
+**plain text**:
+
+```
+message 1\nmessage 2
+```
+
+**JSON**:
+
+```
+[
+  {
+    "message": "message 1",
+    "author": "admin",
+    "email": "admin@zealot.com",
+    "date": "2021-11-11 11:11:11"
+  },
+  {
+    "message": "message 1",
+    "author": "developer",
+    "email": "developer@zealot.com",
+    "date": "2021-11-11 11:11:11"
+  }
+]
+```
+
+For `custom_fields` attribute which it use `JSON` formatted struct to build from each key-value. for example, Display country name like `country=China` with icon [flag](https://fontawesome.com/v5.15/icons/flag?style=solid):
 
 ```diff
 curl -X POST \
-  'https://tryzealot.herokuapp.com//api/apps/upload' \
+  'https://YOUR_ZEALOT_URL/api/apps/upload' \
    --form 'token="token"' \
    --form 'channel_key="channel_key"' \
 +  --form 'custom_fields="[{"name":"country","value":"China","icon":"fas fa-flag"}]"' \
@@ -52,19 +79,23 @@ curl -X POST \
 	"ci_url": "",
 	"size": 1565486,
 	"icon_url": "/uploads/apps/a1/r1/icons/app_icon.png",
-	"release_url": "https://ZEALOT_URL/channels/1XmpC/releases/1",
-	"install_url": "https://ZEALOT_URL/download/releases/1",
-	"qrcode_url": "https://ZEALOT_URL/channels/1XmpC/releases/1/qrcode?size=thumb",
-	"array_changelog": [
+	"release_url": "https://YOUR_ZEALOT_URL/channels/1XmpC/releases/1",
+	"install_url": "https://YOUR_ZEALOT_URL/download/releases/1",
+	"qrcode_url": "https://YOUR_ZEALOT_URL/channels/1XmpC/releases/1/qrcode?size=thumb",
+	"changelog": [
 		{
-			"message": "日志日志日志日志"
+			"message": "Changelog message 1"
+		},
+    {
+			"message": "Changelog message 2"
 		}
 	],
+  "text_changelog": "- Changelog message 1\n- Changelog message 2",
 	"custom_fields": [],
 	"created_at": "2021-09-01T11:43:33.977+08:00",
 	"app": {
 		"id": 1,
-		"name": "服务接口测试"
+		"name": "App name"
 	},
 	"scheme": {
 		"id": 8,
@@ -81,9 +112,11 @@ curl -X POST \
 }
 ```
 
-## Get app list
+## List apps
 
-获取创建的应用列表，支持分页
+Get a list of app.
+
+This function takes pagination parameters page and per_page to restrict the list of app.
 
 ```
 GET /api/apps
@@ -91,10 +124,10 @@ GET /api/apps
 
 ### Parameters
 
-| 名称 | 类型 | 是否必须 | 描述 |
+| Attribute | Type | Required | Description |
 |---|---|---|---|
-| page | `Integer` | false | 页数|
-| per_page | `Integer` | false | 每页返回最大数目 |
+| page | `Integer` | false | Page number (default: `1`) |
+| per_page | `Integer` | false | Number of items to list per page (default: `25`, max: `100`). |
 
 ### Return body
 
@@ -153,9 +186,9 @@ GET /api/apps
 ]
 ```
 
-## Get a app
+## Get an app
 
-查看应用的明细：应用类型、渠道等信息
+Allows you to receive information about an app like name, scheme, channel.
 
 ```
 GET /api/apps/:id
@@ -163,9 +196,9 @@ GET /api/apps/:id
 
 ### Parameters
 
-| 名称 | 类型 | 是否必须 | 描述 |
+| Attribute | Type | Required | Description |
 |---|---|---|---|
-| id | `String` | true | 应用 ID |
+| id | `String` | true | ID |
 
 ### Return body
 
@@ -202,7 +235,8 @@ GET /api/apps/:id
 
 ## Get versions list of app
 
-获取应用已上传的版本列表，按照上传时间倒序排列
+Get a list of apps by the given channel key
+
 
 ```
 GET /api/apps/versions
@@ -210,11 +244,11 @@ GET /api/apps/versions
 
 ### Parameters
 
-| 名称 | 类型 | 是否必须 | 描述 |
+| Attribute | Type | Required | Description |
 |---|---|---|---|
-| channel_key | `String` | true | 应用具体渠道的 Key |
-| page | `Integer` | false | 页数|
-| per_page | `Integer` | false | 每页返回最大数目 |
+| channel_key | `String` | true | Channel key |
+| page | `Integer` | false | Page number (default: `1`) |
+| per_page | `Integer` | false | Number of items to list per page (default: `25`, max: `100`). |
 
 ### Return body
 
@@ -270,7 +304,8 @@ GET /api/apps/versions
 
 ## Get the latest version of app
 
-获取指定应用的最新版本信息
+Allows you to receive the latest information about a Release version from App like app metadata, changelog, icon url, install (download) url.
+
 
 ```
 GET /api/apps/latest
@@ -278,9 +313,9 @@ GET /api/apps/latest
 
 ### Parameters
 
-| 名称 | 类型 | 是否必须 | 描述 |
+| Attribute | Type | Required | Description |
 |---|---|---|---|
-| channel_key | `String` | true | 应用具体渠道的 Key |
+| channel_key | `String` | true | Channel key |
 | release_version | `String` | true | 应用的发布版本 |
 | build_version | `String` | true | 应用的构建版本 |
 
@@ -320,7 +355,10 @@ GET /api/apps/latest
 
 ## Check version exists
 
-使用 bundle_id、release_version、build_verion 或 bundle_id、git_commit 组合检查当前版本是否存在
+Allows you to check the Release exists by given query, query accepts two combo group:
+
+- `bundle_id`, `release_version` and `build_verion`
+- `bundle_id` and `git_commit`
 
 ```
 GET /api/apps/version_exist
@@ -328,9 +366,9 @@ GET /api/apps/version_exist
 
 ### Parameters
 
-| 名称 | 类型 | 是否必须 | 描述 |
+| Attribute | Type | Required | Description |
 |---|---|---|---|
-| channel_key | `String` | true | 应用具体渠道的 Key |
+| channel_key | `String` | true | Channel key |
 | bundle_id | `String` | true | 应用的包名，iOS 取 bundle_id，Android 取 package_name |
 | release_version | `String` | false | 应用的发布版本 |
 | build_version | `String` | false | 应用的构建版本 |
@@ -341,7 +379,8 @@ GET /api/apps/version_exist
 - 版本存在返回 200 状态码并返回版本的信息
 - 版本不存在返回 404 状态码和错误信息
 
-版本存在的返回信息
+
+Success returns:
 
 ```json
 {
@@ -362,7 +401,7 @@ GET /api/apps/version_exist
 }
 ```
 
-版本不存在的返回信息：
+Not found returns:
 
 ```json
 {

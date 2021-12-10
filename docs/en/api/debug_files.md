@@ -2,10 +2,12 @@
 
 ## Upload debug file
 
-上传 iOS 和 Android 的调试文件：
+This allows you to upload an single iOS, Android debug file.
 
-- iOS: 使用 Zip 压缩后的 dSYM 文件
-- Android: 使用 Zip 压缩后包含 mapping.txt、R.txt 和 AndroidManifest.xml 的文件
+Debug file accepts:
+
+- iOS: a Zipped dSYM file
+- Android: a Zipped file includes mapping.txt, R.txt or AndroidManifest.xml files.
 
 ```
 POST /api/debug_files/upload
@@ -13,11 +15,11 @@ POST /api/debug_files/upload
 
 ### Parameters
 
-!> 需要[用户认证](api#接口认证)。
+!> [Authentication](/en/api#authentication) required.
 
-| 名称 | 类型 | 是否必须 | 描述 |
+| Attribute | Type | Required | Description |
 |---|---|---|---|
-| channel_key | `String` | true | 应用具体渠道的 Key |
+| channel_key | `String` | true | Channel key |
 | file | `File` | true | Zip 压缩文件后的调试文件 |
 | release_version | `String` | true | 发布版本号，iOS 类型可忽略该参数 |
 | build_version | `String` | true | 内部版本号，iOS 类型可忽略该参数 |
@@ -28,7 +30,7 @@ POST /api/debug_files/upload
 
 ## Download debug file
 
-下载 iOS 和 Android 的调试文件
+This allows you to download an single iOS, Android debug file.
 
 ```
 POST /api/debug_files/download
@@ -36,9 +38,9 @@ POST /api/debug_files/download
 
 ### Parameters
 
-| 名称 | 类型 | 是否必须 | 描述 |
+| Attribute | Type | Required | Description |
 |---|---|---|---|
-| channel_key | `String` | true | 应用具体渠道的 Key |
+| channel_key | `String` | true | Channel key |
 | release_version | `String` | true | 发布版本号，iOS 类型可忽略该参数 |
 | build_version | `String` | false | 内部版本号，iOS 类型可忽略该参数 |
 | order | `String` | false | 获取最新的方式，可选值有：<br />`version` = 最新版本 和 `upload_date` = 最新上传时间<br />**仅限接受 release_version 值为 `latest` 有效** |
@@ -48,9 +50,12 @@ POST /api/debug_files/download
 - 版本存在返回 200 状态码并返回 302 重定向到下载地址
 - 版本不存在返回 404 状态码和错误信息
 
-## Get debug file list
+## List debug files
 
-获取创建的应用列表，支持分页
+Get a list of debug files.
+
+This function takes pagination parameters page and per_page to restrict the list of debug files.
+
 
 ```
 GET /api/debug_files
@@ -58,11 +63,11 @@ GET /api/debug_files
 
 ### Parameters
 
-| 名称 | 类型 | 是否必须 | 描述 |
+| Attribute | Type | Required | Description |
 |---|---|---|---|
-| channel_key | `String` | true | 应用具体渠道的 Key |
-| page | `Integer` | false | 页数 |
-| per_page | `Integer` | false | 每页返回最大数目 |
+| channel_key | `String` | true | Channel key |
+| page | `Integer` | false | Page number (default: `1`) |
+| per_page | `Integer` | false | Number of items to list per page (default: `25`, max: `100`). |
 
 ### Return body
 
@@ -70,7 +75,7 @@ GET /api/debug_files
 
 ## Get a debug file
 
-查看调试文件的明细，包含上传调试文件的具体解析。
+Allows you to receive information about debug file like name, file size, UUID (iOS only), platform (iOS only) or file list (Android only).
 
 ```
 GET /api/debug_files/:id
@@ -78,12 +83,12 @@ GET /api/debug_files/:id
 
 ### Parameters
 
-!> 需要[用户认证](api#接口认证)。
+!> [Authentication](/en/api#authentication) required.
 
-| 名称 | 类型 | 是否必须 | 描述 |
+| Attribute | Type | Required | Description |
 |---|---|---|---|
-| channel_key | `String` | true | 应用具体渠道的 Key |
-| id | `String` | true | 调试文件 ID |
+| channel_key | `String` | true | Channel key |
+| id | `String` | true | ID |
 
 ### Return body
 
@@ -91,7 +96,7 @@ GET /api/debug_files/:id
 
 ## Update a existed debug file
 
-更新调试文件
+This allows you to update a debug file.
 
 ```
 PUT /api/debug_files/:id
@@ -99,13 +104,13 @@ PUT /api/debug_files/:id
 
 ### Parameters
 
-!> 需要[用户认证](api#接口认证)。
+!> [Authentication](/en/api#authentication) required.
 
-| 名称 | 类型 | 是否必须 | 描述 |
+| Attribute | Type | Required | Description |
 |---|---|---|---|
-| channel_key | `String` | true | 应用具体渠道的 Key |
-| id | `String` | true | 调试文件 ID |
-| file | `File` | true | Zip 压缩文件后的调试文件 |
+| channel_key | `String` | true | Channel key |
+| id | `String` | true | ID |
+| file | `File` | true | a Zipped debug file |
 | release_version | `String` | true | 发布版本号，iOS 类型可忽略该参数 |
 | build_version | `String` | true | 内部版本号，iOS 类型可忽略该参数 |
 
@@ -115,7 +120,7 @@ PUT /api/debug_files/:id
 
 ## Delete a debug file
 
-删除指定调试文件
+This allows you to delete a debug file.
 
 ```
 DELETE /api/debug_files/:id
@@ -123,12 +128,12 @@ DELETE /api/debug_files/:id
 
 ### Parameters
 
-!> 需要[用户认证](api#接口认证)。
+!> [Authentication](/en/api#authentication) required.
 
-| 名称 | 类型 | 是否必须 | 描述 |
+| Attribute | Type | Required | Description |
 |---|---|---|---|
-| channel_key | `String` | true | 应用具体渠道的 Key |
-| id | `String` | true | 调试文件 ID |
+| channel_key | `String` | true | Channel key |
+| id | `String` | true | ID |
 
 ### Return body
 

@@ -4,6 +4,23 @@
 
 > 如下罗列的变更是还未发布的列表，代码变更历史：[未发布]
 
+## 4.3.1 (2021-12-22)
+
+### 新增
+
+- `Web` 设置项更新后可恢复原始默认值
+- `Web` 应用解包支持 Android 对 app links (区分 deep links 和 url schemes) 的解析显示
+- `Web` 设置页面强化设置开启、关闭状态的视觉效果
+
+### 修复
+
+- `Web` 修复演示模式异步任务方法错误
+- `Web` 修复创建和编辑应用无法勾选选中的应用类型和渠道
+- `Web` 修复在环境页面无法
+- `Web` 修复解析 aab 没有 intent filters 无法解析
+- `Web` 增加取消勾选任何类型和渠道更新应用的报错
+- `Web` 修复加载策略造成第三方登录全部不可用
+
 ## 4.3.0 (2021-12-08)
 
 > 画重点：支持 aab 格式解析、多语言支持！
@@ -293,7 +310,8 @@
 之前多年一直是公司内部开发和运营并没有开源，曾经承担过很多的功能到现在脱离出来专注提供应用托管和分发的服务。
 
 
-[未发布]: https://github.com/tryzealot/zealot/compare/4.3.0...HEAD
+[未发布]: https://github.com/tryzealot/zealot/compare/4.3.1...HEAD
+[4.3.1]: https://github.com/tryzealot/zealot/compare/4.3.0...4.3.1
 [4.3.0]: https://github.com/tryzealot/zealot/compare/4.2.2...4.3.0
 [4.2.2]: https://github.com/tryzealot/zealot/compare/4.2.1...4.2.2
 [4.2.1]: https://github.com/tryzealot/zealot/compare/4.2.0...4.2.1

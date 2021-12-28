@@ -169,7 +169,7 @@ The plugins includes multi-actions:
 - `zealot`: Provides upload iOS and Android app
 - `zealot_debug_file`: Provides upload debug file (dSYM for iOS, Proguard for Android)
 - `zealot_version_check`: Check the build exists or not on Zealot service
-- `zealot_sync_devices`: Syncing iOS UDID devices to relates existed value in Zealot
+- `zealot_sync_devices`: Syncing Apple devie's UDIDs and update deivce name to existes UDIDs in Zealot
 
 ### zealot
 
@@ -333,11 +333,20 @@ Searching, zipping and uploading debug file automatily (dSYM for iOS, Proguard f
 
 ### zealot_sync_devices
 
-> Available begin fastlane-plugin-zealot `0.4.1`.
+> Available begin fastlane-plugin-zealot `0.4.1`, [Apple API Key](https://docs.fastlane.tools/app-store-connect-api/#using-fastlane-api-key-json-file) support since `0.8.0`.
 
 Use Apple Developer account to syncing UDIDs and relates the value in Zealot.
 
 ```ruby
+# With Apple API Key
+zealot_sync_devices(
+  endpoint: 'https://zealot.com',
+  token: '...',
+  api_key_path: '/path/to/your/api_key_json_file',
+  team_id: '...'
+)
+
+# With password
 zealot_sync_devices(
   endpoint: 'https://zealot.com',
   token: '...',
@@ -349,28 +358,27 @@ zealot_sync_devices(
 #### Parameters
 
 ```
-+---------------+----------------------------------+------------------------+---------+
-|                             zealot_sync_devices Options                             |
-+---------------+----------------------------------+------------------------+---------+
-| Key           | Description                      | Env Var                | Default |
-+---------------+----------------------------------+------------------------+---------+
-| endpoint      | The endpoint of zealot           | ZEALOT_ENDPOINT        |         |
-| token         | The token of user                | ZEALOT_TOKEN           |         |
-| username      | The apple id (username) of       | DELIVER_USER           | *       |
-|               | Apple Developer Portal           |                        |         |
-| team_id       | The ID of your Developer Portal  | ZEALOT_APPLE_TEAM_ID   | *       |
-|               | team if you're in multiple       |                        |         |
-|               | teams                            |                        |         |
-| team_name     | The name of your Developer       | ZEALOT_APPLE_TEAM_NAME | *       |
-|               | Portal team if you're in         |                        |         |
-|               | multiple teams                   |                        |         |
-| platform      | The platform to use (optional)   | ZEALOT_APPLE_PLATFORM  | ios     |
-| verify_ssl    | Should verify SSL of zealot      | ZEALOT_VERIFY_SSL      | true    |
-|               | service                          |                        |         |
-| timeout       | Request timeout in seconds       | ZEALOT_TIMEOUT         |         |
-| fail_on_error | Should an error http request     | ZEALOT_FAIL_ON_ERROR   | false   |
-|               | cause a failure? (true/false)    |                        |         |
-+---------------+----------------------------------+------------------------+---------+
++---------------+-----------------------------------------------------------------------------+------------------------+---------+
+|                                                  zealot_sync_devices Options                                                   |
++---------------+-----------------------------------------------------------------------------+------------------------+---------+
+| Key           | Description                                                                 | Env Var(s)             | Default |
++---------------+-----------------------------------------------------------------------------+------------------------+---------+
+| endpoint      | The endpoint of zealot                                                      | ZEALOT_ENDPOINT        |         |
+| token         | The token of user                                                           | ZEALOT_TOKEN           |         |
+| username      | The apple id (username) of Apple Developer Portal                           | ZEALOT_USERNAME        | *       |
+| api_key_path  | Path to your App Store Connect API Key JSON file                            | ZEALOT_API_PATH        |         |
+|               | (https://docs.fastlane.tools/app-store-connect-api/#using-fastlane-api-key  |                        |         |
+|               | -json-file)                                                                 |                        |         |
+| api_key       | Your App Store Connect API Key information                                  | ZEALOT_API_KEY         | *       |
+|               | (https://docs.fastlane.tools/app-store-connect-api/#using-fastlane-api-key  |                        |         |
+|               | -hash-option)                                                               |                        |         |
+| team_id       | The ID of your Developer Portal team if you're in multiple teams            | ZEALOT_APPLE_TEAM_ID   | *       |
+| team_name     | The name of your Developer Portal team if you're in multiple teams          | ZEALOT_APPLE_TEAM_NAME | *       |
+| platform      | The platform to use (optional)                                              | ZEALOT_APPLE_PLATFORM  | ios     |
+| verify_ssl    | Should verify SSL of zealot service                                         | ZEALOT_VERIFY_SSL      | true    |
+| timeout       | Request timeout in seconds                                                  | ZEALOT_TIMEOUT         |         |
+| fail_on_error | Should an error http request cause a failure? (true/false)                  | ZEALOT_FAIL_ON_ERROR   | false   |
++---------------+-----------------------------------------------------------------------------+------------------------+---------+
 ```
 
 #### Usefully plugins

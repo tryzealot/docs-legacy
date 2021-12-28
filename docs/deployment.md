@@ -84,14 +84,24 @@ $ sudo vim /etc/hosts
 
 ```
 server {
-  listen 443;
-  server_name localhost;
+  listen 80;
+  server_name zealot.test;    # 根据实际情况修改域名
+  location /.well-known/acme-challenge/ { allow all; }
+  location / { return 301 https://$host$request_uri; }
+}
 
-  ssl                 on;
-  ssl_certificate     /etc/certs/zealot-cert.key;
-  ssl_certificate_key /etc/certs/zealot.key;
-  ssl_session_timeout 5m;
-  ssl_session_cache   shared:SSL:1m;
+server {
+  listen 443 ssl http2;
+  server_name zealot.test;    # 根据实际情况修改域名
+
+  # 配置域名证书文件
+  ssl_certificate       /etc/certs/zealot-cert.pem;
+  ssl_certificate_key   /etc/certs/zealot.pem;
+
+  ssl_ciphers           HIGH:!MEDIUM:!LOW:!aNULL:!NULL:!SHA;
+  ssl_session_timeout   5m;
+  ssl_session_cache     shared:SSL:1m;
+  ssl_prefer_server_ciphers  on;
 
   root /app/public;
 
@@ -101,22 +111,29 @@ server {
   }
 
   location / {
-    proxy_redirect     off;
-    proxy_set_header   Host               $host:$server_port;
-    proxy_set_header   X-Forwarded-Host   $host:$server_port;
-    proxy_set_header   X-Forwarded-Port   $server_port;
-    proxy_set_header   X-Forwarded-Server $host;
-    proxy_set_header   X-Real-IP          $remote_addr;
-    proxy_set_header   X-Forwarded-For    $proxy_add_x_forwarded_for;
-    proxy_buffering    on;
-    proxy_pass         http://127.0.0.1;
+    try_files $uri @zealot;
+  }
+
+  location @zealot {
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header Proxy "";
+    proxy_pass_header Server;
+
+    proxy_pass http://127.0.0.1;    # 根据实际情况修改地址和端口号
+    proxy_buffering on;
+    proxy_redirect off;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
   }
 
   location /cable {
     proxy_http_version 1.1;
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection "upgrade";
-    proxy_pass http://127.0.0.1;
+    proxy_pass http://127.0.0.1;    # 根据实际情况修改地址和端口号
   }
 
   error_page 500 502 503 504 /500.html;

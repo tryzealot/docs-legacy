@@ -14,7 +14,7 @@ Action | Guest mode[On/Off] | User | Developer | Administrator
 `Dashboard`:<br />View all data | ✓/✕ | ✓ | ✓ | ✓
 `App`:<br />View app list | ✓/✕ | ✓ | ✓ | ✓
 `App`:<br />View app scheme(s) and channel(s) detail | ✓/✕ | ✓ | ✓ | ✓
-`App`:<br />View the build(release) of app | ✓/✕ <br />Password Auth | ✓ | ✓ | ✓
+`App`:<br />View the build(release) of app | ✓/✓ <br />Password Auth | ✓ | ✓ | ✓
 `App`:<br />View webhook list | ✓/✕ | ✓ | ✓ | ✓
 `App`:<br />Upload/Install/Download app | ✓ | ✓ | ✓ | ✓
 `App`:<br />Create/Edit/Delete an app |  |  | ✓ | ✓

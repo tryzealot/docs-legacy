@@ -4,6 +4,9 @@
 
 > 如下罗列的变更是还未发布的列表，代码变更历史：[未发布]
 
+
+## 4.4.0 (2022-06-09)
+
 ### 变更
 
 - `Web` 对于未登录且未开启游客模式的用户权限新增查看应用版本详情之外还提供按照版本、分支、打包类型方式的筛选显示列表
@@ -22,6 +25,7 @@
 - `Web` 增加处理上传调试文件在解析时它被删除掉或其他原因没有找到本地文件的异常捕获
 - `Web` 适配超宽屏幕的 UI
 - `Web` 修复第三方登录依赖库的安全隐患
+- `API` 修复上传 Android 再不传 channel_key 异常 [#779](https://github.com/tryzealot/zealot/issues/779) 感谢 [likfe](https://github.com/likfe)
 
 ## 4.3.1 (2021-12-22)
 
@@ -329,7 +333,8 @@
 之前多年一直是公司内部开发和运营并没有开源，曾经承担过很多的功能到现在脱离出来专注提供应用托管和分发的服务。
 
 
-[未发布]: https://github.com/tryzealot/zealot/compare/4.3.1...HEAD
+[未发布]: https://github.com/tryzealot/zealot/compare/4.4.0...HEAD
+[4.4.0]: https://github.com/tryzealot/zealot/compare/4.3.1...4.4.0
 [4.3.1]: https://github.com/tryzealot/zealot/compare/4.3.0...4.3.1
 [4.3.0]: https://github.com/tryzealot/zealot/compare/4.2.2...4.3.0
 [4.2.2]: https://github.com/tryzealot/zealot/compare/4.2.1...4.2.2

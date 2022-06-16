@@ -4,6 +4,12 @@
 
 > 如下罗列的变更是还未发布的列表，代码变更历史：[未发布]
 
+## 4.4.1 (2022-06-20)
+
+### 修复
+
+- `WebHook` 修复网络钩子触发成功后报错 [#792](https://github.com/tryzealot/zealot/issues/792) 感谢 [tasselsd](https://github.com/tasselsd)
+- `Docker` 兼容 Caddy 2.5.0 反代 https 到 http [#790](https://github.com/tryzealot/zealot/pull/790) 感谢 [VisionBao](https://github.com/VisionBao) [songge1209](https://github.com/songge1209)
 
 ## 4.4.0 (2022-06-09)
 
@@ -169,9 +175,7 @@
 - `Web` 修复系统配置保存时为空造成无法编辑
 - `Job` 处理移除老版本的逻辑造成删除的版本逻辑和文档逻辑是反的
 
-
 > 代码变更历史：[4.1.0]
-
 ## 4.0.0 (2020-12-31)
 
 ### 修复
@@ -333,7 +337,8 @@
 之前多年一直是公司内部开发和运营并没有开源，曾经承担过很多的功能到现在脱离出来专注提供应用托管和分发的服务。
 
 
-[未发布]: https://github.com/tryzealot/zealot/compare/4.4.0...HEAD
+[未发布]: https://github.com/tryzealot/zealot/compare/4.4.1...HEAD
+[4.4.1]: https://github.com/tryzealot/zealot/compare/4.4.0...4.4.1
 [4.4.0]: https://github.com/tryzealot/zealot/compare/4.3.1...4.4.0
 [4.3.1]: https://github.com/tryzealot/zealot/compare/4.3.0...4.3.1
 [4.3.0]: https://github.com/tryzealot/zealot/compare/4.2.2...4.3.0

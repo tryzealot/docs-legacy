@@ -7,10 +7,12 @@
 
 **环境依赖:**
 
-- Ruby 2.7+
+- Ruby 2.6+ (推荐 3.0)
 - Postgres 9.5+
 - Redis
 - Nodejs 8+
+- ImageMagick/GraphicsMagick
+- webp ffi
 
 如下整理了不同操作系统的本地部署开发教程。
 
@@ -30,6 +32,21 @@ $ xcode-select --install
 
 ```bash
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+### git、imagemagick 和 webp
+
+之后开始安装环境依赖
+
+```bash
+$ brew install git imagemagick webp
+```
+
+M1 用户需要设置依赖编译路径到 SHELL 的配置文件中：
+
+```
+export CPATH=/opt/homebrew/include/
+export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/lib/
 ```
 
 ### postgresql 和 redis
@@ -132,3 +149,19 @@ $ bundle exec guard start
 ```
 
 打开浏览器 `http://localhost:3000`
+
+## 疑难杂症
+
+### M1 芯片 MacOS 问题
+
+```
+aarch64-darwin/libwebp_ffi.bundle => aarch64-darwin/jpegdec.o
+```
+
+使用 `bundle install` 会遇到如上问题这个是因为 homebrew 安装 webp 依赖之后编译路径无法被找到，上面有解决办法。
+
+```
+An error occurred while installing debase (0.2.4.1), and Bundler cannot continue.
+```
+
+使用 `bundle install` 会遇到如上问题这个是因为 debase  安装 webp 依赖之后编译路径无法被找到，上面有解决办法。

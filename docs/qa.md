@@ -17,6 +17,19 @@
 
 ## 是否支持外部 redis、postgresql 链接
 
+支持的，如果有公用的 redis、postgresql 服务器那就可以单独部署 zealot 服务，在 `.env` 配置或 Docker、K8s 的环境变量手动指定如下配置：
+
+```bash
+# Redis
+REDIS_URL=redis://127.0.0.1:6379/0
+
+# Postgresl
+ZEALOT_POSTGRES_HOST=127.0.0.1
+ZEALOT_POSTGRES_PORT=5432
+ZEALOT_POSTGRES_USERNAME=postgres
+ZEALOT_POSTGRES_PASSWORD=ze@l0t
+ZEALOT_POSTGRES_DB_NAME=zealot
+```
 
 ## 是否支持 Kubernetes（k8s）部署
 

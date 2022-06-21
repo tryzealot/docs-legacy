@@ -13,7 +13,7 @@
 
 - 主流单核 CPU，多核更好
 - 至少 512 MB 内存
-- 64 位 Linux 发行版 (**不推荐使用 CentOS [会存在性能问题](https://github.com/tryzealot/zealot/issues/768)**）
+- 64 位 Linux 发行版 (**不推荐使用 CentOS 会[存在性能问题](https://github.com/tryzealot/zealot/issues/768)** ）
 - 建议 20 GB 以上硬盘空间（取决于应用和上传频率的多少）
 
 ## 软件版本要求
@@ -155,4 +155,4 @@ tls zealot@exampl.com
 reverse_proxy 127.0.0.1:80
 ```
 
-配置只需关系 `tls` 和 `proxy` 后面 ip 的部分即可。
+配置只需配置 `tls` 和 `proxy` 后面 IP 地址和端口部分即可。

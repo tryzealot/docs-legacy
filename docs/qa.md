@@ -36,3 +36,22 @@
 其实 `YOUR_ZEALOT_URL` 是 zealot 服务地址，`SLUG` 是你对应应用渠道的唯一地址，`ID` 是上传的版本 ID，为空的时候会自动调整到最新版本，所以可以直接分享
 
 `https://YOUR_ZEALOT_URL/channels/SLUG/releases`
+
+
+## 服务运行一段时间 CPU 或内存资源暴涨不下，如何解决？
+
+根据用户 [Cleam](https://github.com/Cleam) 的[反馈](https://github.com/tryzealot/zealot/issues/768#issuecomment-1161097162)部署服务之后，托管的应用很少，上传频率不高，服务器硬件规格也完全达标的情况下还是会引发 CPU 或内存资源暴涨造成服务器卡死，
+当前的情况属于还属于个人情况，目前情况未知，但可以通过限制 CPU 和内存来规避这个问题，编辑 `docker-compose.yml` 文件：
+
+```diff
+zealot:
+  <<: *defaults
++  deploy:
++    resources:
++      limits:
++        cpus: 2.0
++        memory: 2G
++      reservations:
++        cpus: 0.5
++        memory: 256M
+```

@@ -62,7 +62,7 @@ ZEALOT_CERT_KEY=zealot.test-key.pem
 
 Enable the visitor mode to allow the application to view, download and install,
 it is recommended that the company internal reliance on permissions is not high condition to use,
-specific permission comparison can [see here for details](permissions.md)
+specific permission comparison can [see here for details](en/permissions.md)
 
 ```bash
 # Guest mode is ON

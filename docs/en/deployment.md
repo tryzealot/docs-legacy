@@ -50,7 +50,7 @@ The one-click deployment generation script has three built-in templates by defau
 - Using non-SSL (needs gateway or reverse proxy to manage SSL）
 
 For those interested in one-click installation deployment scripts,
-you can check out the [Deployment Documentation with Docker](docker.md).
+you can check out the [Deployment Documentation with Docker](en/docker.md).
 
 ### Using Let's Encrypt SSL (Best Recommand)
 

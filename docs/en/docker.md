@@ -1,6 +1,6 @@
 # Docker deployment guide
 
-This is a handy guide to deploying with Docker, as well as a breakdown of the [one-click deployment script](deployment.md).
+This is a handy guide to deploying with Docker, as well as a breakdown of the [one-click deployment script](en/deployment.md).
 
 ## Versions
 

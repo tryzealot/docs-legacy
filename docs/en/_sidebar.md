@@ -10,6 +10,9 @@
   - [Developer Guide](en/development.md)
   - [Permissions](en/permissions.md)
 
+- Advianced
+  - [Docker deoployment](en/docker.md)
+
 - [Best Practices](en/best_practices.md)
 - [Q&A](en/qa.md)
 - [Screenshots](en/screenshot.md)

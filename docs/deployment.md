@@ -13,7 +13,7 @@
 
 - 主流单核 CPU，多核更好
 - 至少 512 MB 内存
-- 64 位 Linux 发行版 (**不推荐使用 CentOS 会[存在性能问题](https://github.com/tryzealot/zealot/issues/768)** ）
+- 64 位 Linux 发行版 (**不推荐使用 CentOS 会[存在性能问题](https://github.com/tryzealot/zealot/issues/768#issuecomment-1125071935)** ）
 - 建议 20 GB 以上硬盘空间（取决于应用和上传频率的多少）
 
 ## 软件版本要求

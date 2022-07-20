@@ -61,9 +61,9 @@ lane :upload_debug_file do
 end
 ```
 
-### 打包服务器
+### CI 打包构建服务
 
-比如 Jenkins，配置好项目，设置好 git hook 的轮训触发打包，没什么好说的
+自行选择使用 Jenkins、Gitlab CI 等任何可构建 iOS 或 Android 的构建服务完成项目构建的配置。这部分不同的 CI 服务配置都有所不同，暂时无法展开，大家可根据自己熟悉情况或借助运维部门的协助搭建。
 
 ### Zealot 服务
 

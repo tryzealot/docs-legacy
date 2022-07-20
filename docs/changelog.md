@@ -4,6 +4,16 @@
 
 > 如下罗列的变更是还未发布的列表，代码变更历史：[未发布]
 
+### 修复
+
+- `Web` 处理应用类型下没有存在渠道的选择错误 [#795](https://github.com/tryzealot/zealot/issues/795) 感谢 [tasselsd](https://github.com/tasselsd)
+- `API` 修复 Android 地址返回错误 [#813](https://github.com/tryzealot/zealot/issues/813) 感谢 [denymz](https://github.com/denymz)
+- `Web`/`API` 修正 aab 解析部分参数为空引发的异常
+
+### 新增
+
+- `API` 涉及 `release` 字典的地方新增三个字段 `platform`, `device_type` 和 `custom_fields`
+
 ## 4.4.1 (2022-06-20)
 
 ### 修复

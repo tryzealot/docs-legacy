@@ -4,6 +4,11 @@
 
 > 如下罗列的变更是还未发布的列表，代码变更历史：[未发布]
 
+### 变更
+
+- `Web` **breaking changes** Google 统计强制升级 v4 版本，之前设置的需要重新配置才可以生效 [#815](https://github.com/tryzealot/zealot/pull/815)
+- `Web` 移除管理员面板的页面统计功能 [#814](https://github.com/tryzealot/zealot/pull/814)
+
 ### 修复
 
 - `Web` 处理应用类型下没有存在渠道的选择错误 [#795](https://github.com/tryzealot/zealot/issues/795) 感谢 [tasselsd](https://github.com/tasselsd)

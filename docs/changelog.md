@@ -6,7 +6,7 @@
 
 ### 变更
 
-- `Web` **breaking changes** Google 统计强制升级 v4 版本，之前设置的需要重新配置才可以生效 [#815](https://github.com/tryzealot/zealot/pull/815)
+- `Web` **不兼容变更** Google 统计强制升级 v4 版本，之前设置的需要重新配置才可以生效 [#815](https://github.com/tryzealot/zealot/pull/815)
 - `Web` 移除管理员面板的页面统计功能 [#814](https://github.com/tryzealot/zealot/pull/814)
 
 ### 修复
@@ -17,6 +17,8 @@
 
 ### 新增
 
+- `Web` 支持黑暗模式 [#816](https://github.com/tryzealot/zealot/pull/816)
+- `Web` 新增苹果开发者管理用于注册测试设备 [#817](https://github.com/tryzealot/zealot/pull/817)
 - `API` 涉及 `release` 字典的地方新增三个字段 `platform`, `device_type` 和 `custom_fields`
 
 ## 4.4.1 (2022-06-20)

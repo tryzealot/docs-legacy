@@ -4,6 +4,16 @@
 
 > 如下罗列的变更是还未发布的列表，代码变更历史：[未发布]
 
+## 4.5.0 (2022-?)
+
+🌑 黑暗模式终于来了！同时还要 👨🏻‍🔧 苹果开发者托管测试设备哟！
+
+### 新增
+
+- `Web` 支持黑暗模式 [#816](https://github.com/tryzealot/zealot/pull/816)
+- `Web` 新增苹果开发者管理用于注册测试设备 [#817](https://github.com/tryzealot/zealot/pull/817)
+- `API` 涉及 `release` 字典的地方新增三个字段 `platform`, `device_type` 和 `custom_fields`
+
 ### 变更
 
 - `Web` **不兼容变更** Google 统计强制升级 v4 版本，之前设置的需要重新配置才可以生效 [#815](https://github.com/tryzealot/zealot/pull/815)
@@ -13,13 +23,7 @@
 
 - `Web` 处理应用类型下没有存在渠道的选择错误 [#795](https://github.com/tryzealot/zealot/issues/795) 感谢 [tasselsd](https://github.com/tasselsd)
 - `API` 修复 Android 地址返回错误 [#813](https://github.com/tryzealot/zealot/issues/813) 感谢 [denymz](https://github.com/denymz)
-- `Web`/`API` 修正 aab 解析部分参数为空引发的异常
-
-### 新增
-
-- `Web` 支持黑暗模式 [#816](https://github.com/tryzealot/zealot/pull/816)
-- `Web` 新增苹果开发者管理用于注册测试设备 [#817](https://github.com/tryzealot/zealot/pull/817)
-- `API` 涉及 `release` 字典的地方新增三个字段 `platform`, `device_type` 和 `custom_fields`
+- `Web`/`API` 修正 aab 解析部分参数为空引发的异常 [tryzealot/fastlane-plugin-zealot#9](https://github.com/tryzealot/fastlane-plugin-zealot/issues/9) 感谢 [tasselsd](https://github.com/tasselsd)
 
 ## 4.4.1 (2022-06-20)
 

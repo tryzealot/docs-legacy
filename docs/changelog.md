@@ -25,6 +25,8 @@
 - `API` 修复 Android 地址返回错误 [#813](https://github.com/tryzealot/zealot/issues/813) 感谢 [denymz](https://github.com/denymz)
 - `Web`/`API` 修正 aab 解析部分参数为空引发的异常 [tryzealot/fastlane-plugin-zealot#9](https://github.com/tryzealot/fastlane-plugin-zealot/issues/9) 感谢 [tasselsd](https://github.com/tasselsd)
 
+> 代码变更历史：[4.5.0]
+
 ## 4.4.1 (2022-06-20)
 
 ### 修复
@@ -54,6 +56,8 @@
 - `Web` 修复第三方登录依赖库的安全隐患
 - `API` 修复上传 Android 再不传 channel_key 异常 [#779](https://github.com/tryzealot/zealot/issues/779) 感谢 [likfe](https://github.com/likfe)
 
+> 代码变更历史：[4.4.0]
+
 ## 4.3.1 (2021-12-22)
 
 ### 新增
@@ -71,9 +75,11 @@
 - `Web` 增加取消勾选任何类型和渠道更新应用的报错
 - `Web` 修复加载策略造成第三方登录全部不可用
 
+> 代码变更历史：[4.3.1]
+
 ## 4.3.0 (2021-12-08)
 
-> 画重点：支持 aab 格式解析、多语言支持！
+支持 aab 格式解析、多语言支持！
 
 ### 变更
 
@@ -109,6 +115,8 @@
 - `Web` 修复使用虚拟机开发挂载磁盘空间无法获取
 - `Web` 修复演示模式下的一些已知错误
 
+> 代码变更历史：[4.3.0]
+
 ## 4.2.2 (2021-10-15)
 
 ### 修复
@@ -131,6 +139,8 @@
 - `Web` 安全隐患：禁止编辑设置只读的系统设置
 - `Web` 修复 macOS 下载文件后缀不正确
 - `Web` 修复个别情况下不显示弹出无法安装的窗口
+
+> 代码变更历史：[4.2.1]
 
 ## 4.2.0 (2021-09-01)
 
@@ -174,6 +184,8 @@
 - `Docker` 修复镜像初始化 logrotate 错误
 - `Docker` 修复使用 Caddy 部署需要确认 [#551](https://github.com/tryzealot/zealot/issues/551) 感谢 [ReverseScale](https://github.com/ReverseScale)
 
+> 代码变更历史：[4.2.0]
+
 ## 4.1.0 (2021-07-17)
 
 ### 变更
@@ -197,6 +209,7 @@
 - `Job` 处理移除老版本的逻辑造成删除的版本逻辑和文档逻辑是反的
 
 > 代码变更历史：[4.1.0]
+
 ## 4.0.0 (2020-12-31)
 
 ### 修复
@@ -358,7 +371,8 @@
 之前多年一直是公司内部开发和运营并没有开源，曾经承担过很多的功能到现在脱离出来专注提供应用托管和分发的服务。
 
 
-[未发布]: https://github.com/tryzealot/zealot/compare/4.4.1...HEAD
+[未发布]: https://github.com/tryzealot/zealot/compare/4.5.0...HEAD
+[4.5.0]: https://github.com/tryzealot/zealot/compare/4.4.1...4.5.0
 [4.4.1]: https://github.com/tryzealot/zealot/compare/4.4.0...4.4.1
 [4.4.0]: https://github.com/tryzealot/zealot/compare/4.3.1...4.4.0
 [4.3.1]: https://github.com/tryzealot/zealot/compare/4.3.0...4.3.1

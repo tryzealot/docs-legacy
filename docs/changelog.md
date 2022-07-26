@@ -24,6 +24,7 @@
 - `Web` 处理应用类型下没有存在渠道的选择错误 [#795](https://github.com/tryzealot/zealot/issues/795) 感谢 [tasselsd](https://github.com/tasselsd)
 - `API` 修复 Android 地址返回错误 [#813](https://github.com/tryzealot/zealot/issues/813) 感谢 [denymz](https://github.com/denymz)
 - `Web`/`API` 修正 aab 解析部分参数为空引发的异常 [tryzealot/fastlane-plugin-zealot#9](https://github.com/tryzealot/fastlane-plugin-zealot/issues/9) 感谢 [tasselsd](https://github.com/tasselsd)
+- `Web` 修复第一次初始化项目生成演示数据异常 [#821](821)
 
 > 代码变更历史：[4.5.0]
 

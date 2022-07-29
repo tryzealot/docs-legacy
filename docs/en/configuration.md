@@ -5,15 +5,29 @@ which can be found in the project's sample [config.env](https://github.com/tryze
 
 ## Locale (Language)
 
-Zealot supports multiple language packs since [4.3.0](changelog.md#_430-2021-12-07), and currently supports the following language packs.
+Supports multiple language packs since [4.3.0](changelog.md#_430-2021-12-07), supports the following language packs:
 
-Packs | value
+Packs | Value
 ---|---
 zh-CN | Simplified Chinese (default)
 en | English
 
 ```bash
 DEFAULT_LOCALE=en
+```
+
+## Appearance
+
+Support dark mode since 4.5.0, supports the following mode:
+
+Appearance | Value
+---|---
+light | Light mode(default)
+dark | Dark mode
+auto | System auto
+
+```bash
+ZEALOT_APPEARANCE=dark
 ```
 
 ## Domain

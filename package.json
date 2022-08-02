@@ -1,0 +1,9 @@
+{
+  "name": "zealot-docs",
+  "scripts": {
+    "serve": "npx docsify serve docs"
+  },
+  "dependencies": {
+    "docsify-cli": "^4.4.4"
+  }
+}

@@ -30,6 +30,7 @@
 - `API` 修复 Android 地址返回错误 [#813](https://github.com/tryzealot/zealot/issues/813) 感谢 [denymz](https://github.com/denymz)
 - `Web`/`API` 修正 aab 解析部分参数为空引发的异常 [tryzealot/fastlane-plugin-zealot#9](https://github.com/tryzealot/fastlane-plugin-zealot/issues/9) 感谢 [tasselsd](https://github.com/tasselsd)
 - `Web` 修复第一次初始化项目生成演示数据异常 [#821](https://github.com/tryzealot/zealot/issues/821)
+- `API` 修复检查应用最新版本数据异常 [#856](https://github.com/tryzealot/zealot/issues/856) 感谢 [denymz](https://github.com/denymz)
 - `Web` 修复应用渠道详情因关联网络钩子数据异常报错
 
 > 代码变更历史：[4.5.0]

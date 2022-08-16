@@ -7,28 +7,24 @@
 
 [![GitHub release](https://img.shields.io/github/v/release/tryzealot/zealot?include_prereleases)](https://github.com/tryzealot/zealot/releases)
 [![Docker Pulls](https://img.shields.io/docker/pulls/tryzealot/zealot.svg)](https://hub.docker.com/r/tryzealot/zealot/)
+[![Chat on Telegram](https://img.shields.io/badge/chat-on%20telegram-important.svg)](https://img.shields.io/badge/chat-on%20telegram-important.svg)
 [![Maintainability](https://codeclimate.com/github/tryzealot/zealot/badges/gpa.svg)](https://codeclimate.com/github/tryzealot/zealot)
 [![License](https://img.shields.io/github/license/tryzealot/zealot)](https://github.com/tryzealot/zealot/blob/develop/LICENSE)
 
 开源自部署 iOS、Android 及 macOS 应用分发平台，提供 iOS、Android SDK、fastlane 等丰富组件库，打包分发流程、上传应用竟然如此简单、独立部署解决企业使用的烦恼。 En Taro Adun! 🖖
 
-![Zealot Dashboard](_media/showcase.png)
+<img src="_media/showcase.png" alt="Zealot Dashboard" />
 
 ## 特性
 
-- [x] 支持 iOS、Android (apk, aab) 和 macOS 应用的上传、在线安装和本地下载
-- [x] 支持创建类型（Debug、AdHoc、Release）及渠道（小米商店等）
-- [x] 支持自定义网络钩子通知各种服务（钉钉、企业微信、Slack 等）
-- [x] 支持 iOS dSYM 和 Android Progruard 文件的解析和上传
-- [x] 支持应用解包（甚至 mobileprovision 文件）存储和分享
-- [x] 支持一键登录（已接入飞书、Gitlab、Google 和 LDAP）
-- [x] 提供检查新版本和安装服务的 iOS 和 Android 组件
-- [x] 提供获取 iOS 设备标识符并显示支持安装的应用列表
-- [x] 提供丰富的 fastlane 插件 [zealot](https://github.com/tryzealot/fastlane-plugin-zealot)
-- [x] 可接入 Gitlab 服务直接挂钩源码管理
-- [ ] 可接入 Jenkins 服务实现远程构建
-- [x] 支持丰富的 REST APIs
-- [ ] 支持 GraphQL 接口（进行中）
+- 🌏 **多平台应用支持**: macOS、iOS、甚至是 APK 和 **AAB** 格式的 Android 应用上传、安装（支持 ARM 的 macOS）和下载
+- 🗄 **多渠道分类管理**: Debug、AdHoc、Enterprise 还是 Android 应用渠道管理统统没问题
+- 📱 **测试设备一网打进**: 自动同步 iOS 测试设备信息，允许一键注册新设备到苹果开发者
+- 🧑‍💻 **丰富开发者套件**: 提供 REST API、[iOS][zealot-ios-sdk]、[Android][android-android-sdk] SDK 以及 [fastlane][fastlane-plugin-zealot] 自动化构建插件
+- 💥 **剖析应用内部的秘密**: 解读 iOS、Android 应用或 iOS 描述文件的元信息
+- 🚨 **内置多种事件通知**: 数据可自定义 Income WebHook 到任意通知服务
+- 🔑 **第三方登录**: 飞书、Gitlab、Google 和 LDAP 一键授权
+- 🌑 **黑暗模式**: 黑夜白昼自由切换
 
 ## 在线演示
 
@@ -37,3 +33,12 @@
 - 登录密码：`ze@l0t`
 
 > **注意**: 数据每日都会重新初始化，不对用户上传的应用承担任何法律风险，后果自负！
+
+## 发布协议
+
+[MIT][mit-link]
+
+[zealot-ios-sdk]: https://github.com/tryzealot/zealot-ios
+[android-android-sdk]: https://github.com/tryzealot/zealot-android
+[fastlane-plugin-zealot]: https://github.com/tryzealot/fastlane-plugin-zealot
+[mit-link]: https://github.com/tryzealot/zealot/blob/develop/CHANGELOG.md

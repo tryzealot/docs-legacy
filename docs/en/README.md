@@ -10,26 +10,22 @@
 [![Maintainability](https://codeclimate.com/github/tryzealot/zealot/badges/gpa.svg)](https://codeclimate.com/github/tryzealot/zealot)
 [![License](https://img.shields.io/github/license/tryzealot/zealot)](https://github.com/tryzealot/zealot/blob/develop/LICENSE)
 
-**Over The Air Server for deployment of mobile and macOS apps.**
-Zealot makes it easy to let users to test your apps which it provides rich component libraries to make integration with Jenkins and Gitlab easily.
+**Self-hosted Beta App Distribution for Android, iOS and macOS apps.**
+
+Continuous everything. Automate the lifecycle of your apps. Connect your CI to build in the cloud, test on thousands of real devices, distribute to beta testers and app stores. All in one place.
 
 ![Zealot Dashboard](../_media/en/showcase.png)
 
 ## Features
 
-- [x] iOS, Android (apk, aab) and macOS app upload/install/download support.
-- [x] Built-in 2 levels of app layer.
-- [x] Webhook support (Slack, Dingtalk, Wecom etc)
-- [x] Parsse and store iOS dSYM, Android Progruard.
-- [x] Teardown suppored app file above (even mobileprovision file).
-- [x] Third-party auths support (Available on Gitlab, Google, Feishu and LDAP)
-- [x] iOS and Android SDKs support.
-- [x] Easy fetch iOS UDID and feedback which app can install.
-- [x] Fastlane plugins (like [zealot](https://github.com/tryzealot/fastlane-plugin-zealot)) support.
-- [x] Gitlab integration.
-- [x] REST APIs support.
-- [ ] Jenkins integration.
-- [ ] GraphQL APIs.
+- 🌏 **Cross platform of app**: macOS, iOS, even APK and **AAB** of Android upload, install(include Arm based macOS) and download support.
+- 🗄 **Multiple category**: Orgainze by any category, like Debug, AdHoc, Enterprise or channels of Android.
+- 📱 **iOS device in control**: Automate synchronized iOS device information, register device to Apple Developer.
+- 🧑‍💻 **Full developer toolkit**: REST API, [iOS][zealot-ios-sdk], [Android][android-android-sdk] SDK and [fastlane][fastlane-plugin-zealot] plugin support.
+- 💥 **Teardown app inside**: Parse iOS, Android or iOS profile metadata.
+- 🚨 **Notification support**: Build data strucite with Income WebHook.
+- 🔑 **The third-party OAuth**: Google, Gitlab, Feishu and LDAP support.
+- 🌑 **Dark mode**: Switch theme from light to dark.
 
 ## Demo
 

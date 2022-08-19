@@ -12,7 +12,8 @@
 
 - `Web` 支持黑暗模式 [#816](https://github.com/tryzealot/zealot/pull/816)
 - `Web` 新增苹果开发者管理用于注册测试设备 [#817](https://github.com/tryzealot/zealot/pull/817)
-- `Web` 管理员面板新增依赖服务健康状态显示
+- `Web` 新增数据备份管理 [#835](https://github.com/tryzealot/zealot/pull/835)
+- `Web` 管理面板完成依赖服务的监控 [#586](https://github.com/tryzealot/zealot/issues/586)
 - `API` 涉及 `release` 字典的地方新增三个字段 `platform`, `device_type` 和 `custom_fields`
 
 ### 变更

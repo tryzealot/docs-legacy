@@ -330,7 +330,10 @@ zealot_version_check(
 
 ### zealot_sync_devices
 
-> fastlane-plugin-zealot `0.4.1` 版本开始支持， `0.8.0` 版本开始支持使用 [Apple API Key](https://docs.fastlane.tools/app-store-connect-api/#using-fastlane-api-key-json-file) 的方式授权。
+> :bell: Zealot 4.5.0 开始页面支持使用 [Apple API Key](https://docs.fastlane.tools/app-store-connect-api/#using-fastlane-api-key-json-file)
+> 苹果开发者管理并可自动同步测试设备展示，[查看详情](apple_team.md)
+
+`0.4.1` 版本开始提供 fastlane-plugin-zealot 插件， `0.8.0` 版本开始支持使用 Apple API Key 的方式授权。
 
 同步并关联苹果开发者中心（Apple Developer Portal)的测试设备名称到 Zealot 服务。
 

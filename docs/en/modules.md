@@ -333,7 +333,10 @@ Searching, zipping and uploading debug file automatily (dSYM for iOS, Proguard f
 
 ### zealot_sync_devices
 
-> Available begin fastlane-plugin-zealot `0.4.1`, [Apple API Key](https://docs.fastlane.tools/app-store-connect-api/#using-fastlane-api-key-json-file) support since `0.8.0`.
+> :bell: Zealot 4.5.0 built in Apple team manage which it use [Apple API Key](https://docs.fastlane.tools/app-store-connect-api/#using-fastlane-api-key-json-file)
+> to sync iOS devices, even CAN registe the device after fetch the UDID, [Check detail](en/apple_team.md)
+
+Available begin fastlane-plugin-zealot `0.4.1`, Apple API Key support since `0.8.0`.
 
 Use Apple Developer account to syncing UDIDs and relates the value in Zealot.
 

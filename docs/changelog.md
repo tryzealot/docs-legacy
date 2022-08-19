@@ -4,7 +4,7 @@
 
 > 如下罗列的变更是还未发布的列表，代码变更历史：[未发布]
 
-## 4.5.0 (2022-?)
+## 4.5.0 (2022-8-19)
 
 支持 👨🏻‍🔧 苹果开发者托管测试设备顺手把 🌑 黑暗模式搞来了！
 
@@ -23,6 +23,7 @@
 - `Web` 针对获取设备 UDID 及 iOS 版本安装和下载变更根据设备展示对应的功能界面，不再全部展示
 - `Web` 移除管理员面板的页面统计功能 [#814](https://github.com/tryzealot/zealot/pull/814)
 - `Web` 前端技术栈从 webpacker 迁移至 esbuild + sass, Turbolinks 迁移至 Stimulus 带来更好的前端交互体验 [#829](https://github.com/tryzealot/zealot/pull/829)
+- `Web` 鉴于编辑应用的类型和渠道逻辑较复杂，变更只能修改应用名
 
 ### 修复
 
@@ -32,6 +33,7 @@
 - `Web` 修复第一次初始化项目生成演示数据异常 [#821](https://github.com/tryzealot/zealot/issues/821)
 - `API` 修复检查应用最新版本数据异常 [#856](https://github.com/tryzealot/zealot/issues/856) 感谢 [denymz](https://github.com/denymz)
 - `Web` 修复应用渠道详情因关联网络钩子数据异常报错
+- `Web` 修正英文语言包很多拼写错误
 
 > 代码变更历史：[4.5.0]
 

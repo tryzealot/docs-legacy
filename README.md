@@ -10,7 +10,7 @@ Zealot 文档是一个静态网站资源，由 [docsify](https://docsify.js.org/
 
 ```bash
 $ yarn install
-$ yarn serve
+$ yarn docs
 
 Listening at http://localhost:3000
 ```

@@ -10,8 +10,9 @@
 [![Maintainability](https://codeclimate.com/github/tryzealot/zealot/badges/gpa.svg)](https://codeclimate.com/github/tryzealot/zealot)
 [![License](https://img.shields.io/github/license/tryzealot/zealot)](https://github.com/tryzealot/zealot/blob/develop/LICENSE)
 
-**Over The Air Server for deployment of mobile and macOS apps.**
-Zealot makes it easy to let users to test your apps which it provides rich component libraries to make integration with Jenkins and Gitlab easily.
+**Self-hosted Beta App Distribution for Android, iOS and macOS apps.**
+
+Continuous everything. Automate the lifecycle of your apps. Connect your CI to build in the cloud, test on thousands of real devices, distribute to beta testers and app stores. All in one place.
 
 ![Zealot Dashboard](../_media/en/showcase.png)
 

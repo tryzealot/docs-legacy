@@ -31,7 +31,7 @@ Continuous everything. Automate the lifecycle of your apps. Connect your CI to b
 
 Simplified Chinese by default, change the language in [setting page of admin panel](en/screenshot.md#setting-page).
 
-- URL：https://tryzealot.herokuapp.com/
+- URL：https://tryzealot.ews.im/
 - Admin account: `admin@zealot.com`
 - Password: `ze@l0t`
 

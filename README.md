@@ -1,4 +1,6 @@
-# Zealot 文档
+# Zealot 文档 (存档)
+
+新版文档仓库已迁移到 [tryzealot/docs](https://github.com/tryzealot/docs)
 
 ![Zealot intro](docs/_media/intro.png)
 
